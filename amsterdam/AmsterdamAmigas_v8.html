@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>🇳🇱 Ámsterdam 2026 — Nuria, Isabel, Beatriz &amp; Michelle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#FF6B35;--gl:#FFB347;--gp:#FFF3E8;
+  --dk:#0D1B2A;--dk2:#102238;--mid:#2A4A6A;
+  --cr:#0D1B2A;--cr2:rgba(255,255,255,.12);
+  --red:#FF6B81;--grn:#54E6B5;--blu:#6FA8FF;--pur:#C77DFF;
+  --glass-bg:rgba(255,255,255,.06);
+  --glass-bd:rgba(255,255,255,.16);
+  --th:56px;
+  --c-nu:#FF6B35;--c-is:#54E6B5;--c-be:#C77DFF;--c-mi:#FFD166;
+  --fs:1;
+}
+/* Escala de fuente global — JS cambia font-size en html root, todo rem escala solo */
+html{font-size:16px;transition:font-size .15s;}
+
+/* Selector de tamaño */
+.fs-box{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:14px;padding:14px 16px;margin-bottom:20px;backdrop-filter:blur(16px);}
+.fs-title{font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-bottom:10px;}
+.fs-controls{display:flex;align-items:center;gap:10px;}
+.fs-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--glass-bd);background:rgba(255,255,255,.08);color:#fff;font-size:1.2rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:inherit;transition:background .15s;}
+.fs-btn:active{background:rgba(255,107,53,.25);}
+.fs-slider{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:rgba(255,255,255,.15);outline:none;}
+.fs-slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 0 8px rgba(255,107,53,.5);}
+.fs-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--gold);cursor:pointer;border:none;}
+.fs-label{font-size:.75rem;color:var(--gl);font-weight:700;min-width:36px;text-align:center;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;}
+html,body{height:100%;overscroll-behavior:none;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:
+  radial-gradient(ellipse 80% 50% at 15% 0%, rgba(255,107,53,.18), transparent 60%),
+  radial-gradient(ellipse 70% 50% at 90% 20%, rgba(111,168,255,.14), transparent 60%),
+  radial-gradient(ellipse 60% 40% at 50% 100%, rgba(84,230,181,.12), transparent 60%),
+  linear-gradient(160deg,#070E1A 0%,#0D1B2A 45%,#102238 100%);
+  background-attachment:fixed;color:#EAF6FF;padding-bottom:calc(var(--th) + env(safe-area-inset-bottom,0px) + 80px);-webkit-overflow-scrolling:touch;}
+
+.glass{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:16px;backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 8px 32px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08);}
+
+.hero{position:relative;height:200px;overflow:hidden;border-bottom:1px solid var(--glass-bd);}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:brightness(.55);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,14,26,.1) 0%,rgba(7,14,26,.65) 100%);}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 16px;text-align:center;}
+.hero-flag{font-size:36px;display:block;margin-bottom:4px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,7vw,2.8rem);font-weight:700;font-style:italic;color:#fff;line-height:1.05;letter-spacing:-.5px;text-shadow:0 2px 20px rgba(0,0,0,.6);}
+.hero h1 em{font-style:normal;font-weight:300;color:var(--gl);}
+.hero-sub{font-size:.62rem;color:rgba(255,255,255,.7);margin-top:5px;letter-spacing:2.5px;text-transform:uppercase;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+.hero-pax{display:flex;gap:6px;justify-content:center;margin-top:8px;flex-wrap:wrap;}
+.pax{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.25);color:#fff;padding:3px 10px;border-radius:50px;font-size:.68rem;font-weight:600;backdrop-filter:blur(8px);}
+
+.sync-bar{background:rgba(7,14,26,.7);backdrop-filter:blur(14px);padding:6px 16px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--glass-bd);}
+#sync-dot{width:8px;height:8px;border-radius:50%;background:#888;flex-shrink:0;transition:background .3s;}
+#sync-txt{color:rgba(255,255,255,.6);font-size:.62rem;flex:1;}
+#cld-dot{width:8px;height:8px;border-radius:50%;background:#888;flex-shrink:0;margin-left:8px;transition:background .3s;}
+#cld-txt{color:rgba(255,255,255,.45);font-size:.58rem;}
+
+.pg-wrap{background:rgba(7,14,26,.6);backdrop-filter:blur(14px);padding:9px 16px;border-bottom:1px solid var(--glass-bd);}
+.pg-txt{color:var(--gl);font-size:.68rem;letter-spacing:.8px;font-weight:600;}
+.pg-bg{background:rgba(255,255,255,.1);border-radius:3px;height:4px;margin-top:5px;overflow:hidden;}
+#pg-fill{height:4px;background:linear-gradient(90deg,var(--gold),var(--blu));border-radius:3px;width:0;transition:width .4s;box-shadow:0 0 10px var(--gold);}
+
+.tabbar{position:fixed;bottom:0;left:0;right:0;height:var(--th);padding-bottom:0;background:rgba(7,14,26,.85);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);border-top:1px solid var(--glass-bd);display:flex;z-index:9999;}
+/* Extiende el fondo de la tabbar bajo el safe area sin mover los botones */
+.tabbar::after{content:'';position:fixed;bottom:0;left:0;right:0;height:env(safe-area-inset-bottom,0px);background:rgba(7,14,26,.85);z-index:9998;}
+.tb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:none;border:none;color:rgba(255,255,255,.45);font-size:.52rem;font-weight:700;letter-spacing:.2px;text-transform:uppercase;padding:0 1px;cursor:pointer;touch-action:manipulation;-webkit-appearance:none;height:var(--th);min-width:32px;-webkit-user-select:none;user-select:none;transition:color .15s;font-family:-apple-system,sans-serif;}
+.tb .ico{font-size:15px;line-height:1.1;}
+.tb.on{color:var(--gl);}
+.tb.on .ico{background:rgba(255,179,71,.18);border-radius:8px;padding:2px 6px;box-shadow:0 0 12px rgba(255,179,71,.3);}
+
+.pg{display:none;padding:12px 13px 0;}
+.pg.on{display:block;}
+
+.sec{font-size:.95rem;font-weight:800;margin:16px 0 9px;display:flex;align-items:center;gap:8px;color:#fff;}
+.sec::after{content:'';flex:1;height:1px;background:var(--glass-bd);}
+
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.ic{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:12px;padding:11px 12px;color:#fff;backdrop-filter:blur(14px);}
+.ic-l{font-size:.55rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-bottom:2px;}
+.ic-v{font-size:.78rem;line-height:1.4;}
+.ic-v small{font-size:.65rem;color:rgba(255,255,255,.45);display:block;margin-top:1px;}
+.mono{font-family:'Courier New',monospace;color:var(--gl);font-weight:700;font-size:.85rem;letter-spacing:1px;}
+
+.dh{display:flex;align-items:center;gap:10px;margin:4px 0 12px;padding-bottom:10px;border-bottom:1px solid var(--glass-bd);}
+.dn{background:var(--glass-bg);border:2px solid var(--gold);color:var(--gl);font-size:1.1rem;font-weight:800;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;backdrop-filter:blur(10px);box-shadow:0 0 16px rgba(255,107,53,.25);}
+.dt{font-size:1.1rem;font-weight:800;color:#fff;}
+.ds{font-size:.68rem;color:rgba(255,255,255,.5);margin-top:1px;}
+
+.alert{background:rgba(255,193,7,.1);border:1px solid rgba(255,193,7,.3);border-left:4px solid #FFC107;border-radius:10px;padding:10px 12px;font-size:.78rem;margin-bottom:12px;line-height:1.5;color:#FFE9A8;backdrop-filter:blur(10px);}
+.alert-red{background:rgba(255,107,129,.1);border-color:rgba(255,107,129,.3);border-left-color:var(--red);color:#FFC1CB;}
+.alert-grn{background:rgba(84,230,181,.1);border-color:rgba(84,230,181,.3);border-left-color:var(--grn);color:#BCF5DE;}
+.alert-blue{background:rgba(111,168,255,.1);border-color:rgba(111,168,255,.3);border-left-color:var(--blu);color:#C2D8FF;}
+.alert-pur{background:rgba(199,125,255,.1);border-color:rgba(199,125,255,.3);border-left-color:var(--pur);color:#E8CAFF;}
+
+.tl{position:relative;padding-left:20px;border-left:2px solid var(--glass-bd);margin-bottom:14px;}
+.ti{position:relative;margin-bottom:0;padding:0 0 14px 16px;}
+.ti:last-child{padding-bottom:0;}
+.tdot{position:absolute;left:-27px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--cr);flex-shrink:0;box-shadow:0 0 10px var(--gold);}
+.ti.dn2 .tdot{background:var(--grn);}
+.tc{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:13px;padding:11px 12px;backdrop-filter:blur(16px);}
+.cr1{display:flex;align-items:flex-start;gap:7px;flex-wrap:wrap;}
+.ct{font-size:.72rem;font-weight:800;color:var(--gold);white-space:nowrap;padding-top:2px;min-width:36px;}
+.cn{font-size:.84rem;font-weight:700;flex:1;line-height:1.3;color:#fff;}
+.eico,.ckb{background:none;border:none;font-size:1rem;padding:2px 4px;cursor:pointer;flex-shrink:0;min-height:36px;min-width:36px;display:flex;align-items:center;justify-content:center;}
+.cd{font-size:.74rem;color:rgba(255,255,255,.7);margin-top:5px;line-height:1.5;}
+.ctags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+.tag{font-size:.62rem;padding:2px 8px;border-radius:50px;font-weight:600;backdrop-filter:blur(6px);}
+.tf{background:rgba(255,158,99,.15);color:#FFC499;border:1px solid rgba(255,158,99,.25);}
+.te{background:rgba(84,230,181,.15);color:#9CF2D4;border:1px solid rgba(84,230,181,.25);}
+.tt{background:rgba(111,168,255,.15);color:#BBD6FF;border:1px solid rgba(111,168,255,.25);}
+.tw{background:rgba(255,107,129,.15);color:#FFB6C2;border:1px solid rgba(255,107,129,.25);}
+.tb2{background:rgba(192,132,252,.15);color:#E4C7FE;border:1px solid rgba(192,132,252,.25);}
+.clnks{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;}
+.lnk{font-size:.7rem;padding:5px 11px;border-radius:8px;text-decoration:none;font-weight:600;backdrop-filter:blur(8px);}
+.lm{background:rgba(255,107,53,.15);color:var(--gl);border:1px solid rgba(255,107,53,.3);}
+.lw{background:rgba(37,211,102,.2);color:#7CFFA8;border:1px solid rgba(37,211,102,.35);}
+.lgy{background:rgba(66,133,244,.2);color:#A8C8FF;border:1px solid rgba(66,133,244,.35);}
+
+/* TRANSPORT PILL */
+.trn{padding:4px 0 4px 8px;}
+.trn-pill{display:inline-flex;align-items:flex-start;gap:6px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.7);font-size:.68rem;padding:6px 12px;border-radius:9px;border:1px solid var(--glass-bd);line-height:1.45;max-width:100%;backdrop-filter:blur(10px);}
+.trn-pill strong{color:var(--gl);font-weight:700;}
+/* Transport pill DETALLADO */
+.trn-detail{margin:6px 0 10px;background:rgba(111,168,255,.08);border:1px solid rgba(111,168,255,.2);border-left:3px solid var(--blu);border-radius:10px;padding:9px 12px;font-size:.72rem;color:rgba(255,255,255,.75);line-height:1.6;}
+.trn-detail strong{color:var(--gl);}
+.trn-detail .trn-step{display:flex;gap:8px;align-items:flex-start;margin-bottom:4px;}
+.trn-detail .trn-step:last-child{margin-bottom:0;}
+.trn-ico{flex-shrink:0;width:16px;text-align:center;}
+
+.ti.dn2 .tc{opacity:.5;}
+.ti.dn2 .cn{text-decoration:line-through;}
+
+.addbtn{display:block;width:100%;border:2px dashed rgba(255,107,53,.35);background:transparent;border-radius:12px;padding:10px;font-size:.8rem;color:var(--gold);font-weight:700;cursor:pointer;margin:8px 0 18px;font-family:inherit;}
+.addfrm{display:none;background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:13px;padding:13px 13px;margin-bottom:14px;backdrop-filter:blur(14px);}
+.addfrm.op{display:block;}
+.addfrm h4{font-size:.85rem;font-weight:800;margin-bottom:10px;color:#fff;}
+.addfrm label{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.6);display:block;margin-bottom:3px;margin-top:8px;}
+.addfrm input,.addfrm textarea{width:100%;border:1px solid var(--glass-bd);border-radius:8px;padding:7px 10px;font-size:.78rem;font-family:inherit;background:rgba(255,255,255,.06);color:#fff;}
+.addfrm textarea{min-height:55px;resize:vertical;}
+.afrm-acts{display:flex;gap:7px;margin-top:10px;}
+
+.exp-row{display:flex;align-items:center;gap:5px;margin-top:8px;flex-wrap:wrap;}
+.exp-lbl{font-size:.65rem;color:rgba(255,255,255,.5);font-weight:600;white-space:nowrap;}
+.exp-inp{width:72px;border:1px solid var(--glass-bd);border-radius:7px;padding:4px 6px;font-size:.78rem;text-align:right;background:rgba(255,255,255,.07);color:#fff;}
+.exp-unit{font-size:.72rem;color:rgba(255,255,255,.5);}
+.pay-sel{border:1px solid var(--glass-bd);border-radius:7px;padding:4px 5px;font-size:.65rem;background:rgba(13,27,42,.85);color:#fff;max-width:110px;}
+.pay-sel option{background:#102238;color:#fff;}
+.exp-note-inp{flex:1;min-width:80px;border:1px solid var(--glass-bd);border-radius:7px;padding:4px 7px;font-size:.72rem;background:rgba(255,255,255,.07);color:#fff;}
+.exp-note-inp::placeholder,.exp-inp::placeholder{color:rgba(255,255,255,.35);}
+
+.ced{display:none;background:rgba(255,255,255,.05);border:1px solid var(--glass-bd);border-radius:10px;padding:10px 11px;margin-top:8px;}
+.ced.op{display:block;}
+.ef{width:100%;border:1px solid var(--glass-bd);border-radius:8px;padding:6px 9px;font-size:.78rem;margin-bottom:6px;font-family:inherit;background:rgba(255,255,255,.06);color:#fff;}
+textarea.ef{min-height:60px;resize:vertical;}
+.eas{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+.bs{border:none;border-radius:9px;padding:7px 14px;font-size:.76rem;font-weight:700;cursor:pointer;font-family:inherit;}
+.bsave{background:var(--grn);color:#022;}
+.bcanc{background:rgba(255,255,255,.12);color:#fff;}
+.bdel{background:var(--red);color:#fff;}
+
+.calc-box{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:14px;padding:14px 15px;margin-bottom:14px;color:#fff;backdrop-filter:blur(16px);}
+.calc-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.calc-inp{flex:1;border:1px solid var(--glass-bd);border-radius:9px;padding:9px 12px;font-size:1rem;font-weight:700;text-align:right;background:rgba(255,255,255,.08);color:#fff;}
+.calc-inp::placeholder{color:rgba(255,255,255,.35);}
+.calc-lbl{font-size:.75rem;font-weight:700;color:var(--gl);min-width:40px;}
+
+.food-table{width:100%;border-collapse:collapse;font-size:.77rem;color:#fff;}
+.food-table th{background:rgba(255,107,53,.12);color:var(--gl);padding:7px 9px;text-align:left;font-size:.68rem;letter-spacing:.8px;}
+.food-table td{padding:7px 9px;border-bottom:1px solid var(--glass-bd);}
+.food-table tr:nth-child(even) td{background:rgba(255,255,255,.03);}
+
+.recalc-btn{display:block;width:100%;background:var(--glass-bg);border:1px solid var(--glass-bd);color:var(--gl);border-radius:12px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer;margin-bottom:14px;font-family:inherit;backdrop-filter:blur(14px);}
+.exp-summary{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:13px;padding:12px 14px;margin-bottom:14px;overflow-x:auto;backdrop-filter:blur(14px);}
+.exp-sumhdr{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:9px;}
+.exp-table{width:100%;border-collapse:collapse;font-size:.68rem;color:#fff;}
+.exp-table th{background:rgba(255,107,53,.12);color:var(--gl);padding:6px 6px;text-align:left;font-size:.6rem;}
+.exp-table td{padding:5px 6px;border-bottom:1px solid var(--glass-bd);}
+.exp-table .exp-amt{text-align:right;font-family:monospace;font-weight:700;}
+.exp-table .day-row td{background:rgba(255,255,255,.06);font-weight:800;font-size:.7rem;}
+.exp-table .total-row td{background:rgba(255,107,53,.15);color:#fff;font-weight:800;}
+.pair-card{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:11px;padding:12px 13px;backdrop-filter:blur(14px);}
+.pair-total{text-align:right;font-family:monospace;font-weight:800;font-size:.9rem;}
+
+.price-box{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:14px;padding:12px 14px;margin-bottom:12px;backdrop-filter:blur(14px);}
+.price-box-lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-bottom:9px;}
+.price-box table{width:100%;border-collapse:collapse;font-size:.74rem;color:#fff;}
+.price-box td{padding:5px 4px;border-bottom:1px solid var(--glass-bd);}
+.price-box td:last-child{text-align:right;font-weight:700;}
+.price-box tr:last-child td{border-bottom:none;background:rgba(255,107,53,.12);font-weight:800;border-radius:8px;}
+
+.day-summary{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:14px;padding:13px 15px;margin-bottom:14px;border-left:4px solid var(--gold);backdrop-filter:blur(16px);}
+.day-summary-title{font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:8px;}
+.day-summary-items{display:flex;flex-direction:column;gap:5px;}
+.dsi{display:flex;align-items:flex-start;gap:8px;font-size:.76rem;color:rgba(255,255,255,.82);line-height:1.4;}
+.dsi-ico{flex-shrink:0;width:18px;text-align:center;}
+
+.pax-chips{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px;}
+.pax-chip{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:11px;padding:10px 12px;backdrop-filter:blur(14px);}
+.pax-chip-name{font-size:.8rem;font-weight:800;margin-bottom:2px;}
+.pax-chip-role{font-size:.65rem;color:rgba(255,255,255,.5);}
+
+.mapsec{margin-bottom:12px;}
+.map-links-box{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:12px;padding:11px 12px;backdrop-filter:blur(14px);}
+.map-links-title{font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-bottom:8px;}
+.map-direct-btn{display:block;background:rgba(255,107,53,.1);border:1px solid var(--glass-bd);border-radius:9px;color:var(--gl);padding:8px 10px;font-size:.75rem;font-weight:600;text-decoration:none;margin-bottom:6px;text-align:center;}
+.map-direct-btn:last-child{margin-bottom:0;}
+
+/* FOTOS */
+.media-section{margin-top:10px;padding-top:9px;border-top:1px solid var(--glass-bd);}
+.media-btns{display:flex;gap:6px;}
+.media-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;background:none;border:1.5px dashed rgba(255,107,53,.35);border-radius:9px;padding:7px 8px;font-size:.7rem;color:var(--gold);font-weight:600;cursor:pointer;font-family:inherit;transition:border-color .2s,background .2s;}
+.media-btn:active{background:rgba(255,107,53,.1);border-color:var(--gold);}
+.media-carousel{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px 0 4px;scrollbar-width:none;margin-top:8px;}
+.media-carousel::-webkit-scrollbar{display:none;}
+.media-slide{flex:0 0 auto;scroll-snap-align:start;position:relative;border-radius:11px;overflow:hidden;cursor:pointer;background:#0a1020;}
+.media-carousel.one .media-slide{width:min(320px,calc(100vw - 60px));height:196px;}
+.media-carousel.many .media-slide:first-child{width:min(200px,calc(100vw - 130px));height:156px;}
+.media-carousel.many .media-slide{width:110px;height:156px;}
+.media-slide img,.media-slide video{width:100%;height:100%;object-fit:cover;display:block;}
+.media-slide-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.72));padding:18px 7px 5px;font-size:.6rem;color:rgba(255,255,255,.9);line-height:1.3;pointer-events:none;}
+.media-del{position:absolute;top:4px;right:4px;background:rgba(255,107,129,.85);border:none;border-radius:50%;width:22px;height:22px;color:#fff;font-size:.65rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;}
+.media-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+.media-play span{font-size:2rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));}
+.media-badge{position:absolute;top:4px;left:4px;background:rgba(111,168,255,.85);color:#fff;font-size:.5rem;padding:2px 5px;border-radius:3px;font-weight:700;}
+.media-dots{display:flex;justify-content:center;gap:5px;margin-top:3px;}
+.media-dot{width:5px;height:5px;border-radius:50%;background:var(--glass-bd);}
+.media-dot.on{background:var(--gold);}
+#mlb{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9800;display:none;flex-direction:column;align-items:center;justify-content:center;padding:16px;}
+#mlb.on{display:flex;}
+#mlb-media{max-width:100%;max-height:72vh;}
+#mlb-media img{max-width:100%;max-height:72vh;border-radius:10px;object-fit:contain;display:block;}
+#mlb-media video{max-width:100%;max-height:72vh;border-radius:10px;outline:none;}
+.mlb-cap{color:rgba(255,255,255,.75);font-size:.78rem;text-align:center;margin-top:10px;line-height:1.5;max-width:340px;}
+.mlb-info{color:var(--gold);font-size:.62rem;letter-spacing:1px;text-transform:uppercase;margin-top:5px;text-align:center;}
+.mlb-x{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.15);border:none;border-radius:50%;width:38px;height:38px;font-size:1.2rem;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.alb-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+.alb-item{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#0a1020;}
+.alb-item img,.alb-item video{width:100%;height:100%;object-fit:cover;display:block;}
+.alb-item-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.78));padding:16px 6px 5px;font-size:.58rem;color:rgba(255,255,255,.9);line-height:1.3;}
+.alb-item .media-play{font-size:1.6rem;}
+.alb-empty{text-align:center;padding:30px 20px;color:rgba(255,255,255,.5);font-size:.82rem;line-height:1.7;}
+.media-picker{position:fixed;inset:0;z-index:9700;display:none;align-items:flex-end;}
+.media-picker.on{display:flex;}
+.media-picker-bg{position:absolute;inset:0;background:rgba(0,0,0,.6);}
+.media-picker-sheet{position:relative;background:rgba(13,27,42,.95);backdrop-filter:blur(24px);border:1px solid var(--glass-bd);border-radius:18px 18px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom));width:100%;z-index:1;}
+.media-picker-title{font-size:.85rem;font-weight:700;text-align:center;margin-bottom:16px;color:#fff;}
+.media-picker-opts{display:flex;flex-direction:column;gap:10px;}
+.media-picker-opt{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border:1px solid var(--glass-bd);border-radius:12px;padding:13px 16px;cursor:pointer;width:100%;font-family:inherit;text-align:left;}
+.media-picker-opt-ico{font-size:1.5rem;flex-shrink:0;}
+.media-picker-opt-txt{font-size:.85rem;font-weight:600;color:#fff;}
+.media-picker-opt-sub{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:2px;}
+.media-picker-cancel{margin-top:10px;width:100%;padding:13px;background:rgba(255,255,255,.08);border:none;border-radius:12px;font-size:.85rem;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;}
+
+/* CENA EN HOTEL box */
+.hotel-dinner{background:rgba(199,125,255,.08);border:1px solid rgba(199,125,255,.25);border-left:4px solid var(--pur);border-radius:12px;padding:11px 13px;margin-bottom:12px;}
+.hotel-dinner-title{font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--pur);font-weight:700;margin-bottom:7px;}
+.hotel-dinner-item{font-size:.75rem;color:rgba(255,255,255,.8);line-height:1.5;display:flex;gap:8px;margin-bottom:4px;}
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1200&q=80&auto=format&fit=crop" alt="Ámsterdam canales" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-flag">🇳🇱</span>
+    <h1>Ámsterdam <em>2026</em></h1>
+    <div class="hero-sub">8 — 10 Septiembre · 2 noches · 3 días</div>
+    <div class="hero-pax">
+      <span class="pax">👭 Nuria, Isabel, Beatriz &amp; Michelle</span>
+    </div>
+    <div class="hero-pax" style="margin-top:5px;">
+      <span class="pax">✈️ VY8353 / VY8350</span>
+      <span class="pax">🏨 Hotel Houthavens</span>
+    </div>
+  </div>
+</div>
+
+<div class="sync-bar">
+  <div id="sync-dot"></div>
+  <div id="sync-txt">Cargando...</div>
+  <div id="cld-dot"></div>
+  <div id="cld-txt">📸 ...</div>
+</div>
+
+<div class="pg-wrap">
+  <div class="pg-txt" id="pg-txt">0 de 0 paradas completadas (0%)</div>
+  <div class="pg-bg"><div id="pg-fill"></div></div>
+</div>
+
+<div class="tabbar">
+  <button type="button" class="tb on" id="tb-info" onclick="ST('info')"><span class="ico">ℹ️</span>Info</button>
+  <button type="button" class="tb" id="tb-d1" onclick="ST('d1')"><span class="ico">✈️</span>Mar8</button>
+  <button type="button" class="tb" id="tb-d2" onclick="ST('d2')"><span class="ico">🚲</span>Mié9</button>
+  <button type="button" class="tb" id="tb-d3" onclick="ST('d3')"><span class="ico">🛫</span>Jue10</button>
+  <button type="button" class="tb" id="tb-alb" onclick="ST('alb')"><span class="ico">📸</span>Álbum</button>
+  <button type="button" class="tb" id="tb-exp" onclick="ST('exp')"><span class="ico">💶</span>Gastos</button>
+</div>
+
+
+<!-- ═══ PAGE INFO ═══ -->
+<div class="pg on" id="pg-info">
+
+  <div class="sec">✈️ Vuelos — Vueling · CPJW2E</div>
+  <div class="igrid">
+    <div class="ic"><div class="ic-l">Ida — Mar 8 Sep</div><div class="ic-v"><span class="mono">VY 8353</span><small>VLC 06:50 → AMS 09:35 · 2h45</small></div></div>
+    <div class="ic"><div class="ic-l">Vuelta — Jue 10 Sep</div><div class="ic-v"><span class="mono">VY 8350</span><small>AMS 14:55 → VLC 17:35 · 2h40</small></div></div>
+    <div class="ic"><div class="ic-l">Localizador ida</div><div class="ic-v"><span class="mono">CPJW2E</span></div></div>
+    <div class="ic"><div class="ic-l">Localizador vuelta</div><div class="ic-v"><span class="mono">XLZ7RZ</span></div></div>
+  </div>
+  <div class="alert alert-red">⚠️ <strong>Cambio de horario vuelta:</strong> vuelo <strong>VY8350</strong> Jue 10 Sep · AMS 14:55 → VLC 17:35. Salid del hotel antes de las 12:30 para coger el tren a Schiphol con margen.</div>
+
+  <div class="sec">🏨 Alojamiento — Hotel Houthavens</div>
+  <div class="ic" style="margin-bottom:8px;"><div class="ic-l">Apartamento 2 dormitorios · 4 adultas</div><div class="ic-v">Wiborgeiland 57, 1014 ZC Ámsterdam<br><strong>Check-in:</strong> Mar 8 Sep · 13:00–20:00<br><strong>Check-out:</strong> Jue 10 Sep · 08:00–12:00<small>Tel. +31 621 952 749</small></div></div>
+  <div class="alert alert-grn">🔑 <strong>Acceso:</strong> check-in a partir de las 13:00. Si llegáis antes, podéis dejar las maletas en recepción y explorar el barrio mientras prepararan la habitación.</div>
+
+  <div class="sec">🚌 Cómo llegar al hotel desde el aeropuerto</div>
+  <div class="trn-detail">
+    <div class="trn-step"><span class="trn-ico">✈️</span><span>Llegáis a <strong>Schiphol</strong> a las 09:35 — seguir señales "Trains / Treinen"</span></div>
+    <div class="trn-step"><span class="trn-ico">🚆</span><span>Bajad a las vías y coged cualquier tren hacia <strong>Amsterdam Centraal</strong> · 17 min · cada 10 min · ~6€/persona · pagad con tarjeta contactless directamente en el torniquete</span></div>
+    <div class="trn-step"><span class="trn-ico">🚌</span><span>Desde <strong>Centraal</strong> coged el <strong>Bus 22 o Bus 48</strong> dirección Houthaven · parad en <strong>"Spaarndammerstraat"</strong> o <strong>"Haparandaweg"</strong> · 7–10 min · cada 10–15 min</span></div>
+    <div class="trn-step"><span class="trn-ico">🚶</span><span>Desde la parada hasta el hotel: <strong>5–8 min a pie</strong> — Wiborgeiland 57</span></div>
+    <div class="trn-step"><span class="trn-ico">⏱️</span><span>Total aeropuerto → hotel: <strong>~45 min</strong> · coste total ~6€/persona</span></div>
+  </div>
+  <div class="clnks" style="margin-bottom:8px;">
+    <a href="https://maps.google.com/?q=Wiborgeiland+57+1014ZC+Amsterdam" target="_blank" class="lnk lm">📍 Maps Hotel</a>
+    <a href="https://9292.nl" target="_blank" class="lnk lgy">🗺️ App 9292 (planif. rutas)</a>
+  </div>
+
+  <div class="sec">🚌 Cómo moverse desde el hotel al centro</div>
+  <div class="trn-detail">
+    <div class="trn-step"><span class="trn-ico">🏨</span><span>Desde el hotel andáis ~5 min hasta la parada <strong>"Haparandaweg"</strong> (Bus 22 y 48)</span></div>
+    <div class="trn-step"><span class="trn-ico">🚌</span><span><strong>Bus 22 o 48 → Amsterdam Centraal</strong> · 7–10 min · cada 10–15 min · horario: 06:00–00:30</span></div>
+    <div class="trn-step"><span class="trn-ico">🌙</span><span><strong>De noche (00:30–06:00)</strong> usad el autobús nocturno <strong>N81 o N88</strong> desde la misma parada · billete nocturno: 5€ (separado del bono diario)</span></div>
+    <div class="trn-step"><span class="trn-ico">🚲</span><span>En bici desde el hotel al centro: <strong>20 min</strong> — muy agradable por las mañanas</span></div>
+    <div class="trn-step"><span class="trn-ico">🚕</span><span>Taxi hotel ↔ centro: <strong>~18–22€</strong> · solo si es tarde y no hay bus</span></div>
+  </div>
+  <div class="alert alert-blue">💳 <strong>Pago en transporte:</strong> el GVB NO acepta efectivo. Pagad siempre con <strong>tarjeta de débito/crédito contactless</strong> o móvil (Apple/Google Pay). Funciona igual que el metro de Madrid — tap al entrar y al salir.</div>
+
+  <div class="sec">🎫 Billetes recomendados — GVB</div>
+  <div class="price-box">
+    <div class="price-box-lbl">💶 Opciones de transporte</div>
+    <table>
+      <tr><td>🚆 Tren Schiphol ↔ Centraal</td><td>~6€/persona</td></tr>
+      <tr><td>🎫 GVB 1 hora (tranvía/bus/metro)</td><td>3.20€</td></tr>
+      <tr><td>🎫 GVB 24h ilimitado</td><td>~9€/persona</td></tr>
+      <tr><td>🎫 GVB 48h ilimitado</td><td>~15€/persona</td></tr>
+      <tr><td>🌙 Bus nocturno (por trayecto)</td><td>5€</td></tr>
+      <tr><td>🚲 Bici alquiler (medio día ~4h)</td><td>12–18€/persona</td></tr>
+      <tr><td>⛴️ Ferry Centraal ↔ Amsterdam Noord</td><td>🆓 GRATIS</td></tr>
+      <tr><td><strong>💡 Recomendación: GVB 48h</strong></td><td><strong>~15€ (Mar+Mié)</strong></td></tr>
+    </table>
+  </div>
+  <div class="alert alert-grn">⛴️ <strong>Ferry gratis:</strong> desde detrás de Centraal salen ferries gratuitos a Amsterdam Noord cada 7–15 min. Es una experiencia preciosa y gratis — ¡no os lo perdáis!</div>
+
+  <div class="sec">👭 Las viajeras</div>
+  <div class="pax-chips">
+    <div class="pax-chip" style="border-left:3px solid var(--c-nu);"><div class="pax-chip-name" style="color:var(--c-nu);">🧡 Nuria</div><div class="pax-chip-role">Organizadora</div></div>
+    <div class="pax-chip" style="border-left:3px solid var(--c-is);"><div class="pax-chip-name" style="color:var(--c-is);">💚 Isabel</div><div class="pax-chip-role">Viajera</div></div>
+    <div class="pax-chip" style="border-left:3px solid var(--c-be);"><div class="pax-chip-name" style="color:var(--c-be);">💜 Beatriz</div><div class="pax-chip-role">Viajera</div></div>
+    <div class="pax-chip" style="border-left:3px solid var(--c-mi);"><div class="pax-chip-name" style="color:var(--c-mi);">💛 Michelle</div><div class="pax-chip-role">Viajera</div></div>
+  </div>
+
+  <div class="sec">🛒 Supermercados cerca del hotel</div>
+  <div class="price-box">
+    <div class="price-box-lbl">🏪 Para hacer acopio al llegar</div>
+    <table>
+      <tr><td>🟠 <strong>Albert Heijn</strong> (el más grande de NL)</td><td>~10 min andando · Haarlemmerplein</td></tr>
+      <tr><td>🟡 <strong>Jumbo</strong> (también muy completo)</td><td>Barrio Haarlemmerbuurt · 12 min</td></tr>
+      <tr><td>🔴 <strong>Dirk van den Broek</strong> (el más barato)</td><td>Chueca del barrio, excelente precio</td></tr>
+      <tr><td>🏪 <strong>Spar / Gall&Gall</strong> (bebidas y snacks)</td><td>Varios en la zona Houthavens</td></tr>
+    </table>
+  </div>
+  <div class="alert alert-blue">🛒 <strong>Tip provisiones:</strong> comprad agua, snacks, desayunos y cena del apartamento en el <strong>Albert Heijn o Dirk</strong> nada más llegar. Ahorraréis mucho vs restaurantes. El Dirk es el supermercado holandés más económico — con 4–5€/persona tenéis un desayuno completo.</div>
+
+  <div class="sec">☕ Desayuno barato cerca del hotel</div>
+  <div class="price-box">
+    <div class="price-box-lbl">🥐 Opciones mañaneras económicas</div>
+    <table>
+      <tr><td>🏪 <strong>Albert Heijn / Dirk</strong> (en tienda)</td><td>4–5€ desayuno completo</td></tr>
+      <tr><td>☕ <strong>Cafeterías de barrio Jordaan</strong></td><td>8–12€/persona · 20 min en bici</td></tr>
+      <tr><td>🧇 <strong>HEMA cafetería</strong> (centro)</td><td>4–7€ · sándwiches, croissants</td></tr>
+      <tr><td>🥧 <strong>Winkel 43 Jordaan</strong> (tarta manzana)</td><td>8–10€ con café</td></tr>
+      <tr><td>🍳 <strong>Omelegg</strong> (tortillas, brunch)</td><td>12–15€ · reservar o ir pronto</td></tr>
+      <tr><td><strong>💡 Mejor opción 1: desayuno en el apartamento</strong></td><td><strong>3–4€ desde Albert Heijn</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="sec">🍽️ Gastronomía holandesa — Probar sí o sí</div>
+  <div class="price-box" style="padding:0;overflow:hidden;">
+    <table class="food-table">
+      <thead><tr><th>Plato</th><th>Qué es</th><th>Precio</th></tr></thead>
+      <tbody>
+        <tr><td>🧇 Stroopwafel</td><td>Galleta con sirope de caramelo</td><td>1–2€</td></tr>
+        <tr><td>🐟 Haring</td><td>Arenque crudo con cebolla</td><td>3–5€</td></tr>
+        <tr><td>🍟 Patat oorlog</td><td>Fritas con mayo + cacahuete + cebolla</td><td>4–6€</td></tr>
+        <tr><td>🧆 Bitterballen</td><td>Croquetas holandesas de carne</td><td>5–9€ ración</td></tr>
+        <tr><td>🫔 Broodje kroket</td><td>Bocadillo de croqueta</td><td>3–5€</td></tr>
+        <tr><td>🥘 Stamppot</td><td>Puré de patata con verduras y embutido</td><td>12–16€</td></tr>
+        <tr><td>🍩 Poffertjes</td><td>Mini tortitas con mantequilla y azúcar</td><td>5–8€</td></tr>
+        <tr><td>🧀 Kaaswinkel</td><td>Queso gouda, edam, maasdam</td><td>2–8€</td></tr>
+        <tr><td>🍺 Heineken / Amstel</td><td>Cervezas locales en terraza</td><td>3–6€</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec">⚠️ Consejos esenciales</div>
+  <div class="alert">🚲 <strong>Cuidado con las bicis:</strong> tienen prioridad absoluta y son silenciosas. En los carriles bici, no os paréis ni crucéis sin mirar a los dos lados. Más peligrosas que los coches.</div>
+  <div class="alert alert-blue">💳 <strong>Sin efectivo:</strong> el transporte público y la mayoría de tiendas solo aceptan tarjeta. Llevar algo de cash (20–30€) para mercadillos y propinas.</div>
+  <div class="alert alert-grn">🌧️ <strong>Tiempo septiembre:</strong> 15–20°C · lluvias breves frecuentes. Llevad impermeable ligero en el bolso. El sol entre nubes es precioso para fotos.</div>
+  <div class="alert alert-pur">📱 <strong>App esencial:</strong> descargad <strong>9292.nl</strong> (planificador de transporte público holandés) — te dice el bus/tranvía exacto con horarios en tiempo real. También funciona bien Google Maps para Amsterdam.</div>
+  <div class="sec">🔡 Tamaño de letra</div>
+  <div class="fs-box">
+    <div class="fs-title">Ajusta el tamaño del texto en toda la app</div>
+    <div class="fs-controls">
+      <button type="button" class="fs-btn" onclick="fsChange(-0.1)" title="Reducir">A−</button>
+      <input type="range" class="fs-slider" id="fs-slider" min="0.8" max="1.5" step="0.05" value="1" oninput="fsSet(parseFloat(this.value))">
+      <button type="button" class="fs-btn" onclick="fsChange(+0.1)" title="Aumentar">A+</button>
+      <span class="fs-label" id="fs-label">100%</span>
+    </div>
+    <div style="display:flex;justify-content:center;gap:8px;margin-top:12px;flex-wrap:wrap;">
+      <button type="button" onclick="fsSet(0.85)" style="background:rgba(255,255,255,.08);border:1px solid var(--glass-bd);color:rgba(255,255,255,.7);border-radius:8px;padding:6px 14px;font-size:.7rem;cursor:pointer;font-family:inherit;">Pequeño</button>
+      <button type="button" onclick="fsSet(1.0)" style="background:rgba(255,255,255,.08);border:1px solid var(--glass-bd);color:rgba(255,255,255,.7);border-radius:8px;padding:6px 14px;font-size:.7rem;cursor:pointer;font-family:inherit;">Normal</button>
+      <button type="button" onclick="fsSet(1.2)" style="background:rgba(255,255,255,.08);border:1px solid var(--glass-bd);color:rgba(255,255,255,.7);border-radius:8px;padding:6px 14px;font-size:.7rem;cursor:pointer;font-family:inherit;">Grande</button>
+      <button type="button" onclick="fsSet(1.4)" style="background:rgba(255,255,255,.08);border:1px solid var(--glass-bd);color:rgba(255,255,255,.7);border-radius:8px;padding:6px 14px;font-size:.7rem;cursor:pointer;font-family:inherit;">Muy grande</button>
+    </div>
+  </div>
+
+  <div style="height:10px;"></div>
+
+</div>
+
+<!-- ═══ PAGE DÍA 1 — MARTES 8 SEP ═══ -->
+<div class="pg" id="pg-d1">
+  <div class="dh">
+    <div class="dn">1</div>
+    <div><div class="dt">Martes 8 Sep — Llegada</div><div class="ds">Valencia → Ámsterdam ✈️ · Check-in · Primer paseo</div></div>
+  </div>
+
+  <div class="day-summary">
+    <div class="day-summary-title">📋 Resumen del día</div>
+    <div class="day-summary-items">
+      <div class="dsi"><span class="dsi-ico">⏰</span><span>Despertad a las 04:30. Vuelo a las 06:50 desde VLC.</span></div>
+      <div class="dsi"><span class="dsi-ico">✈️</span><span>VY8353 · VLC 06:50 → AMS 09:35 · Loc. CPJW2E</span></div>
+      <div class="dsi"><span class="dsi-ico">🚆</span><span>Tren Schiphol → Centraal (17 min, ~6€) + Bus 22/48 → hotel (10 min)</span></div>
+      <div class="dsi"><span class="dsi-ico">🛒</span><span>Parar en Albert Heijn o Dirk a comprar provisiones para el apartamento</span></div>
+      <div class="dsi"><span class="dsi-ico">🏨</span><span>Check-in a las 13:00 · Dejar maletas y a explorar</span></div>
+      <div class="dsi"><span class="dsi-ico">💶</span><span>Gasto estimado: 50–70€/persona</span></div>
+    </div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-box-lbl">💶 Precios orientativos Día 1</div>
+    <table>
+      <tr><td>Tren Schiphol → Centraal (×4)</td><td>~24€ total</td></tr>
+      <tr><td>GVB 24h o 48h</td><td>9–15€/persona</td></tr>
+      <tr><td>Compra supermercado (provisiones)</td><td>15–25€ total grupo</td></tr>
+      <tr><td>Comida en el centro</td><td>10–16€/persona</td></tr>
+      <tr><td>Cena (ver opciones abajo)</td><td>18–28€/persona</td></tr>
+    </table>
+  </div>
+
+  <div id="tl-d1" class="tl">
+
+    <div class="ti" id="d1-s1">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">04:30</span><span class="cn">🚗 Salida hacia aeropuerto de Valencia</span><button type="button" class="eico" onclick="OE('d1-s1')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s1')">⬜</button></div>
+        <div class="cd">Despertad con tiempo — vuelo a las 06:50. Recomendado estar en el aeropuerto a las 05:20 mínimo. <strong>Facturación online</strong> ya hecha antes de salir de casa. Recordad que Vueling Básico permite solo <strong>bolso personal + maleta de cabina de 10kg</strong> — si habéis pagado maleta facturada, llevar el código QR descargado.</div>
+        <div class="ctags"><span class="tag tf">🏠 Valencia</span></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s1" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s1')"><span class="exp-unit">€</span><select id="pay-d1-s1" class="pay-sel" onchange="saveExp('d1-s1')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s1" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s1')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s1')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s1"></div></div>
+        <div class="ced" id="ced-d1-s1"><input class="ef" data-f="time" value="04:30"><input class="ef" data-f="name" value="🚗 Salida hacia aeropuerto de Valencia"><textarea class="ef" data-f="desc">Despertad con tiempo — vuelo a las 06:50.</textarea><input class="ef" data-f="map" placeholder="URL Google Maps..."><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s1')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s1')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s1')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">✈️ <strong>Vueling VY8353</strong> · VLC 06:50 → AMS 09:35 · 2h45 · Loc. CPJW2E</div></div>
+
+    <div class="ti" id="d1-s2">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">09:35</span><span class="cn">🛬 Llegada Schiphol — Amsterdam Airport</span><button type="button" class="eico" onclick="OE('d1-s2')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s2')">⬜</button></div>
+        <div class="cd">Aterrizáis en Schiphol. Al bajar del avión seguir señales verdes <strong>"Arrivals / Aankomst"</strong>. Pasaporte holandés no necesitáis (zona Schengen), pero puede haber control rápido. Buscad las señales <strong>"Treinen / Trains"</strong> y bajad a la estación de tren que está integrada en el aeropuerto — no hay que salir al exterior.</div>
+        <div class="ctags"><span class="tag tt">🚆 Tren a Centraal</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Amsterdam+Airport+Schiphol" target="_blank" class="lnk lm">📍 Maps Schiphol</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s2" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s2')"><span class="exp-unit">€</span><select id="pay-d1-s2" class="pay-sel" onchange="saveExp('d1-s2')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s2" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s2')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s2')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s2"></div></div>
+        <div class="ced" id="ced-d1-s2"><input class="ef" data-f="time" value="09:35"><input class="ef" data-f="name" value="🛬 Llegada Schiphol"><textarea class="ef" data-f="desc">Seguir señales Trains/Treinen hacia la estación integrada.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Amsterdam+Airport+Schiphol"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s2')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s2')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s2')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🎫</span><span>En la estación de Schiphol: usad las <strong>máquinas amarillas NS</strong> o simplemente <strong>tocad con tarjeta contactless</strong> en el lector del torniquete (más rápido)</span></div>
+      <div class="trn-step"><span class="trn-ico">🚆</span><span>Coged <strong>cualquier tren dirección Amsterdam Centraal</strong> — salen cada 10 min. El trayecto dura <strong>17 minutos</strong>. Precio: ~6€/persona</span></div>
+      <div class="trn-step"><span class="trn-ico">⚠️</span><span>No confundáis con trenes a otras ciudades — coged solo los que ponen <strong>"Amsterdam Centraal"</strong> como próxima parada o destino</span></div>
+    </div>
+
+    <div class="ti" id="d1-s3">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">10:15</span><span class="cn">🚉 Amsterdam Centraal — Primera impresión</span><button type="button" class="eico" onclick="OE('d1-s3')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s3')">⬜</button></div>
+        <div class="cd">La estación central de Ámsterdam es enorme y preciosa (s. XIX). Al salir por la <strong>puerta principal (sur)</strong> tendréis la primera vista de los canales y las bicis — primera foto obligatoria. Aquí comprad el <strong>GVB 48h</strong> en el mostrador GVB (azul) junto a la salida si no lo tenéis ya. Sirve para bus, tranvía y metro durante 48h.</div>
+        <div class="ctags"><span class="tag tt">🚌 Bus al hotel</span><span class="tag te">📸 Foto</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Amsterdam+Centraal+Station" target="_blank" class="lnk lm">📍 Centraal Station</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s3')"><span class="exp-unit">€</span><select id="pay-d1-s3" class="pay-sel" onchange="saveExp('d1-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s3')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s3"></div></div>
+        <div class="ced" id="ced-d1-s3"><input class="ef" data-f="time" value="10:15"><input class="ef" data-f="name" value="🚉 Amsterdam Centraal"><textarea class="ef" data-f="desc">Primera impresión de Ámsterdam. Comprad GVB 48h aquí.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Amsterdam+Centraal+Station"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s3')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🚌</span><span>Salid por la <strong>puerta principal (sur)</strong> de Centraal y buscad las paradas de bus a vuestra derecha (lado oeste)</span></div>
+      <div class="trn-step"><span class="trn-ico">🔢</span><span>Coged el <strong>Bus 22 o Bus 48</strong> dirección <em>Houthaven / Westpoort</em> · tocad tarjeta al subir <strong>y al bajar</strong> (obligatorio)</span></div>
+      <div class="trn-step"><span class="trn-ico">📍</span><span>Bajad en la parada <strong>"Spaarndammerstraat"</strong> o <strong>"Haparandaweg"</strong> · 7–10 min de trayecto</span></div>
+      <div class="trn-step"><span class="trn-ico">🚶</span><span>Desde la parada al hotel: <strong>5 min a pie</strong> siguiendo Google Maps a Wiborgeiland 57</span></div>
+    </div>
+
+    <div class="ti" id="d1-s4">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">11:00</span><span class="cn">🛒 Albert Heijn / Dirk — Provisiones del apartamento</span><button type="button" class="eico" onclick="OE('d1-s4')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s4')">⬜</button></div>
+        <div class="cd">Antes de llegar al hotel, parad en el <strong>Albert Heijn</strong> (zona Haarlemmerplein, 10 min andando desde la parada de bus) o en cualquier tienda del barrio. Comprad: agua, desayunos para el día siguiente, snacks, bebidas y algo para cenar en el apartamento si queréis. El <strong>Dirk van den Broek</strong> es el más barato de Ámsterdam. Con 4–5€/persona tenéis desayuno para 2 días.</div>
+        <div class="ctags"><span class="tag te">🛒 Compra</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Albert+Heijn+Haarlemmerplein+Amsterdam" target="_blank" class="lnk lm">📍 Albert Heijn</a><a href="https://maps.google.com/?q=Dirk+van+den+Broek+Amsterdam+Haarlemmerweg" target="_blank" class="lnk lgy">📍 Dirk</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s4" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s4')"><span class="exp-unit">€</span><select id="pay-d1-s4" class="pay-sel" onchange="saveExp('d1-s4')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s4" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s4')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s4')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s4"></div></div>
+        <div class="ced" id="ced-d1-s4"><input class="ef" data-f="time" value="11:00"><input class="ef" data-f="name" value="🛒 Provisiones — Albert Heijn / Dirk"><textarea class="ef" data-f="desc">Comprad agua, desayunos y snacks antes de llegar al hotel.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Albert+Heijn+Haarlemmerplein+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s4')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 5–8 min hasta el hotel</div></div>
+
+    <div class="ti" id="d1-s5">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">13:00</span><span class="cn">🏨 Check-in Hotel Houthavens</span><button type="button" class="eico" onclick="OE('d1-s5')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s5')">⬜</button></div>
+        <div class="cd">Wiborgeiland 57, 1014 ZC Ámsterdam · Tel. <strong>+31 621 952 749</strong>. Apartamento 2 dormitorios para 4. Check-in de 13:00 a 20:00. Si llegáis antes, dejad las maletas y salid a explorar el barrio Houthavens — es moderno, tranquilo y tiene vistas al agua preciosas.</div>
+        <div class="ctags"><span class="tag tw">🏨 Hotel</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam" target="_blank" class="lnk lm">📍 Maps Hotel</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s5" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s5')"><span class="exp-unit">€</span><select id="pay-d1-s5" class="pay-sel" onchange="saveExp('d1-s5')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s5" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s5')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s5')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s5"></div></div>
+        <div class="ced" id="ced-d1-s5"><input class="ef" data-f="time" value="13:00"><input class="ef" data-f="name" value="🏨 Check-in Hotel Houthavens"><textarea class="ef" data-f="desc">Wiborgeiland 57 · Tel. +31 621 952 749. Check-in 13:00–20:00.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s5')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s5')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s5')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🚌</span><span>Desde el hotel al centro: <strong>Bus 22 o 48</strong> desde parada "Haparandaweg" (5 min andando) → Amsterdam Centraal · 7–10 min</span></div>
+      <div class="trn-step"><span class="trn-ico">🚲</span><span>O en bici alquilada: <strong>20 min por el carril bici</strong> hasta Jordaan — muy agradable</span></div>
+    </div>
+
+    <div class="ti" id="d1-s6">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">14:30</span><span class="cn">🌊 Paseo por los canales — Grachtengordel (Patrimonio UNESCO)</span><button type="button" class="eico" onclick="OE('d1-s6')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s6')">⬜</button></div>
+        <div class="cd">El cinturón de canales de Ámsterdam es Patrimonio de la Humanidad. Ruta ideal: <strong>Herengracht → Keizersgracht → Prinsengracht → Singel</strong>. Parad en el <strong>Magere Brug</strong> (Puente Delgado sobre el Amstel) para la foto clásica. Las casas inclinadas, los puentes con flores y las barcazas-vivienda son únicos en el mundo. Calculad 1.5–2h para el paseo completo.</div>
+        <div class="ctags"><span class="tag te">🌊 UNESCO</span><span class="tag tt">📸 Foto obligatoria</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Herengracht+Amsterdam" target="_blank" class="lnk lm">📍 Herengracht</a><a href="https://maps.google.com/?q=Magere+Brug+Amsterdam" target="_blank" class="lnk lgy">📍 Magere Brug</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s6" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s6')"><span class="exp-unit">€</span><select id="pay-d1-s6" class="pay-sel" onchange="saveExp('d1-s6')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s6" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s6')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s6')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s6"></div></div>
+        <div class="ced" id="ced-d1-s6"><input class="ef" data-f="time" value="14:30"><input class="ef" data-f="name" value="🌊 Paseo canales — Grachtengordel"><textarea class="ef" data-f="desc">Patrimonio UNESCO. Herengracht → Keizersgracht → Prinsengracht → Singel. Magere Brug para la foto.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Herengracht+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s6')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s6')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s6')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 10 min hasta Leidseplein</div></div>
+
+    <div class="ti" id="d1-s7">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">17:00</span><span class="cn">🍺 Leidseplein — Terraza y bitterballen</span><button type="button" class="eico" onclick="OE('d1-s7')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s7')">⬜</button></div>
+        <div class="cd">La plaza más animada de Ámsterdam, llena de terrazas, artistas callejeros y ambiente. Pedid una <strong>Heineken o Amstel</strong> en terraza y unas <strong>bitterballen</strong> (croquetas holandesas de carne con mostaza — son el pintxo de Ámsterdam). Buen sitio para descansar los pies después del paseo por los canales.</div>
+        <div class="ctags"><span class="tag tf">🍺 Aperitivo</span><span class="tag te">🎭 Ambiente</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Leidseplein+Amsterdam" target="_blank" class="lnk lm">📍 Leidseplein</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s7" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s7')"><span class="exp-unit">€</span><select id="pay-d1-s7" class="pay-sel" onchange="saveExp('d1-s7')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s7" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s7')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s7')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s7"></div></div>
+        <div class="ced" id="ced-d1-s7"><input class="ef" data-f="time" value="17:00"><input class="ef" data-f="name" value="🍺 Leidseplein — Terraza"><textarea class="ef" data-f="desc">Bitterballen + Heineken en terraza. Artistas callejeros.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Leidseplein+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s7')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s7')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s7')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="hotel-dinner">
+      <div class="hotel-dinner-title">🍽️ Opción cena Día 1 — elegid lo que más apetezca</div>
+      <div class="hotel-dinner-item"><span>🏨</span><span><strong>Cenar en el apartamento:</strong> tenéis cocina — aprovechad la compra del super. Perfecto después de un día de viaje largo. Pasta, ensalada y vino del Dirk. Ahorro: ~20€/persona.</span></div>
+      <div class="hotel-dinner-item"><span>🍽️</span><span><strong>Cena fuera — Jordaan:</strong> <em>Café de Reiger</em> (holandés clásico, reservad) o cualquier terraza del Jordaan. ~20–28€/persona. Volver en Bus 22/48 desde Centraal.</span></div>
+      <div class="hotel-dinner-item"><span>🍟</span><span><strong>Opción rápida:</strong> FEBO (fritería autoservicio holandesa, máquinas en la pared) o broodje kroket. Experiencia única por 3–5€. Ideal si estáis agotadas del viaje.</span></div>
+    </div>
+
+    <div class="ti" id="d1-s8">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">20:00</span><span class="cn">🍽️ Cena — Jordaan o apartamento</span><button type="button" class="eico" onclick="OE('d1-s8')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s8')">⬜</button></div>
+        <div class="cd">Ver opciones en el cuadro de arriba. Si cenáis fuera en Jordaan, para volver al hotel coged el <strong>Bus 22 o 48</strong> desde Centraal o desde la parada "Haarlemmerplein" dirección Houthaven. Si es después de las 00:30 usad el bus nocturno <strong>N81</strong> (5€ el trayecto, se paga al conductor).</div>
+        <div class="ctags"><span class="tag tf">🍽️ Cena</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Jordaan+restaurants+Amsterdam" target="_blank" class="lnk lm">📍 Restaurantes Jordaan</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s8" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s8')"><span class="exp-unit">€</span><select id="pay-d1-s8" class="pay-sel" onchange="saveExp('d1-s8')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s8" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s8')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s8')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s8"></div></div>
+        <div class="ced" id="ced-d1-s8"><input class="ef" data-f="time" value="20:00"><input class="ef" data-f="name" value="🍽️ Cena Día 1"><textarea class="ef" data-f="desc">Jordaan o apartamento. Bus 22/48 de vuelta al hotel. Nocturno N81 después de la medianoche.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Jordaan+restaurants+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s8')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s8')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s8')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="addfrm" id="add-d1"><h4>➕ Añadir parada al Día 1</h4><label>Hora</label><input type="text" id="add-d1-time" placeholder="ej. 22:00"><label>Nombre</label><input type="text" id="add-d1-name" placeholder="ej. 🎭 Bar de jazz"><label>Descripción</label><textarea id="add-d1-desc"></textarea><label>Google Maps URL</label><input type="url" id="add-d1-map"><div class="afrm-acts"><button type="button" class="bs bsave" onclick="addStop('d1')">✅ Añadir</button><button type="button" class="bs bcanc" onclick="TAF('add-d1')">Cancelar</button></div></div>
+  <button type="button" class="addbtn" onclick="TAF('add-d1')">➕ Añadir parada al Día 1</button>
+</div>
+
+
+<!-- ═══ PAGE DÍA 2 — MIÉRCOLES 9 SEP ═══ -->
+<div class="pg" id="pg-d2">
+  <div class="dh">
+    <div class="dn">2</div>
+    <div><div class="dt">Miércoles 9 Sep — Día completo</div><div class="ds">Bicicletas · Ana Frank · Canal Boat · De Wallen 🚲</div></div>
+  </div>
+
+  <div class="day-summary">
+    <div class="day-summary-title">📋 Resumen del día</div>
+    <div class="day-summary-items">
+      <div class="dsi"><span class="dsi-ico">☕</span><span>Desayuno en el apartamento (rápido y económico)</span></div>
+      <div class="dsi"><span class="dsi-ico">🌷</span><span>Mañana: Bloemenmarkt + alquiler de bicis</span></div>
+      <div class="dsi"><span class="dsi-ico">🏠</span><span>Tarde: Casa de Ana Frank (RESERVA OBLIGATORIA) o Museumplein</span></div>
+      <div class="dsi"><span class="dsi-ico">🛶</span><span>Atardecer: Canal Boat Tour al atardecer</span></div>
+      <div class="dsi"><span class="dsi-ico">🌙</span><span>Noche: De Wallen + cena + vuelta al hotel</span></div>
+      <div class="dsi"><span class="dsi-ico">💶</span><span>Gasto estimado: 70–110€/persona</span></div>
+    </div>
+  </div>
+
+  <div class="alert alert-red">🎟️ <strong>Ana Frank — RESERVA ONLINE IMPRESCINDIBLE:</strong> entradas en <a href="https://www.annefrank.org" target="_blank" style="color:var(--gl);">annefrank.org</a> · 14€/persona · se agotan semanas antes. Sin reserva la cola puede ser de 3–4 horas. Si no tenéis entrada, id al Museumplein.</div>
+
+  <div class="price-box">
+    <div class="price-box-lbl">💶 Precios orientativos Día 2</div>
+    <table>
+      <tr><td>Alquiler bicicletas (4–5h)</td><td>12–18€/persona</td></tr>
+      <tr><td>Casa de Ana Frank</td><td>14€/persona</td></tr>
+      <tr><td>Canal Boat Tour (1h)</td><td>14–18€/persona</td></tr>
+      <tr><td>Almuerzo callejero (fritas/haring)</td><td>5–10€/persona</td></tr>
+      <tr><td>Cena restaurante</td><td>20–35€/persona</td></tr>
+    </table>
+  </div>
+
+  <div id="tl-d2" class="tl">
+
+    <div class="ti" id="d2-s1">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">09:00</span><span class="cn">☕ Desayuno en el apartamento</span><button type="button" class="eico" onclick="OE('d2-s1')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s1')">⬜</button></div>
+        <div class="cd">Aprovechad la cocina del aparthotel — con lo que comprasteis ayer en el Albert Heijn / Dirk tenéis desayuno completo por 3–4€/persona. Ahorro vs cafetería: ~8–10€/persona. Buena opción para salir descansadas y sin prisas. Después coged el <strong>Bus 22 o 48</strong> desde "Haparandaweg" hasta <strong>Centraal</strong> (7 min) y desde allí al Bloemenmarkt.</div>
+        <div class="ctags"><span class="tag tf">☕ Desayuno en casa</span></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s1" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s1')"><span class="exp-unit">€</span><select id="pay-d2-s1" class="pay-sel" onchange="saveExp('d2-s1')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s1" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s1')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s1')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s1"></div></div>
+        <div class="ced" id="ced-d2-s1"><input class="ef" data-f="time" value="09:00"><input class="ef" data-f="name" value="☕ Desayuno en el apartamento"><textarea class="ef" data-f="desc">Cocina propia. Después bus 22/48 desde Haparandaweg → Centraal.</textarea><input class="ef" data-f="map" value=""><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s1')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s1')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s1')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🚌</span><span>Desde hotel: <strong>Bus 22 o 48</strong> desde "Haparandaweg" → Amsterdam Centraal · 7–10 min</span></div>
+      <div class="trn-step"><span class="trn-ico">🚶</span><span>Desde Centraal al Bloemenmarkt: <strong>20 min a pie</strong> por el Singel (paseo muy bonito) o tranvía 2/12 hasta "Koningsplein" (5 min)</span></div>
+    </div>
+
+    <div class="ti" id="d2-s2">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">10:00</span><span class="cn">🌷 Bloemenmarkt — El mercado de flores flotante</span><button type="button" class="eico" onclick="OE('d2-s2')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s2')">⬜</button></div>
+        <div class="cd">El único mercado de flores flotante del mundo, sobre barcazas en el canal Singel. Tulipanes, bulbos, semillas y souvenirs florales. Muy fotogénico — id pronto antes de que se llene de turistas. El mercado es pequeño (100m de longitud) pero muy colorido. Podéis comprar bulbos de tulipán para llevar a casa (bien envasados, pasan los controles).</div>
+        <div class="ctags"><span class="tag te">🌷 Flores</span><span class="tag tt">📸 Foto</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Bloemenmarkt+Amsterdam" target="_blank" class="lnk lm">📍 Bloemenmarkt</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s2" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s2')"><span class="exp-unit">€</span><select id="pay-d2-s2" class="pay-sel" onchange="saveExp('d2-s2')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s2" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s2')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s2')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s2"></div></div>
+        <div class="ced" id="ced-d2-s2"><input class="ef" data-f="time" value="10:00"><input class="ef" data-f="name" value="🌷 Bloemenmarkt"><textarea class="ef" data-f="desc">El único mercado de flores flotante del mundo. Tranvía 2/12 hasta Koningsplein.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Bloemenmarkt+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s2')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s2')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s2')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🚲</span><span>Alquilad bicis cerca: <strong>MacBike</strong> (Weteringschans, 5 min a pie del Bloemenmarkt) · o <strong>Star Bikes</strong> (cerca de Centraal, más barato). Mostrad DNI y dejad tarjeta de crédito como fianza</span></div>
+      <div class="trn-step"><span class="trn-ico">⚠️</span><span>Llevar el casco si lo ofrecen. <strong>Regla de oro:</strong> id siempre por el carril bici rojo, nunca por la calzada ni por la acera. Señalad con el brazo los giros.</span></div>
+    </div>
+
+    <div class="ti" id="d2-s3">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">11:00</span><span class="cn">🚲 Ruta en bici — Vondelpark + Jordaan + Noord</span><button type="button" class="eico" onclick="OE('d2-s3')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s3')">⬜</button></div>
+        <div class="cd">Ruta sugerida: <strong>Bloemenmarkt → Vondelpark</strong> (el Central Park de Ámsterdam, 20 min en bici) → <strong>Jordaan</strong> (calles más bonitas, 15 min) → <strong>Centraal</strong> → <strong>ferry gratuito</strong> a Amsterdam Noord (aparcar las bicis en el ferry — gratis) → vistas industriales preciosas → volver en ferry y devolver las bicis. Total: ~3h de experiencia holandesa pura.</div>
+        <div class="ctags"><span class="tag te">🚲 Bici</span><span class="tag tt">🌳 Vondelpark</span><span class="tag tw">⛴️ Ferry gratis</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=MacBike+Amsterdam" target="_blank" class="lnk lm">📍 MacBike Alquiler</a><a href="https://maps.google.com/?q=Vondelpark+Amsterdam" target="_blank" class="lnk lgy">🌳 Vondelpark</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s3')"><span class="exp-unit">€</span><select id="pay-d2-s3" class="pay-sel" onchange="saveExp('d2-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s3')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s3"></div></div>
+        <div class="ced" id="ced-d2-s3"><input class="ef" data-f="time" value="11:00"><input class="ef" data-f="name" value="🚲 Ruta en bici por Ámsterdam"><textarea class="ef" data-f="desc">Vondelpark → Jordaan → Centraal → Ferry gratis Noord. ~3h.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Vondelpark+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s3')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie o bici</strong> · Devolved las bicis y a comer</div></div>
+
+    <div class="ti" id="d2-s4">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">14:00</span><span class="cn">🍟 Almuerzo callejero — Patat + Haring</span><button type="button" class="eico" onclick="OE('d2-s4')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s4')">⬜</button></div>
+        <div class="cd">Dos opciones icónicas: <strong>Vleminckx</strong> (zona Spui, las mejores patatas fritas de Ámsterdam — siempre hay cola) o un <strong>puesto de haring</strong> (arenque crudo con cebollita — comerlo de pie inclinando la cabeza, al estilo holandés). Combinad los dos para la experiencia completa. Coste total: 8–12€/persona.</div>
+        <div class="ctags"><span class="tag tf">🍟 Almuerzo callejero</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Vleminckx+frites+Amsterdam" target="_blank" class="lnk lm">📍 Vleminckx Fritas</a><a href="https://maps.google.com/?q=haring+stand+Amsterdam+Centraal" target="_blank" class="lnk lgy">📍 Puestos Haring</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s4" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s4')"><span class="exp-unit">€</span><select id="pay-d2-s4" class="pay-sel" onchange="saveExp('d2-s4')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s4" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s4')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s4')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s4"></div></div>
+        <div class="ced" id="ced-d2-s4"><input class="ef" data-f="time" value="14:00"><input class="ef" data-f="name" value="🍟 Almuerzo callejero — Patat + Haring"><textarea class="ef" data-f="desc">Vleminckx (fritas) + puesto de haring. 8–12€/persona.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Vleminckx+frites+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s4')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🚶</span><span>Desde Spui / zona centro hasta la Casa de Ana Frank: <strong>15 min a pie</strong> por el Prinsengracht — uno de los paseos más bonitos</span></div>
+      <div class="trn-step"><span class="trn-ico">⏰</span><span>Llevar el QR de la entrada descargado — acceso directo sin cola. Llegad 5 min antes de vuestra hora de entrada</span></div>
+    </div>
+
+    <div class="ti" id="d2-s5">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">15:00</span><span class="cn">🏠 Casa de Ana Frank — Anne Frank Huis</span><button type="button" class="eico" onclick="OE('d2-s5')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s5')">⬜</button></div>
+        <div class="cd">Una de las visitas más emocionantes de Europa. El escondite donde Ana Frank y su familia se ocultaron durante la ocupación nazi (1942–1944). La visita dura <strong>1–1.5h</strong>. Se recorre la casa sin hablar en voz alta — es un lugar muy íntimo. <strong>Precio: 14€ · SOLO con reserva previa</strong> en annefrank.org. Prohibido fotografiar en el interior. Muy recomendable leer el diario antes de ir.</div>
+        <div class="ctags"><span class="tag tw">🏛️ Historia</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Anne+Frank+House+Amsterdam" target="_blank" class="lnk lm">📍 Ana Frank</a><a href="https://www.annefrank.org" target="_blank" class="lnk lgy">🎟 Reservar</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s5" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s5')"><span class="exp-unit">€</span><select id="pay-d2-s5" class="pay-sel" onchange="saveExp('d2-s5')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s5" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s5')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s5')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s5"></div></div>
+        <div class="ced" id="ced-d2-s5"><input class="ef" data-f="time" value="15:00"><input class="ef" data-f="name" value="🏠 Casa de Ana Frank"><textarea class="ef" data-f="desc">14€ con reserva. Duración 1–1.5h. Prohibido fotografiar interior.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Anne+Frank+House+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s5')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s5')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s5')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 5 min hasta embarcadero canal boat</div></div>
+
+    <div class="ti" id="d2-s6">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">17:00</span><span class="cn">🛶 Canal Boat Tour — Paseo en barco al atardecer</span><button type="button" class="eico" onclick="OE('d2-s6')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s6')">⬜</button></div>
+        <div class="cd">1h de paseo por los canales en barco con techo de cristal. La luz de septiembre al atardecer es preciosa. Embarcaderos junto a Centraal y junto a la Casa de Ana Frank. Compañías: <strong>Blue Boat Company</strong> o <strong>Lovers Canal Cruises</strong> (~14–18€/persona). Comprad online en GetYourGuide o directamente en taquilla. Salen cada 30 min — si está lleno el siguiente es en 30 min.</div>
+        <div class="ctags"><span class="tag te">🛶 Barco</span><span class="tag tt">🌅 Atardecer</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Blue+Boat+Company+Amsterdam" target="_blank" class="lnk lm">📍 Blue Boat Co.</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s6" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s6')"><span class="exp-unit">€</span><select id="pay-d2-s6" class="pay-sel" onchange="saveExp('d2-s6')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s6" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s6')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s6')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s6"></div></div>
+        <div class="ced" id="ced-d2-s6"><input class="ef" data-f="time" value="17:00"><input class="ef" data-f="name" value="🛶 Canal Boat Tour"><textarea class="ef" data-f="desc">1h · 14–18€/persona. Blue Boat o Lovers. Embarcadero junto a Centraal o Ana Frank.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Blue+Boat+Company+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s6')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s6')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s6')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · De Wallen · 10 min</div></div>
+
+    <div class="ti" id="d2-s7">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">18:30</span><span class="cn">🌙 De Wallen — Barrio Rojo (paseo histórico)</span><button type="button" class="eico" onclick="OE('d2-s7')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s7')">⬜</button></div>
+        <div class="cd">El Barrio Rojo es también el <strong>centro histórico más antiguo</strong> de Ámsterdam (s. XIII). La <strong>Oude Kerk</strong> (iglesia del s. XIII rodeada de ventanas rojas) es una de las imágenes más icónicas. Al anochecer con las luces de neón es una experiencia única. <strong>Reglas básicas:</strong> no fotografiéis los escaparates (multa y confiscación del móvil), no bloquéis el paso, id en grupo. Hay también bares y restaurantes estupendos en la zona.</div>
+        <div class="ctags"><span class="tag tw">🌙 Nocturno</span><span class="tag te">🏛️ Historia</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=De+Wallen+Amsterdam" target="_blank" class="lnk lm">📍 De Wallen</a><a href="https://maps.google.com/?q=Oude+Kerk+Amsterdam" target="_blank" class="lnk lgy">⛪ Oude Kerk</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s7" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s7')"><span class="exp-unit">€</span><select id="pay-d2-s7" class="pay-sel" onchange="saveExp('d2-s7')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s7" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s7')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s7')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s7"></div></div>
+        <div class="ced" id="ced-d2-s7"><input class="ef" data-f="time" value="18:30"><input class="ef" data-f="name" value="🌙 De Wallen — Barrio Rojo"><textarea class="ef" data-f="desc">Centro histórico más antiguo. No fotografiéis los escaparates. Oude Kerk imprescindible.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=De+Wallen+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s7')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s7')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s7')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="hotel-dinner">
+      <div class="hotel-dinner-title">🍽️ Opción cena Noche 2 — la gran noche en Ámsterdam</div>
+      <div class="hotel-dinner-item"><span>🚢</span><span><strong>Pllek (Amsterdam Noord):</strong> restaurante en un barco reconvertido con vistas al puerto. Ambiente alternativo y precioso. Ir en ferry gratuito desde Centraal (10 min). Reservad para 4. ~25–35€/persona.</span></div>
+      <div class="hotel-dinner-item"><span>🍴</span><span><strong>Café de Jaren:</strong> clásico holandés junto al canal Amstel, terraza preciosa. Comida holandesa y europea. ~20–28€/persona.</span></div>
+      <div class="hotel-dinner-item"><span>🏨</span><span><strong>Cenar en el apartamento:</strong> si estáis agotadas de la bici + museo + barco + barrio rojo — completamente válido. Pasta o lo que comprasteis. El día habrá sido intensísimo.</span></div>
+    </div>
+
+    <div class="ti" id="d2-s8">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">20:30</span><span class="cn">🍽️ Cena — Pllek, Café de Jaren o apartamento</span><button type="button" class="eico" onclick="OE('d2-s8')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s8')">⬜</button></div>
+        <div class="cd">Ver opciones en el cuadro de arriba. <strong>Vuelta al hotel:</strong> desde el centro coged el <strong>Bus 22 o 48</strong> dirección Houthaven desde Centraal. Última salida regular: <strong>00:30h</strong>. Después de medianoche: <strong>Bus nocturno N81</strong> desde Centraal (parada sur) — 5€ por trayecto, pago al conductor o con tarjeta.</div>
+        <div class="ctags"><span class="tag tf">🍽️ Cena</span><span class="tag tw">🌙 Vuelta al hotel</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Pllek+Amsterdam" target="_blank" class="lnk lm">📍 Pllek</a><a href="https://maps.google.com/?q=Cafe+de+Jaren+Amsterdam" target="_blank" class="lnk lgy">📍 Café de Jaren</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s8" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s8')"><span class="exp-unit">€</span><select id="pay-d2-s8" class="pay-sel" onchange="saveExp('d2-s8')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s8" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s8')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s8')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s8"></div></div>
+        <div class="ced" id="ced-d2-s8"><input class="ef" data-f="time" value="20:30"><input class="ef" data-f="name" value="🍽️ Cena Noche 2"><textarea class="ef" data-f="desc">Bus 22/48 de vuelta. Última salida regular 00:30h. Nocturno N81 después.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Pllek+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s8')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s8')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s8')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="addfrm" id="add-d2"><h4>➕ Añadir parada al Día 2</h4><label>Hora</label><input type="text" id="add-d2-time" placeholder="ej. 22:00"><label>Nombre</label><input type="text" id="add-d2-name" placeholder="ej. 🎵 Jazz club"><label>Descripción</label><textarea id="add-d2-desc"></textarea><label>Google Maps URL</label><input type="url" id="add-d2-map"><div class="afrm-acts"><button type="button" class="bs bsave" onclick="addStop('d2')">✅ Añadir</button><button type="button" class="bs bcanc" onclick="TAF('add-d2')">Cancelar</button></div></div>
+  <button type="button" class="addbtn" onclick="TAF('add-d2')">➕ Añadir parada al Día 2</button>
+</div>
+
+
+<!-- ═══ PAGE DÍA 3 — JUEVES 10 SEP ═══ -->
+<div class="pg" id="pg-d3">
+  <div class="dh">
+    <div class="dn">3</div>
+    <div><div class="dt">Jueves 10 Sep — Vuelta</div><div class="ds">Mañana libre · Check-out 12h · VY8350 AMS 14:55 🛫</div></div>
+  </div>
+
+  <div class="day-summary">
+    <div class="day-summary-title">📋 Resumen del día</div>
+    <div class="day-summary-items">
+      <div class="dsi"><span class="dsi-ico">🏨</span><span>Check-out antes de las 12:00 — haced maletas la noche anterior</span></div>
+      <div class="dsi"><span class="dsi-ico">☕</span><span>Desayuno en el apartamento con lo que quede del super</span></div>
+      <div class="dsi"><span class="dsi-ico">🛍️</span><span>Mañana: Albert Cuypmarkt (souvenirs + mercadillo)</span></div>
+      <div class="dsi"><span class="dsi-ico">🐟</span><span>Almuerzo rápido: haring callejero o bocadillo</span></div>
+      <div class="dsi"><span class="dsi-ico">🚆</span><span>Salid del hotel a las 12:30 → Bus 22/48 → Centraal → Tren Schiphol</span></div>
+      <div class="dsi"><span class="dsi-ico">✈️</span><span>VY8350 · AMS 14:55 → VLC 17:35 · Loc. XLZ7RZ</span></div>
+    </div>
+  </div>
+
+  <div class="alert alert-red">⚠️ <strong>Vuelo a las 14:55 — Plan de salida:</strong> estad en Schiphol a las <strong>12:30</strong> como muy tarde. Tren Centraal → Schiphol: 17 min. Bus hotel → Centraal: 10 min. Salid del hotel con maletas a las <strong>11:45</strong> para ir tranquilas.</div>
+
+  <div id="tl-d3" class="tl">
+
+    <div class="ti" id="d3-s1">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">08:00</span><span class="cn">🏨 Check-out — Último desayuno en el apartamento</span><button type="button" class="eico" onclick="OE('d3-s1')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s1')">⬜</button></div>
+        <div class="cd">Checkout de 08:00 a 12:00. <strong>Haced las maletas la noche anterior</strong> para no perder tiempo. Desayunad con lo que quede del supermercado — aprovechad la cocina por última vez. Dejad el apartamento limpio y comunicad a recepción. Podéis dejar el equipaje en recepción mientras exploráis la mañana.</div>
+        <div class="ctags"><span class="tag tw">🏨 Checkout</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam" target="_blank" class="lnk lm">📍 Hotel</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s1" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s1')"><span class="exp-unit">€</span><select id="pay-d3-s1" class="pay-sel" onchange="saveExp('d3-s1')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s1" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s1')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s1')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s1"></div></div>
+        <div class="ced" id="ced-d3-s1"><input class="ef" data-f="time" value="08:00"><input class="ef" data-f="name" value="🏨 Check-out · Desayuno en apartamento"><textarea class="ef" data-f="desc">Checkout antes de 12:00. Maletas la noche anterior. Dejar equipaje en recepción.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s1')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s1')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s1')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🚌</span><span>Desde hotel: <strong>Bus 22 o 48</strong> desde "Haparandaweg" → Centraal (7–10 min) → tranvía 9 o 14 dirección Pijp/Albert Cuyp (~15 min) o a pie por los canales (30 min, muy bonito)</span></div>
+      <div class="trn-step"><span class="trn-ico">📍</span><span>Bajad del tranvía en la parada <strong>"Albert Cuypstraat"</strong> — el mercado llena toda la calle</span></div>
+    </div>
+
+    <div class="ti" id="d3-s2">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">09:30</span><span class="cn">🛍️ Albert Cuypmarkt — Mercado más grande de Holanda</span><button type="button" class="eico" onclick="OE('d3-s2')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s2')">⬜</button></div>
+        <div class="cd">El mercado callejero más grande y animado de Holanda (lunes a sábado, hasta las 17h). Llena la Albert Cuypstraat con más de 300 puestos. Aquí encontraréis: <strong>stroopwafels calientes</strong> recién hechos (probadlos aquí, son los mejores), quesos gouda, ropa, flores, souvenirs auténticos más baratos que en el centro, fruta y marisco. La zona del Barrio Pijp tiene también cafeterías muy bonitas para un café rápido.</div>
+        <div class="ctags"><span class="tag te">🛍️ Mercado</span><span class="tag tf">🧇 Stroopwafels</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Albert+Cuypmarkt+Amsterdam" target="_blank" class="lnk lm">📍 Albert Cuypmarkt</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s2" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s2')"><span class="exp-unit">€</span><select id="pay-d3-s2" class="pay-sel" onchange="saveExp('d3-s2')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s2" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s2')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s2')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s2"></div></div>
+        <div class="ced" id="ced-d3-s2"><input class="ef" data-f="time" value="09:30"><input class="ef" data-f="name" value="🛍️ Albert Cuypmarkt"><textarea class="ef" data-f="desc">300+ puestos. Stroopwafels calientes, quesos, souvenirs. Tranvía 9/14 → Albert Cuypstraat.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Albert+Cuypmarkt+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s2')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s2')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s2')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · Zona de almuerzo rápido · 5 min</div></div>
+
+    <div class="ti" id="d3-s3">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">11:30</span><span class="cn">🐟 Último almuerzo — Haring o broodje kroket</span><button type="button" class="eico" onclick="OE('d3-s3')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s3')">⬜</button></div>
+        <div class="cd">El último sabor holandés antes de volar. El <strong>haring</strong> (arenque con cebollita) en el mercado Albert Cuyp está entre los más frescos y baratos (3–4€). O un <strong>broodje kroket</strong> (bocadillo de croqueta) en cualquier bakkerij del barrio. Rápido, barato y sabroso — perfecto para ir con tiempo al aeropuerto.</div>
+        <div class="ctags"><span class="tag tf">🐟 Almuerzo rápido</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=haring+Albert+Cuypmarkt+Amsterdam" target="_blank" class="lnk lm">📍 Haring en el mercado</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s3')"><span class="exp-unit">€</span><select id="pay-d3-s3" class="pay-sel" onchange="saveExp('d3-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s3')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s3"></div></div>
+        <div class="ced" id="ced-d3-s3"><input class="ef" data-f="time" value="11:30"><input class="ef" data-f="name" value="🐟 Último almuerzo — Haring o broodje"><textarea class="ef" data-f="desc">Haring en el mercado o broodje kroket. 3–5€. Rápido para no perder tiempo.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=haring+Albert+Cuypmarkt+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s3')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">🏨</span><span>Volved al hotel a recoger maletas: <strong>tranvía 9/14</strong> → Centraal + Bus 22/48 → Haparandaweg · total ~20 min</span></div>
+      <div class="trn-step"><span class="trn-ico">⏰</span><span><strong>Salid del hotel a las 11:45</strong> con maletas. Bus 22/48 desde Haparandaweg → Centraal (10 min)</span></div>
+      <div class="trn-step"><span class="trn-ico">🚆</span><span>Desde Centraal: tren directo a <strong>Schiphol</strong> · 17 min · salidas cada 10 min · ~6€/persona · tocad tarjeta contactless en el torniquete</span></div>
+      <div class="trn-step"><span class="trn-ico">✈️</span><span>Llegada a Schiphol: <strong>12:30</strong> · vuelo a las 14:55 · tenéis 2h25 para facturar y pasar seguridad</span></div>
+    </div>
+
+    <div class="ti" id="d3-s4">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">11:45</span><span class="cn">🧳 Recoger maletas y salida a Schiphol</span><button type="button" class="eico" onclick="OE('d3-s4')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s4')">⬜</button></div>
+        <div class="cd">Recoged las maletas en recepción. <strong>Ruta al aeropuerto: Bus 22/48 desde Haparandaweg → Centraal (10 min) → Tren a Schiphol (17 min)</strong>. Total: ~35 min puerta a puerta. Schiphol es muy grande — seguridad tarda 20–30 min, id a la terminal con tiempo. Vueling sale de la <strong>Terminal Schengen (T2/T3)</strong>.</div>
+        <div class="ctags"><span class="tag tt">🚆 Schiphol</span></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s4" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s4')"><span class="exp-unit">€</span><select id="pay-d3-s4" class="pay-sel" onchange="saveExp('d3-s4')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s4" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s4')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s4')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s4"></div></div>
+        <div class="ced" id="ced-d3-s4"><input class="ef" data-f="time" value="11:45"><input class="ef" data-f="name" value="🧳 Salida a Schiphol"><textarea class="ef" data-f="desc">Bus 22/48 → Centraal (10 min) → Tren Schiphol (17 min). Llegar a las 12:30.</textarea><input class="ef" data-f="map" value=""><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s4')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚆 <strong>Tren Centraal → Schiphol</strong> · 17 min · ~6€/persona · cada 10 min</div></div>
+
+    <div class="ti" id="d3-s5">
+      <div class="tdot"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">14:55</span><span class="cn">🛫 VY8350 — AMS → VLC · ¡Hasta la próxima!</span><button type="button" class="eico" onclick="OE('d3-s5')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s5')">⬜</button></div>
+        <div class="cd">Vueling <strong>VY8350</strong> · AMS 14:55 → VLC 17:35 · 2h40 · Localizador <strong>XLZ7RZ</strong>. Llegáis a Valencia por la tarde. Misión cumplida — Ámsterdam en el corazón 🇳🇱🧡</div>
+        <div class="ctags"><span class="tag tt">✈️ Vuelta a Valencia</span></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Amsterdam+Airport+Schiphol" target="_blank" class="lnk lm">📍 Schiphol</a></div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s5" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s5')"><span class="exp-unit">€</span><select id="pay-d3-s5" class="pay-sel" onchange="saveExp('d3-s5')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s5" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s5')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s5')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s5"></div></div>
+        <div class="ced" id="ced-d3-s5"><input class="ef" data-f="time" value="14:55"><input class="ef" data-f="name" value="🛫 VY8350 — AMS → VLC"><textarea class="ef" data-f="desc">Vueling VY8350 · Loc. XLZ7RZ · Llegada VLC 17:35.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Amsterdam+Airport+Schiphol"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s5')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s5')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s5')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="addfrm" id="add-d3"><h4>➕ Añadir parada al Día 3</h4><label>Hora</label><input type="text" id="add-d3-time" placeholder="ej. 10:00"><label>Nombre</label><input type="text" id="add-d3-name" placeholder="ej. 🏛️ Stedelijk Museum"><label>Descripción</label><textarea id="add-d3-desc"></textarea><label>Google Maps URL</label><input type="url" id="add-d3-map"><div class="afrm-acts"><button type="button" class="bs bsave" onclick="addStop('d3')">✅ Añadir</button><button type="button" class="bs bcanc" onclick="TAF('add-d3')">Cancelar</button></div></div>
+  <button type="button" class="addbtn" onclick="TAF('add-d3')">➕ Añadir parada al Día 3</button>
+</div>
+
+<!-- ═══ PAGE ÁLBUM ═══ -->
+<div class="pg" id="pg-alb">
+  <div class="sec">📸 Álbum del viaje</div>
+  <div style="font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:12px;line-height:1.5;">Toca una foto para ampliarla. Las fotos se sincronizan entre los 4 móviles vía Cloudinary.</div>
+  <div id="alb-content"><div class="alb-empty">📷 Aún no hay fotos ni vídeos.<br>Usa el botón 📷🎥 en cualquier parada del itinerario.</div></div>
+
+  <div class="sec">🗺️ Links útiles</div>
+  <div class="mapsec">
+    <div class="map-links-box">
+      <div class="map-links-title">📍 Lugares en Google Maps</div>
+      <a href="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam" target="_blank" class="map-direct-btn">🏨 Hotel Houthavens</a>
+      <a href="https://maps.google.com/?q=Amsterdam+Centraal+Station" target="_blank" class="map-direct-btn">🚉 Amsterdam Centraal</a>
+      <a href="https://maps.google.com/?q=Jordaan+Amsterdam" target="_blank" class="map-direct-btn">🌸 Barrio Jordaan</a>
+      <a href="https://maps.google.com/?q=Anne+Frank+House+Amsterdam" target="_blank" class="map-direct-btn">🏠 Casa de Ana Frank</a>
+      <a href="https://maps.google.com/?q=Museumplein+Amsterdam" target="_blank" class="map-direct-btn">🎨 Museumplein</a>
+      <a href="https://maps.google.com/?q=Bloemenmarkt+Amsterdam" target="_blank" class="map-direct-btn">🌷 Bloemenmarkt</a>
+      <a href="https://maps.google.com/?q=De+Wallen+Amsterdam" target="_blank" class="map-direct-btn">🌙 De Wallen (Barrio Rojo)</a>
+      <a href="https://maps.google.com/?q=Albert+Cuypmarkt+Amsterdam" target="_blank" class="map-direct-btn">🛍️ Albert Cuypmarkt</a>
+      <a href="https://maps.google.com/?q=Vondelpark+Amsterdam" target="_blank" class="map-direct-btn">🌳 Vondelpark</a>
+      <a href="https://maps.google.com/?q=Amsterdam+Airport+Schiphol" target="_blank" class="map-direct-btn">✈️ Aeropuerto Schiphol</a>
+    </div>
+  </div>
+
+  <div class="sec">☁️ Cloudinary — Todas las fotos</div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+    <a href="https://collection.cloudinary.com/dtjgzeezk/07c494c30c3aa27229affe11a617ec81" target="_blank" style="display:flex;align-items:center;gap:12px;background:rgba(84,230,181,.1);border:1px solid rgba(84,230,181,.3);border-radius:13px;padding:14px 16px;text-decoration:none;">
+      <span style="font-size:2rem;flex-shrink:0;">🖼️</span>
+      <span>
+        <span style="display:block;font-size:.85rem;font-weight:800;color:#fff;">Galería pública del viaje</span>
+        <span style="display:block;font-size:.7rem;color:rgba(255,255,255,.55);margin-top:2px;">Ver todas las fotos sin login · Comparte con familia y amigos</span>
+      </span>
+      <span style="margin-left:auto;color:var(--grn);font-size:1.1rem;">→</span>
+    </a>
+    <a href="https://console.cloudinary.com/console/c-dtjgzeezk/media_library/folders/amsterdam2026" target="_blank" style="display:flex;align-items:center;gap:12px;background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.25);border-radius:13px;padding:14px 16px;text-decoration:none;">
+      <span style="font-size:2rem;flex-shrink:0;">☁️</span>
+      <span>
+        <span style="display:block;font-size:.85rem;font-weight:800;color:#fff;">Media Library amsterdam2026</span>
+        <span style="display:block;font-size:.7rem;color:rgba(255,255,255,.55);margin-top:2px;">Gestionar fotos · Requiere login con la cuenta</span>
+      </span>
+      <span style="margin-left:auto;color:var(--gl);font-size:1.1rem;">→</span>
+    </a>
+  </div>
+
+  <div class="sec">⚙️ Opciones</div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+    <button type="button" onclick="resetAll()" style="background:rgba(255,107,129,.15);border:1px solid rgba(255,107,129,.3);color:#FFB6C2;border-radius:10px;padding:10px 14px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;">🗑️ Borrar todos los datos del viaje</button>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="mlb">
+  <button type="button" class="mlb-x" onclick="mlbClose()">✕</button>
+  <div id="mlb-media"></div>
+  <div class="mlb-cap" id="mlb-cap"></div>
+  <div class="mlb-info" id="mlb-info"></div>
+</div>
+
+<!-- Media picker -->
+<div class="media-picker" id="media-picker">
+  <div class="media-picker-bg" onclick="pickerClose()"></div>
+  <div class="media-picker-sheet">
+    <div class="media-picker-title">Añadir foto o vídeo</div>
+    <div class="media-picker-opts">
+      <button type="button" class="media-picker-opt" onclick="pickerCamera()">
+        <span class="media-picker-opt-ico">📷</span>
+        <span><span class="media-picker-opt-txt">Hacer foto / vídeo</span><br><span class="media-picker-opt-sub">Usar la cámara del móvil</span></span>
+      </button>
+      <button type="button" class="media-picker-opt" onclick="pickerLibrary()">
+        <span class="media-picker-opt-ico">🖼️</span>
+        <span><span class="media-picker-opt-txt">Elegir de la galería</span><br><span class="media-picker-opt-sub">Seleccionar archivo existente</span></span>
+      </button>
+    </div>
+    <button type="button" class="media-picker-cancel" onclick="pickerClose()">Cancelar</button>
+  </div>
+  <input type="file" id="media-file-camera" accept="image/*,video/*" capture="environment" style="display:none;">
+  <input type="file" id="media-file-library" accept="image/*,video/*" style="display:none;">
+</div>
+
+
+<!-- ═══ PAGE GASTOS ═══ -->
+<div class="pg" id="pg-exp">
+  <div class="sec">💶 Gastos del viaje — 4 viajeras</div>
+  <button type="button" class="recalc-btn" onclick="calcExp()">🔄 Actualizar totales</button>
+  <div id="exp-pairs"></div>
+  <div class="exp-summary">
+    <div class="exp-sumhdr">📋 Desglose por actividad</div>
+    <div style="overflow-x:auto;">
+      <table class="exp-table">
+        <thead><tr><th>Parada</th><th>Total</th><th>Pagó</th><th style="color:var(--c-nu);">Nuria</th><th style="color:var(--c-is);">Isabel</th><th style="color:var(--c-be);">Beatriz</th><th style="color:var(--c-mi);">Michelle</th></tr></thead>
+        <tbody id="exp-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+var S = {done:{}, edits:{}, exps:{}, payer:{}, notes:{}, photos:{}};
+
+// ── Cloudinary ──
+var CLD_CLOUD  = 'dtjgzeezk';
+var CLD_PRESET = 'Amsterdam26';
+var CLD_CONFIGURED = (CLD_CLOUD.indexOf('PEGAR')===-1 && CLD_PRESET.indexOf('PEGAR')===-1);
+var CLD_URL = 'https://api.cloudinary.com/v1_1/'+CLD_CLOUD+'/image/upload';
+var CLD_VID = 'https://api.cloudinary.com/v1_1/'+CLD_CLOUD+'/video/upload';
+
+// ── JSONBin ──
+var JSONBIN_ID  = '6a6243c5f5f4af5e29b7329e';
+var JSONBIN_KEY = '$2a$10$vFbnhWMCDqkb4eHXuuPjyOmhB88kcnaQjTnU/zfXL53RdRIcQpx56';
+var JSONBIN_URL = 'https://api.jsonbin.io/v3/b/' + JSONBIN_ID;
+var saveTimer   = null;
+var CONFIGURED  = (JSONBIN_ID.indexOf('PEGAR') === -1 && JSONBIN_KEY.indexOf('PEGAR') === -1);
+
+function setSyncStatus(st){
+  var el = document.getElementById('sync-dot');
+  var tx = document.getElementById('sync-txt');
+  var map = {
+    loading:{bg:'#888',    txt:'Cargando datos...'},
+    ok:     {bg:'#54E6B5', txt:'✅ Guardado — las 4 ven los cambios'},
+    saving: {bg:'#FFB347', txt:'💾 Guardando...'},
+    error:  {bg:'#FF6B81', txt:'⚠️ Sin conexión — datos locales'},
+    local:  {bg:'#6FA8FF', txt:'📱 Modo local · Configura JSONBin para sincronizar'}
+  };
+  var m = map[st] || map.local;
+  if(el) el.style.background = m.bg;
+  if(tx) tx.textContent = m.txt;
+}
+
+function lsLoad(){
+  if(!CONFIGURED){ loadFromLS(); return; }
+  setSyncStatus('loading');
+  fetch(JSONBIN_URL + '/latest', {headers:{'X-Master-Key':JSONBIN_KEY}})
+  .then(function(r){ return r.json(); })
+  .then(function(data){ applyState(data.record || {}); setSyncStatus('ok'); })
+  .catch(function(){ loadFromLS(); setSyncStatus('error'); });
+}
+
+function lsSave(){
+  try{ localStorage.setItem('ams26', JSON.stringify(S)); } catch(e){}
+  if(!CONFIGURED){ setSyncStatus('local'); return; }
+  clearTimeout(saveTimer);
+  setSyncStatus('saving');
+  saveTimer = setTimeout(function(){
+    fetch(JSONBIN_URL, {
+      method:'PUT',
+      headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},
+      body:JSON.stringify(S)
+    })
+    .then(function(){ setSyncStatus('ok'); })
+    .catch(function(){ setSyncStatus('error'); });
+  }, 800);
+}
+
+function loadFromLS(){
+  try{
+    var d = localStorage.getItem('ams26');
+    applyState(d ? JSON.parse(d) : {});
+  } catch(e){ applyState({}); }
+  setSyncStatus(CONFIGURED ? 'error' : 'local');
+}
+
+function ST(id){
+  var pages = document.querySelectorAll('.pg');
+  var tabs  = document.querySelectorAll('.tb');
+  for(var i=0;i<pages.length;i++) pages[i].classList.remove('on');
+  for(var i=0;i<tabs.length;i++)  tabs[i].classList.remove('on');
+  var p = document.getElementById('pg-'+id);
+  var t = document.getElementById('tb-'+id);
+  if(p) p.classList.add('on');
+  if(t) t.classList.add('on');
+  try{ window.scrollTo(0,0); } catch(e){}
+  if(id==='exp') calcExp();
+  if(id==='alb') renderAlbum();
+}
+
+function CD(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.classList.toggle('dn2');
+  var btn = el.querySelector('.ckb');
+  if(btn) btn.textContent = el.classList.contains('dn2') ? '✅' : '⬜';
+  S.done[id] = el.classList.contains('dn2');
+  lsSave();
+  updProg();
+}
+
+function OE(id){
+  closeAllEdits();
+  var ed = document.getElementById('ced-'+id);
+  if(ed){ ed.classList.add('op'); ed.style.display='block'; }
+}
+function CE(id){
+  var ed = document.getElementById('ced-'+id);
+  if(ed){ ed.classList.remove('op'); ed.style.display=''; }
+}
+function closeAllEdits(){
+  var eds = document.querySelectorAll('.ced');
+  for(var i=0;i<eds.length;i++){ eds[i].classList.remove('op'); eds[i].style.display=''; }
+}
+function SE(id){
+  var el = document.getElementById(id);
+  var ed = document.getElementById('ced-'+id);
+  if(!el||!ed) return;
+  var tf = ed.querySelector('[data-f="time"]');
+  var nf = ed.querySelector('[data-f="name"]');
+  var df = ed.querySelector('[data-f="desc"]');
+  var mf = ed.querySelector('[data-f="map"]');
+  if(tf){ var ct=el.querySelector('.ct'); if(ct) ct.textContent=tf.value; }
+  if(nf){ var cn=el.querySelector('.cn'); if(cn) cn.textContent=nf.value; }
+  if(df){ var cd=el.querySelector('.cd'); if(cd) cd.textContent=df.value; }
+  if(mf && mf.value){
+    var lnks=el.querySelector('.clnks');
+    if(!lnks){ lnks=document.createElement('div'); lnks.className='clnks'; el.querySelector('.tc').appendChild(lnks); }
+    var ex=lnks.querySelector('.lm');
+    if(ex){ ex.href=mf.value; } else { var a=document.createElement('a'); a.href=mf.value; a.target='_blank'; a.className='lnk lm'; a.textContent='📍 Maps'; lnks.appendChild(a); }
+  }
+  if(!S.edits) S.edits={};
+  S.edits[id]={time:tf?tf.value:'',name:nf?nf.value:'',desc:df?df.value:''};
+  lsSave();
+  CE(id);
+}
+function DEL(id){
+  if(!confirm('¿Eliminar esta parada?')) return;
+  var el = document.getElementById(id);
+  var prev = el ? el.previousElementSibling : null;
+  if(el) el.remove();
+  if(prev && prev.classList.contains('trn')) prev.remove();
+  if(S.done)  delete S.done[id];
+  if(S.edits) delete S.edits[id];
+  if(S.exps)  delete S.exps[id];
+  if(S.payer) delete S.payer[id];
+  if(S.notes) delete S.notes[id];
+  if(S.photos)delete S.photos[id];
+  lsSave();
+  updProg();
+}
+
+function saveExp(id){
+  var inp  = document.getElementById('exp-'+id);
+  var sel  = document.getElementById('pay-'+id);
+  var note = document.getElementById('note-'+id);
+  if(!S.exps) S.exps={};
+  if(!S.payer) S.payer={};
+  if(!S.notes) S.notes={};
+  S.exps[id]  = inp ? inp.value : '';
+  S.payer[id] = sel ? sel.value : 'split';
+  S.notes[id] = note ? note.value : '';
+  lsSave();
+}
+
+function TAF(id){
+  var el = document.getElementById(id);
+  if(el) el.classList.toggle('op');
+}
+function addStop(day){
+  var t = document.getElementById('add-'+day+'-time').value;
+  var n = document.getElementById('add-'+day+'-name').value;
+  var d = document.getElementById('add-'+day+'-desc').value;
+  var m = document.getElementById('add-'+day+'-map').value;
+  if(!n){ alert('Pon al menos un nombre para la parada'); return; }
+  var tl = document.getElementById('tl-'+day);
+  if(!tl) return;
+  var uid = day+'-'+Date.now();
+  var payerOpts = '<option value="split">÷4</option><option value="nu">Paga Nuria</option><option value="is">Paga Isabel</option><option value="be">Paga Beatriz</option><option value="mi">Paga Michelle</option>';
+  var html = '<div class="ti" id="'+uid+'">'
+    +'<div class="tdot"></div><div class="tc">'
+    +'<div class="cr1"><span class="ct">'+(t||'')+'</span><span class="cn">'+n+'</span>'
+    +'<button type="button" class="eico" onclick="OE(\''+uid+'\')">✏️</button>'
+    +'<button type="button" class="ckb" onclick="CD(\''+uid+'\')">⬜</button></div>'
+    +(d?'<div class="cd">'+d+'</div>':'')
+    +(m?'<div class="clnks"><a href="'+m+'" target="_blank" class="lnk lm">📍 Maps</a></div>':'')
+    +'<div class="exp-row"><span class="exp-lbl">💶 Gasto:</span>'
+    +'<input type="number" class="exp-inp" id="exp-'+uid+'" placeholder="0.00" min="0" step="0.01" onchange="saveExp(\''+uid+'\')">'
+    +'<span class="exp-unit">€</span>'
+    +'<select id="pay-'+uid+'" class="pay-sel" onchange="saveExp(\''+uid+'\')">'+payerOpts+'</select>'
+    +'<input type="text" id="note-'+uid+'" class="exp-note-inp" placeholder="nota..." onchange="saveExp(\''+uid+'\')"></div>'
+    +'<div class="media-section"><div class="media-btns">'
+    +'<button type="button" class="media-btn" onclick="pickerOpen(\''+uid+'\')">📷🎥 Foto / Vídeo</button>'
+    +'</div><div id="pc-'+uid+'"></div></div>'
+    +'<div class="ced" id="ced-'+uid+'">'
+    +'<input class="ef" data-f="time" value="'+(t||'')+'">'
+    +'<input class="ef" data-f="name" value="'+n+'">'
+    +'<textarea class="ef" data-f="desc">'+d+'</textarea>'
+    +'<input class="ef" data-f="map" value="'+(m||'')+'">'
+    +'<div class="eas"><button type="button" class="bs bsave" onclick="SE(\''+uid+'\')">✅ Guardar</button>'
+    +'<button type="button" class="bs bcanc" onclick="CE(\''+uid+'\')">Cancelar</button>'
+    +'<button type="button" class="bs bdel" onclick="DEL(\''+uid+'\')">🗑 Eliminar</button></div>'
+    +'</div></div></div>';
+  tl.insertAdjacentHTML('beforeend', html);
+  ['add-'+day+'-time','add-'+day+'-name','add-'+day+'-desc','add-'+day+'-map'].forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
+  TAF('add-'+day);
+  updProg();
+  lsSave();
+}
+
+// ─── MEDIA PICKER ───
+var _pickerSid = null;
+function pickerOpen(sid){
+  _pickerSid = sid;
+  var p = document.getElementById('media-picker');
+  if(p) p.classList.add('on');
+}
+function pickerClose(){
+  var p = document.getElementById('media-picker');
+  if(p) p.classList.remove('on');
+}
+function pickerCamera(){
+  var sid = _pickerSid;
+  var inp = document.getElementById('media-file-camera');
+  pickerClose();
+  if(!inp) return;
+  inp.onchange = function(){ handleMediaFile(sid, inp.files[0]); inp.value=''; };
+  inp.click();
+}
+function pickerLibrary(){
+  var sid = _pickerSid;
+  var inp = document.getElementById('media-file-library');
+  pickerClose();
+  if(!inp) return;
+  inp.onchange = function(){ handleMediaFile(sid, inp.files[0]); inp.value=''; };
+  inp.click();
+}
+
+function handleMediaFile(sid, file){
+  if(!file || !sid) return;
+  var isVideo = file.type.indexOf('video')===0;
+  if(!CLD_CONFIGURED){
+    var localUrl = URL.createObjectURL(file);
+    storeMedia(sid, {url:localUrl, video:isVideo, local:true, day:sid.split('-')[0], time:new Date().toLocaleTimeString()});
+    return;
+  }
+  var fd = new FormData();
+  fd.append('file', file);
+  fd.append('upload_preset', CLD_PRESET);
+  fd.append('folder', 'amsterdam2026/'+sid);
+  var endpoint = isVideo ? CLD_VID : CLD_URL;
+  fetch(endpoint, {method:'POST', body:fd})
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(d.secure_url){
+      storeMedia(sid, {url:d.secure_url, video:isVideo, local:false, day:sid.split('-')[0], time:new Date().toLocaleTimeString()});
+    } else {
+      alert('Error subiendo la foto. Comprueba que el preset está en modo Unsigned.');
+      console.error('[Cloudinary]', d.error ? d.error.message : d);
+    }
+  }).catch(function(e){ alert('Sin conexión al subir. Inténtalo de nuevo.'); console.error(e); });
+}
+
+function storeMedia(sid, item){
+  if(!S.photos) S.photos={};
+  if(!S.photos[sid]) S.photos[sid]=[];
+  item.ts = new Date().toLocaleDateString();
+  S.photos[sid].push(item);
+  lsSave();
+  renderMediaCarousel(sid);
+}
+
+function mediaDelete(sid, idx){
+  if(!S.photos || !S.photos[sid]) return;
+  S.photos[sid].splice(idx,1);
+  lsSave();
+  renderMediaCarousel(sid);
+}
+
+function renderMediaCarousel(sid){
+  var pc = document.getElementById('pc-'+sid);
+  if(!pc) return;
+  var items = (S.photos && S.photos[sid]) || [];
+  if(!items.length){ pc.innerHTML=''; return; }
+  var cls = items.length>1 ? 'many' : 'one';
+  var slides = items.map(function(p,i){
+    var thumb, playIcon='';
+    if(p.video){
+      thumb = p.local ? '' : p.url.replace('/video/upload/','/video/upload/w_400,h_300,c_fill,so_0/').replace(/\.\w+$/,'.jpg');
+      playIcon = '<div class="media-play"><span>▶️</span></div>';
+    } else {
+      thumb = p.local ? p.url : p.url.replace('/upload/','/upload/w_400,h_300,c_fill/');
+    }
+    var badge = p.local ? '<div class="media-badge">LOCAL</div>' : '';
+    var content = (p.video && p.local)
+      ? '<video src="'+p.url+'" preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>'
+      : '<img src="'+(thumb||p.url)+'" loading="lazy" alt="">';
+    return '<div class="media-slide" onclick="mlbOpen(\''+sid+'\','+i+')">'
+      +content+badge+playIcon
+      +'<div class="media-slide-cap">'+(p.video?'🎥 ':'📷 ')+(p.day||'')+(p.time?' · '+p.time:'')+'</div>'
+      +'<button class="media-del" onclick="event.stopPropagation();mediaDelete(\''+sid+'\','+i+')">✕</button>'
+      +'</div>';
+  }).join('');
+  var dots = items.length>1
+    ? '<div class="media-dots">'+items.map(function(_,i){ return '<div class="media-dot'+(i===0?' on':'')+'" id="mdot-'+sid+'-'+i+'"></div>'; }).join('')+'</div>'
+    : '';
+  pc.innerHTML = '<div class="media-carousel '+cls+'" onscroll="updMDots(\''+sid+'\')">'
+    +slides+'</div>'+dots;
+}
+
+function updMDots(sid){
+  var cr = document.querySelector('#pc-'+sid+' .media-carousel');
+  if(!cr) return;
+  var slides = cr.querySelectorAll('.media-slide');
+  if(slides.length<2) return;
+  var idx = Math.round(cr.scrollLeft / (slides[0].offsetWidth+8));
+  slides.forEach(function(_,i){
+    var d = document.getElementById('mdot-'+sid+'-'+i);
+    if(d) d.classList.toggle('on', i===idx);
+  });
+}
+
+function mlbOpen(sid, idx){
+  var p = ((S.photos&&S.photos[sid])||[])[idx];
+  if(!p) return;
+  var wrap = document.getElementById('mlb-media');
+  if(p.video){
+    wrap.innerHTML = '<video id="mlb-vid" src="'+p.url+'" controls autoplay playsinline style="max-width:100%;max-height:72vh;border-radius:10px;outline:none;"></video>';
+  } else {
+    wrap.innerHTML = '<img src="'+p.url+'" alt="">';
+  }
+  document.getElementById('mlb-cap').textContent  = p.stop || '';
+  document.getElementById('mlb-info').textContent = (p.video?'🎥 Vídeo':'📷 Foto')+' · '+(p.day||'')+(p.time?' · '+p.time:'')+(p.ts?' · '+p.ts:'');
+  document.getElementById('mlb').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function mlbClose(){
+  var v = document.getElementById('mlb-vid');
+  if(v) v.pause();
+  document.getElementById('mlb-media').innerHTML='';
+  document.getElementById('mlb').classList.remove('on');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') mlbClose(); });
+
+function renderAlbum(){
+  var el = document.getElementById('alb-content');
+  if(!el) return;
+  var ph = S.photos || {};
+  if(!Object.keys(ph).length){
+    el.innerHTML='<div class="alb-empty">📷 Aún no hay fotos ni vídeos.<br>Usa el botón 📷🎥 en cualquier parada del itinerario.</div>';
+    return;
+  }
+  var order  = ['d1','d2','d3'];
+  var dnames = {d1:'Martes 8 Sep ✈️', d2:'Miércoles 9 Sep 🚲', d3:'Jueves 10 Sep 🛫'};
+  var byDay  = {};
+  Object.keys(ph).forEach(function(sid){
+    var day = sid.split('-')[0];
+    if(!byDay[day]) byDay[day]=[];
+    ph[sid].forEach(function(p,i){ byDay[day].push({p:p,sid:sid,i:i}); });
+  });
+  var out='';
+  order.forEach(function(day){
+    if(!byDay[day]||!byDay[day].length) return;
+    out+='<div class="sec">'+(dnames[day]||day)+'</div><div class="alb-grid">';
+    byDay[day].forEach(function(item){
+      var p=item.p, thumb, playIcon='';
+      if(p.video){
+        thumb = p.local ? '' : p.url.replace('/video/upload/','/video/upload/w_300,h_300,c_fill,so_0/').replace(/\.\w+$/,'.jpg');
+        playIcon='<div class="media-play"><span>▶️</span></div>';
+      } else {
+        thumb = p.local ? p.url : p.url.replace('/upload/','/upload/w_300,h_300,c_fill/');
+      }
+      var content = (p.video&&p.local)
+        ? '<video src="'+p.url+'" preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>'
+        : '<img src="'+(thumb||p.url)+'" loading="lazy" alt="">';
+      out+='<div class="alb-item" onclick="mlbOpen(\''+item.sid+'\','+item.i+')">'
+        +content+playIcon
+        +'<div class="alb-item-cap">'+(p.video?'🎥 ':'📷 ')+(p.stop?p.stop.substring(0,22):'')+'<br>'
+        +'<span style="color:rgba(255,255,255,.5);">'+(p.time||'')+(p.ts?' · '+p.ts:'')+'</span>'
+        +'</div></div>';
+    });
+    out+='</div>';
+  });
+  el.innerHTML=out;
+}
+
+// ─── CALC EXPENSES — 4 viajeras ───
+function calcExp(){
+  var tbody = document.getElementById('exp-tbody');
+  var pc    = document.getElementById('exp-pairs');
+  if(!tbody) return;
+  tbody.innerHTML='';
+  var grandTotal=0;
+  var totals={nu:0,is:0,be:0,mi:0};
+  var anyExpenseFound=false;
+  var days=['d1','d2','d3'];
+  var dayNames={d1:'Martes 8 Sep ✈️',d2:'Miércoles 9 Sep 🚲',d3:'Jueves 10 Sep 🛫'};
+  var paxNames={nu:'Nuria',is:'Isabel',be:'Beatriz',mi:'Michelle'};
+  var paxColors={nu:'var(--c-nu)',is:'var(--c-is)',be:'var(--c-be)',mi:'var(--c-mi)'};
+
+  days.forEach(function(day){
+    var tl=document.getElementById('tl-'+day);
+    if(!tl) return;
+    var items=tl.querySelectorAll('.ti');
+    var dayRows=[];
+    items.forEach(function(item){
+      var id=item.id; if(!id) return;
+      var inp=document.getElementById('exp-'+id);
+      var amt=inp?parseFloat(inp.value)||0:0;
+      if(amt>0){
+        var sel=document.getElementById('pay-'+id);
+        var payer2=sel?sel.value:'split';
+        var noteEl=document.getElementById('note-'+id);
+        var noteTx=noteEl?noteEl.value:'';
+        var cn=item.querySelector('.cn');
+        var nm=cn?cn.textContent:id;
+        dayRows.push({name:nm,amt:amt,payer:payer2,note:noteTx});
+        if(payer2==='split'){ totals.nu+=amt/4;totals.is+=amt/4;totals.be+=amt/4;totals.mi+=amt/4; }
+        else { totals[payer2]+=amt; }
+      }
+    });
+    if(dayRows.length>0){
+      var dr=document.createElement('tr'); dr.className='day-row';
+      dr.innerHTML='<td colspan="7">📅 '+dayNames[day]+'</td>';
+      tbody.appendChild(dr);
+      anyExpenseFound=true;
+      dayRows.forEach(function(r){
+        var quarter=r.amt/4;
+        var owes={nu:0,is:0,be:0,mi:0};
+        if(r.payer==='split'){ owes.nu=quarter;owes.is=quarter;owes.be=quarter;owes.mi=quarter; }
+        else { Object.keys(owes).forEach(function(k){ owes[k]=k===r.payer?0:quarter; }); }
+        var payLabel=r.payer==='split'
+          ?'<span style="color:rgba(255,255,255,.5);">÷4</span>'
+          :'<span style="color:'+paxColors[r.payer]+';font-weight:700;">'+paxNames[r.payer]+'</span>';
+        var nameCell=r.name.substring(0,28)+(r.note?'<span style="font-size:.63rem;color:rgba(255,255,255,.45);font-style:italic;"> ('+r.note+')</span>':'');
+        var tr=document.createElement('tr');
+        tr.innerHTML='<td>'+nameCell+'</td><td class="exp-amt">'+r.amt.toFixed(2)+'€</td><td>'+payLabel+'</td>'
+          +['nu','is','be','mi'].map(function(k){
+            var val=owes[k];
+            var style=val===0?' style="color:#54E6B5;font-weight:700;"':'';
+            return '<td class="exp-amt"'+style+'>'+(val===0?'✅ 0.00':val.toFixed(2))+'€</td>';
+          }).join('');
+        tbody.appendChild(tr);
+        grandTotal+=r.amt;
+      });
+    }
+  });
+
+  var q=(grandTotal/4).toFixed(2);
+  var tr=document.createElement('tr'); tr.className='total-row';
+  tr.innerHTML='<td><strong>TOTAL VIAJE</strong></td><td class="pair-total">'+grandTotal.toFixed(2)+'€</td><td class="pair-total">÷4</td><td class="pair-total">'+q+'€</td><td class="pair-total">'+q+'€</td><td class="pair-total">'+q+'€</td><td class="pair-total">'+q+'€</td>';
+  tbody.appendChild(tr);
+
+  if(!pc) return;
+  if(!anyExpenseFound){
+    tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:22px 10px;color:rgba(255,255,255,.5);font-size:.8rem;">🧾 Sin gastos registrados aún.<br>Añade importes en las paradas del itinerario.</td></tr>';
+    pc.innerHTML='<div style="background:var(--glass-bg);border:1px dashed var(--glass-bd);border-radius:13px;padding:20px;text-align:center;margin-bottom:14px;backdrop-filter:blur(14px);"><div style="font-size:1.8rem;margin-bottom:8px;">💶</div><div style="font-size:.85rem;font-weight:700;color:#fff;margin-bottom:4px;">Sin gastos registrados aún</div><div style="font-size:.74rem;color:rgba(255,255,255,.5);line-height:1.5;">Ve a cualquier parada, introduce el importe y selecciona quién paga.</div></div>';
+    return;
+  }
+
+  var mitad=grandTotal/4;
+  var paxKeys=['nu','is','be','mi'];
+  var colors={nu:'var(--c-nu)',is:'var(--c-is)',be:'var(--c-be)',mi:'var(--c-mi)'};
+  var balances={};
+  paxKeys.forEach(function(k){ balances[k]=totals[k]-mitad; });
+
+  var transfers=[];
+  var debtors  =paxKeys.filter(function(k){ return balances[k]<-0.01; }).map(function(k){ return {k:k,v:balances[k]}; });
+  var creditors=paxKeys.filter(function(k){ return balances[k]> 0.01; }).map(function(k){ return {k:k,v:balances[k]}; });
+  debtors.forEach(function(d){
+    var remaining=Math.abs(d.v);
+    creditors.forEach(function(c){
+      if(remaining<0.01||c.v<0.01) return;
+      var pay=Math.min(remaining,c.v);
+      transfers.push({from:d.k,to:c.k,amt:pay});
+      remaining-=pay; c.v-=pay;
+    });
+  });
+
+  var liquidHTML='';
+  if(transfers.length===0){
+    liquidHTML='<div style="background:rgba(84,230,181,.15);border:1px solid rgba(84,230,181,.3);border-radius:13px;padding:18px;text-align:center;margin-bottom:14px;backdrop-filter:blur(14px);"><div style="font-size:1.8rem;margin-bottom:6px;">🤝</div><div style="color:#fff;font-weight:800;font-size:1.1rem;">¡Todas en paz!</div><div style="color:rgba(255,255,255,.7);font-size:.82rem;margin-top:4px;">Los gastos están perfectamente equilibrados</div></div>';
+  } else {
+    liquidHTML='<div class="glass" style="padding:16px;margin-bottom:14px;border:2px solid var(--gold);"><div style="font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:12px;">💸 LIQUIDACIÓN FINAL</div>';
+    transfers.forEach(function(t){
+      liquidHTML+='<div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border-radius:9px;padding:9px 12px;margin-bottom:7px;">'
+        +'<span style="color:'+colors[t.from]+';font-weight:800;font-size:.85rem;">'+paxNames[t.from]+'</span>'
+        +'<span style="color:rgba(255,255,255,.4);font-size:.8rem;">→ debe →</span>'
+        +'<span style="color:'+colors[t.to]+';font-weight:800;font-size:.85rem;">'+paxNames[t.to]+'</span>'
+        +'<span style="margin-left:auto;font-family:monospace;font-weight:900;font-size:1rem;color:var(--gl);">'+t.amt.toFixed(2)+'€</span>'
+        +'</div>';
+    });
+    liquidHTML+='</div>';
+  }
+
+  var cards='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">';
+  paxKeys.forEach(function(k){
+    var bal=balances[k];
+    var balColor=bal>=0?'#54E6B5':'#FF6B81';
+    var balTxt=bal>0.01?'✅ Pagó '+bal.toFixed(2)+'€ de más':bal<-0.01?'⚠️ Debe '+Math.abs(bal).toFixed(2)+'€':'✅ En paz';
+    cards+='<div class="pair-card" style="border-left:3px solid '+colors[k]+';"><div style="font-size:.6rem;font-weight:700;color:'+colors[k]+';margin-bottom:5px;">'+paxNames[k].toUpperCase()+'</div>'
+      +'<div style="font-size:1.2rem;font-weight:900;font-family:monospace;color:#fff;">'+totals[k].toFixed(2)+'€</div>'
+      +'<div style="font-size:.65rem;color:rgba(255,255,255,.5);">pagado</div>'
+      +'<div style="font-size:.72rem;margin-top:5px;color:rgba(255,255,255,.7);">Cuota: <strong>'+mitad.toFixed(2)+'€</strong></div>'
+      +'<div style="font-size:.75rem;font-weight:700;margin-top:3px;color:'+balColor+';">'+balTxt+'</div>'
+      +'</div>';
+  });
+  cards+='</div>';
+  pc.innerHTML=liquidHTML+cards+'<div style="background:rgba(255,107,53,.1);border:1px solid var(--glass-bd);border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:.75rem;color:#fff;backdrop-filter:blur(10px);">💡 Selecciona quién paga en cada gasto para calcular la liquidación automática entre las 4.</div>';
+}
+
+function updProg(){
+  var all =document.querySelectorAll('.ti');
+  var done=document.querySelectorAll('.ti.dn2');
+  var pct =all.length?Math.round(done.length/all.length*100):0;
+  var fill=document.getElementById('pg-fill');
+  var txt =document.getElementById('pg-txt');
+  if(fill) fill.style.width=pct+'%';
+  if(txt)  txt.textContent=done.length+' de '+all.length+' paradas completadas ('+pct+'%)';
+}
+
+function applyState(saved){
+  if(saved.done)   S.done  =saved.done;
+  if(saved.edits)  S.edits =saved.edits;
+  if(saved.exps)   S.exps  =saved.exps;
+  if(saved.payer)  S.payer =saved.payer;  else if(!S.payer)  S.payer={};
+  if(saved.notes)  S.notes =saved.notes;  else if(!S.notes)  S.notes={};
+  if(saved.photos) S.photos=saved.photos; else if(!S.photos) S.photos={};
+
+  Object.keys(S.done).forEach(function(id){
+    if(!S.done[id]) return;
+    var el=document.getElementById(id); if(!el) return;
+    el.classList.add('dn2');
+    var btn=el.querySelector('.ckb'); if(btn) btn.textContent='✅';
+  });
+  Object.keys(S.exps).forEach(function(id){
+    var inp=document.getElementById('exp-'+id); if(inp) inp.value=S.exps[id];
+  });
+  Object.keys(S.payer).forEach(function(id){
+    var sel=document.getElementById('pay-'+id); if(sel) sel.value=S.payer[id];
+  });
+  Object.keys(S.notes).forEach(function(id){
+    var nt=document.getElementById('note-'+id); if(nt) nt.value=S.notes[id];
+  });
+  Object.keys(S.edits).forEach(function(id){
+    var e=S.edits[id]; var el=document.getElementById(id); if(!el) return;
+    if(e.time){ var ct=el.querySelector('.ct'); if(ct) ct.textContent=e.time; }
+    if(e.name){ var cn=el.querySelector('.cn'); if(cn) cn.textContent=e.name; }
+    if(e.desc){ var cd=el.querySelector('.cd'); if(cd) cd.textContent=e.desc; }
+  });
+  Object.keys(S.photos||{}).forEach(function(sid){ renderMediaCarousel(sid); });
+  updProg();
+}
+
+function resetAll(){
+  if(!confirm('¿Borrar TODOS los datos del viaje? Esta acción no se puede deshacer.')) return;
+  S={done:{},edits:{},exps:{},payer:{},notes:{},photos:{}};
+  try{ localStorage.removeItem('ams26'); }catch(e){}
+  if(CONFIGURED){
+    fetch(JSONBIN_URL,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},body:JSON.stringify(S)})
+    .then(function(){ location.reload(); }).catch(function(){ location.reload(); });
+  } else { location.reload(); }
+}
+
+function cldTest(){
+  var dot=document.getElementById('cld-dot');
+  var txt=document.getElementById('cld-txt');
+  if(!CLD_CONFIGURED){ if(dot) dot.style.background='#888'; if(txt) txt.textContent='📸 Sin configurar'; return; }
+  if(dot) dot.style.background='#FFB347'; if(txt) txt.textContent='📸 Conectando...';
+  var tiny='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
+  fetch(tiny).then(function(r){ return r.blob(); }).then(function(blob){
+    var fd=new FormData();
+    fd.append('file',blob,'ping.png');
+    fd.append('upload_preset',CLD_PRESET);
+    fd.append('folder','amsterdam2026/_test');
+    return fetch(CLD_URL,{method:'POST',body:fd});
+  }).then(function(r){ return r.json(); })
+  .then(function(d){
+    if(d.secure_url){ if(dot) dot.style.background='#54E6B5'; if(txt) txt.textContent='📸 Fotos ✅'; }
+    else { if(dot) dot.style.background='#FF6B81'; if(txt) txt.textContent='📸 Error config'; console.error('[CLD]',d.error?d.error.message:d); }
+  }).catch(function(){ if(dot) dot.style.background='#FF6B81'; if(txt) txt.textContent='📸 Sin conexión'; });
+}
+
+// ─── FONT SIZE ───
+// Cambia font-size en el elemento html root — todos los rem escalan automáticamente
+function fsSet(val){
+  val = Math.max(0.8, Math.min(1.5, parseFloat((Math.round(val * 20) / 20).toFixed(2))));
+  var basePx = Math.round(16 * val);
+  document.documentElement.style.fontSize = basePx + 'px';
+  var sl = document.getElementById('fs-slider');
+  var lb = document.getElementById('fs-label');
+  if(sl) sl.value = val;
+  if(lb) lb.textContent = Math.round(val * 100) + '%';
+  try{ localStorage.setItem('ams26_fs', val); } catch(e){}
+}
+function fsChange(delta){
+  var sl = document.getElementById('fs-slider');
+  var cur = sl ? parseFloat(sl.value) : 1;
+  fsSet(cur + delta);
+}
+function fsLoad(){
+  try{
+    var saved = localStorage.getItem('ams26_fs');
+    if(saved) fsSet(parseFloat(saved));
+  } catch(e){}
+}
+
+window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500); fsLoad(); });
+</script>
+</body>
+</html>
