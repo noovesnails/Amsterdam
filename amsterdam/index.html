@@ -252,6 +252,49 @@ textarea.ef{min-height:60px;resize:vertical;}
 .media-picker-opt-sub{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:2px;}
 .media-picker-cancel{margin-top:10px;width:100%;padding:13px;background:rgba(255,255,255,.08);border:none;border-radius:12px;font-size:.85rem;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;}
 
+/* ══════════ INFO PANEL ══════════ */
+.info-btn{display:inline-flex;align-items:center;gap:4px;background:rgba(111,168,255,.15);border:1px solid rgba(111,168,255,.3);border-radius:7px;padding:4px 10px;font-size:.68rem;font-weight:700;color:#BBD6FF;cursor:pointer;font-family:inherit;margin-top:7px;transition:background .15s;}
+.info-btn:active{background:rgba(111,168,255,.3);}
+.info-overlay{position:fixed;inset:0;z-index:9600;display:none;align-items:flex-end;}
+.info-overlay.on{display:flex;}
+.info-overlay-bg{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);}
+.info-sheet{position:relative;background:linear-gradient(160deg,#0D1B2A,#102238);border:1px solid var(--glass-bd);border-radius:20px 20px 0 0;width:100%;max-height:88vh;overflow-y:auto;z-index:1;-webkit-overflow-scrolling:touch;}
+.info-sheet-img{width:100%;height:180px;object-fit:cover;object-position:center;display:block;border-radius:20px 20px 0 0;filter:brightness(.75);}
+.info-sheet-img-wrap{position:relative;border-radius:20px 20px 0 0;overflow:hidden;flex-shrink:0;}
+.info-sheet-img-title{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,14,26,.85));padding:28px 16px 12px;font-size:1.1rem;font-weight:800;color:#fff;font-family:'Playfair Display',serif;font-style:italic;}
+.info-sheet-body{padding:14px 16px calc(16px + env(safe-area-inset-bottom));}
+.info-sheet-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.5);border:none;border-radius:50%;width:34px;height:34px;color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;backdrop-filter:blur(8px);}
+.info-tag{display:inline-flex;align-items:center;gap:4px;font-size:.6rem;padding:3px 9px;border-radius:50px;font-weight:700;margin:0 4px 4px 0;}
+.info-tags{display:flex;flex-wrap:wrap;margin-bottom:10px;}
+.info-section-title{font-size:.6rem;text-transform:uppercase;letter-spacing:1.8px;color:var(--gold);font-weight:700;margin:12px 0 5px;}
+.info-text{font-size:.78rem;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:8px;}
+.info-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
+.info-detail{background:rgba(255,255,255,.06);border:1px solid var(--glass-bd);border-radius:9px;padding:8px 10px;}
+.info-detail-label{font-size:.55rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:700;margin-bottom:2px;}
+.info-detail-val{font-size:.76rem;color:#fff;font-weight:600;line-height:1.3;}
+.info-tip{background:rgba(84,230,181,.08);border:1px solid rgba(84,230,181,.2);border-left:3px solid var(--grn);border-radius:9px;padding:9px 12px;font-size:.74rem;color:#BCF5DE;line-height:1.5;margin-bottom:8px;}
+.info-warn{background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.2);border-left:3px solid #FFC107;border-radius:9px;padding:9px 12px;font-size:.74rem;color:#FFE9A8;line-height:1.5;margin-bottom:8px;}
+
+/* ══════════ COFFEE SHOP CARRUSEL ══════════ */
+.cs-carousel-wrap{margin:12px 0;}
+.cs-carousel{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 2px 8px;scrollbar-width:none;}
+.cs-carousel::-webkit-scrollbar{display:none;}
+.cs-card{flex:0 0 calc(85vw - 26px);max-width:300px;scroll-snap-align:start;background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:14px;overflow:hidden;backdrop-filter:blur(16px);}
+.cs-card-img{width:100%;height:130px;object-fit:cover;display:block;filter:brightness(.8);}
+.cs-card-img-wrap{position:relative;}
+.cs-card-badge{position:absolute;top:8px;left:8px;background:rgba(84,230,181,.9);color:#022;font-size:.58rem;font-weight:800;padding:3px 8px;border-radius:50px;letter-spacing:.5px;}
+.cs-card-body{padding:10px 12px 12px;}
+.cs-card-name{font-size:.9rem;font-weight:800;color:#fff;margin-bottom:3px;}
+.cs-card-type{font-size:.62rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.cs-card-desc{font-size:.72rem;color:rgba(255,255,255,.72);line-height:1.5;margin-bottom:8px;}
+.cs-card-details{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+.cs-card-detail{background:rgba(255,255,255,.08);border-radius:6px;padding:3px 8px;font-size:.62rem;color:rgba(255,255,255,.7);}
+.cs-card-btn{display:block;text-align:center;background:rgba(255,107,53,.15);border:1px solid rgba(255,107,53,.3);border-radius:8px;color:var(--gl);font-size:.72rem;font-weight:700;padding:7px;text-decoration:none;}
+.cs-dots{display:flex;justify-content:center;gap:6px;margin-top:4px;}
+.cs-dot{width:6px;height:6px;border-radius:50%;background:var(--glass-bd);transition:background .2s;}
+.cs-dot.on{background:var(--gold);}
+.cs-warn{background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.25);border-left:3px solid #FFC107;border-radius:10px;padding:10px 12px;font-size:.73rem;color:#FFE9A8;line-height:1.55;margin-top:10px;}
+
 /* CENA EN HOTEL box */
 .hotel-dinner{background:rgba(199,125,255,.08);border:1px solid rgba(199,125,255,.25);border-left:4px solid var(--pur);border-radius:12px;padding:11px 13px;margin-bottom:12px;}
 .hotel-dinner-title{font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--pur);font-weight:700;margin-bottom:7px;}
@@ -486,6 +529,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">Al bajar del avión seguir señales verdes <strong>"Treinen / Trains"</strong> — la estación está integrada en el aeropuerto, no hay que salir. En las máquinas amarillas NS o directamente tocando la <strong>tarjeta contactless en el torniquete</strong> (más rápido, ~6€/persona). Coged cualquier tren con destino <strong>Amsterdam Centraal</strong> — salen cada 10 min, 17 minutos de trayecto.</div>
         <div class="ctags"><span class="tag tt">🚆 Tren directo · 17 min</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Amsterdam+Airport+Schiphol" target="_blank" class="lnk lm">📍 Schiphol</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d1-s2')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s2" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s2')"><span class="exp-unit">€</span><select id="pay-d1-s2" class="pay-sel" onchange="saveExp('d1-s2')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s2" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s2')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s2')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s2"></div></div>
         <div class="ced" id="ced-d1-s2"><input class="ef" data-f="time" value="09:35"><input class="ef" data-f="name" value="🛬 Llegada Schiphol + Tren"><textarea class="ef" data-f="desc">Señales Treinen → tren a Centraal · 17 min · ~6€ contactless.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Amsterdam+Airport+Schiphol"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s2')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s2')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s2')">🗑 Eliminar</button></div></div>
@@ -504,6 +548,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">Parad en el <strong>Albert Heijn de Haarlemmerplein</strong> (10 min andando desde la parada del bus, de camino al hotel) o en el <strong>Dirk van den Broek</strong> (el más barato de Ámsterdam). Comprad: agua, desayunos para mañana, snacks y algo para cenar en el apartamento por si acaso. Con 4–5€/persona tenéis desayuno para 2 días.</div>
         <div class="ctags"><span class="tag te">🛒 De camino al hotel</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Albert+Heijn+Haarlemmerplein+Amsterdam" target="_blank" class="lnk lm">📍 Albert Heijn</a><a href="https://maps.google.com/?q=Dirk+van+den+Broek+Haarlemmerweg+Amsterdam" target="_blank" class="lnk lgy">📍 Dirk (más barato)</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d1-s3')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s3')"><span class="exp-unit">€</span><select id="pay-d1-s3" class="pay-sel" onchange="saveExp('d1-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s3')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s3"></div></div>
         <div class="ced" id="ced-d1-s3"><input class="ef" data-f="time" value="10:30"><input class="ef" data-f="name" value="🛒 Provisiones — Albert Heijn / Dirk"><textarea class="ef" data-f="desc">De camino al hotel. Agua, desayunos y snacks. Dirk = más barato.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Albert+Heijn+Haarlemmerplein+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s3')">🗑 Eliminar</button></div></div>
@@ -536,6 +581,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">El barrio más pintoresco y fotogénico de Ámsterdam. Casas estrechas del s. XVII, flores en los puentes, calles adoquinadas y pequeños canales. <strong>Ruta a pie:</strong> Prinsengracht → Westerkerk (la iglesia más alta de Ámsterdam, gratis verla desde fuera) → Noordermarkt (plaza con mercadillo los sábados) → callejuelas del Jordaan. Calculad 45 min tranquilas.</div>
         <div class="ctags"><span class="tag te">🌸 Jordaan</span><span class="tag tt">📸 Foto obligatoria</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Jordaan+Amsterdam" target="_blank" class="lnk lm">📍 Jordaan</a><a href="https://maps.google.com/?q=Westerkerk+Amsterdam" target="_blank" class="lnk lgy">⛪ Westerkerk</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d1-s5')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s5" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s5')"><span class="exp-unit">€</span><select id="pay-d1-s5" class="pay-sel" onchange="saveExp('d1-s5')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s5" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s5')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s5')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s5"></div></div>
         <div class="ced" id="ced-d1-s5"><input class="ef" data-f="time" value="14:00"><input class="ef" data-f="name" value="🌸 Barrio Jordaan"><textarea class="ef" data-f="desc">Prinsengracht → Westerkerk → Noordermarkt. 45 min a pie.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Jordaan+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s5')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s5')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s5')">🗑 Eliminar</button></div></div>
@@ -551,6 +597,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd"><strong>Ruta a pie continua desde Jordaan:</strong> Prinsengracht → Keizersgracht → Herengracht (el más elegante, casas del s. XVII) → bajad hasta el río Amstel → <strong>Magere Brug</strong> (Puente Delgado, el más fotogénico de Ámsterdam, foto obligatoria) → volved por Reguliersgracht (el canal con 7 puentes alineados — foto icónica). Todo a pie, sin transporte, 1.5h de paseo precioso.</div>
         <div class="ctags"><span class="tag te">🌊 UNESCO</span><span class="tag tt">📸 Magere Brug</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Herengracht+Amsterdam" target="_blank" class="lnk lm">📍 Herengracht</a><a href="https://maps.google.com/?q=Magere+Brug+Amsterdam" target="_blank" class="lnk lgy">📍 Magere Brug</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d1-s6')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s6" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s6')"><span class="exp-unit">€</span><select id="pay-d1-s6" class="pay-sel" onchange="saveExp('d1-s6')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s6" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s6')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s6')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s6"></div></div>
         <div class="ced" id="ced-d1-s6"><input class="ef" data-f="time" value="15:00"><input class="ef" data-f="name" value="🌊 Canales UNESCO + Magere Brug"><textarea class="ef" data-f="desc">Herengracht → Magere Brug → Reguliersgracht (7 puentes). 1.5h a pie.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Herengracht+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s6')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s6')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s6')">🗑 Eliminar</button></div></div>
@@ -566,6 +613,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">Las 9 calles transversales entre los 4 canales principales — la zona más bonita para compras de Ámsterdam. Tiendas vintage, diseñadores locales, librerías, cafés artesanales y chocolaterías. No es necesario gastar — es un placer solo pasear. Perfectamente a pie desde Herengracht, en el mismo barrio. Calculad 45 min paseando.</div>
         <div class="ctags"><span class="tag te">🛍️ Shopping</span><span class="tag tf">☕ Cafés</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=De+9+Straatjes+Amsterdam" target="_blank" class="lnk lm">📍 Nine Streets</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d1-s7')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s7" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s7')"><span class="exp-unit">€</span><select id="pay-d1-s7" class="pay-sel" onchange="saveExp('d1-s7')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s7" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s7')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s7')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s7"></div></div>
         <div class="ced" id="ced-d1-s7"><input class="ef" data-f="time" value="17:00"><input class="ef" data-f="name" value="🛍️ Nine Streets — Shopping y callejeo"><textarea class="ef" data-f="desc">9 calles entre canales. Tiendas vintage, diseñadores, cafés. 45 min paseando.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=De+9+Straatjes+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s7')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s7')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s7')">🗑 Eliminar</button></div></div>
@@ -581,6 +629,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">La plaza más animada de Ámsterdam. Terrazas, artistas callejeros y mucho ambiente. Pedid una <strong>Heineken o Amstel</strong> y unas <strong>bitterballen</strong> (croquetas de carne con mostaza, el pintxo holandés, 5–9€ la ración). Perfecto para descansar los pies después del paseo. A 8 min a pie de Nine Streets — toda la tarde ha sido seguida sin transporte.</div>
         <div class="ctags"><span class="tag tf">🍺 Aperitivo</span><span class="tag te">🎭 Ambiente</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Leidseplein+Amsterdam" target="_blank" class="lnk lm">📍 Leidseplein</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d1-s8')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s8" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s8')"><span class="exp-unit">€</span><select id="pay-d1-s8" class="pay-sel" onchange="saveExp('d1-s8')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s8" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s8')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s8')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s8"></div></div>
         <div class="ced" id="ced-d1-s8"><input class="ef" data-f="time" value="18:00"><input class="ef" data-f="name" value="🍺 Leidseplein — Terraza y bitterballen"><textarea class="ef" data-f="desc">Bitterballen + Heineken en terraza. Artistas callejeros. 5–9€ ración.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Leidseplein+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s8')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s8')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s8')">🗑 Eliminar</button></div></div>
@@ -601,6 +650,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">Ver opciones arriba. <strong>Vuelta al hotel desde Foodhallen/Leidseplein:</strong> tranvía 7 o 17 hasta Centraal (10 min) → Bus 22/48 dirección Houthaven → parada Haparandaweg (10 min). Total: ~20 min. Si es después de las 00:30h: <strong>Bus nocturno N81</strong> desde Centraal, 5€ trayecto.</div>
         <div class="ctags"><span class="tag tf">🍽️ Cena</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Foodhallen+Amsterdam" target="_blank" class="lnk lm">📍 Foodhallen</a><a href="https://maps.google.com/?q=FEBO+Leidseplein+Amsterdam" target="_blank" class="lnk lgy">📍 FEBO</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d1-s9')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s9" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s9')"><span class="exp-unit">€</span><select id="pay-d1-s9" class="pay-sel" onchange="saveExp('d1-s9')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s9" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s9')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s9')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s9"></div></div>
         <div class="ced" id="ced-d1-s9"><input class="ef" data-f="time" value="20:00"><input class="ef" data-f="name" value="🍽️ Cena Noche 1"><textarea class="ef" data-f="desc">Foodhallen: tranvía 7 desde Leidseplein → Kinkerstraat. Vuelta: tranvía → Centraal → Bus 22/48.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Foodhallen+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s9')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s9')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s9')">🗑 Eliminar</button></div></div>
@@ -671,6 +721,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd"><strong>Con entrada (22€):</strong> el museo más visitado de Holanda. Más de 200 pinturas y 500 dibujos de Van Gogh ordenados cronológicamente. Duración ideal: 1.5–2h. Llevad el QR descargado. Prohibido fotografiar en salas. 👉 <strong>Sin entrada — Plan B GRATIS:</strong> el Museumplein es una plaza verde enorme con el famoso cartel IAMSTERDAM (foto obligatoria), el arco del Rijksmuseum (gratis entrar al paso cubierto), el lago y la terraza al sol. Igual de bonito y sin gastar nada.</div>
         <div class="ctags"><span class="tag te">🎨 Arte</span><span class="tag tw">📸 Foto IAMSTERDAM</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Van+Gogh+Museum+Amsterdam" target="_blank" class="lnk lm">📍 Van Gogh Museum</a><a href="https://maps.google.com/?q=Museumplein+Amsterdam" target="_blank" class="lnk lgy">📍 Museumplein</a><a href="https://www.vangoghmuseum.nl" target="_blank" class="lnk lw">🎟 Reservar</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s2')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s2" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s2')"><span class="exp-unit">€</span><select id="pay-d2-s2" class="pay-sel" onchange="saveExp('d2-s2')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s2" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s2')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s2')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s2"></div></div>
         <div class="ced" id="ced-d2-s2"><input class="ef" data-f="time" value="10:00"><input class="ef" data-f="name" value="🎨 Van Gogh Museum / Museumplein gratis"><textarea class="ef" data-f="desc">22€ con reserva (1.5–2h) o Museumplein gratis con foto IAMSTERDAM.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Van+Gogh+Museum+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s2')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s2')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s2')">🗑 Eliminar</button></div></div>
@@ -688,6 +739,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">El único mercado de flores flotante del mundo sobre barcazas en el Singel. Muy fotogénico, lleno de tulipanes y bulbos. <strong>Justo al lado</strong> tenéis: el puesto de <strong>haring de Koningsplein</strong> (el mejor de la ciudad, 3–4€ — arenque con cebolla al estilo holandés de pie) y <strong>Vleminckx</strong> a 5 min a pie (mejores patatas fritas, 4–5€). Almuerzo completo por 7–9€/persona.</div>
         <div class="ctags"><span class="tag te">🌷 Flores</span><span class="tag tf">🐟 Haring + fritas · 7–9€</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Bloemenmarkt+Amsterdam" target="_blank" class="lnk lm">📍 Bloemenmarkt</a><a href="https://maps.google.com/?q=Vleminckx+frites+Amsterdam" target="_blank" class="lnk lgy">📍 Vleminckx fritas</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s3')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s3')"><span class="exp-unit">€</span><select id="pay-d2-s3" class="pay-sel" onchange="saveExp('d2-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s3')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s3"></div></div>
         <div class="ced" id="ced-d2-s3"><input class="ef" data-f="time" value="12:30"><input class="ef" data-f="name" value="🌷 Bloemenmarkt + almuerzo callejero"><textarea class="ef" data-f="desc">Haring Koningsplein (3–4€) + Vleminckx fritas (4–5€). Total 7–9€/persona.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Bloemenmarkt+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s3')">🗑 Eliminar</button></div></div>
@@ -705,6 +757,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">1h de paseo en barco con techo de cristal por los canales históricos. La experiencia más icónica de Ámsterdam. Embarcaderos en varios puntos: junto a la <strong>Casa de Ana Frank (Prinsengracht)</strong> o junto a <strong>Centraal</strong>. Compañías: <strong>Blue Boat Company</strong> o <strong>Lovers Canal Cruises</strong> · 14–18€/persona. Salen cada 30 min — comprad en la taquilla o en GetYourGuide para evitar colas.</div>
         <div class="ctags"><span class="tag te">🛶 Barco · 14–18€</span><span class="tag tt">🌅 Atardecer</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Blue+Boat+Company+Amsterdam" target="_blank" class="lnk lm">📍 Blue Boat Co.</a><a href="https://maps.google.com/?q=Lovers+canal+cruises+Amsterdam" target="_blank" class="lnk lgy">📍 Lovers Cruises</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s4')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s4" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s4')"><span class="exp-unit">€</span><select id="pay-d2-s4" class="pay-sel" onchange="saveExp('d2-s4')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s4" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s4')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s4')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s4"></div></div>
         <div class="ced" id="ced-d2-s4"><input class="ef" data-f="time" value="14:30"><input class="ef" data-f="name" value="🛶 Canal Boat Tour · 1h"><textarea class="ef" data-f="desc">14–18€/persona. Blue Boat o Lovers. Embarcadero Ana Frank o Centraal. Cada 30 min.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Blue+Boat+Company+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s4')">🗑 Eliminar</button></div></div>
@@ -722,6 +775,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">Desde la <strong>salida norte de Centraal</strong> salen ferries gratuitos del GVB cada 7 min. Coged el ferry <strong>"Buiksloterweg"</strong> (el más frecuente). En 5 min cruzáis el río IJ y llegáis a Amsterdam Noord — el barrio más alternativo y moderno. Desde el ferry tendréis vistas increíbles del skyline de Ámsterdam. Completamente gratis, no necesitáis tarjeta.</div>
         <div class="ctags"><span class="tag te">⛴️ Ferry · GRATIS</span><span class="tag tt">📸 Skyline</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Ferry+Amsterdam+Centraal+Noord" target="_blank" class="lnk lm">📍 Embarcadero Ferry</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s5')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s5" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s5')"><span class="exp-unit">€</span><select id="pay-d2-s5" class="pay-sel" onchange="saveExp('d2-s5')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s5" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s5')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s5')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s5"></div></div>
         <div class="ced" id="ced-d2-s5"><input class="ef" data-f="time" value="16:00"><input class="ef" data-f="name" value="⛴️ Ferry GRATIS → Amsterdam Noord"><textarea class="ef" data-f="desc">Salida norte de Centraal. Ferry Buiksloterweg · cada 7 min · 5 min · GRATIS.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Ferry+Amsterdam+Centraal+Noord"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s5')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s5')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s5')">🗑 Eliminar</button></div></div>
@@ -735,9 +789,132 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">Barrio industrial reconvertido, completamente diferente al centro histórico. A 2 min andando del ferry: <strong>NDSM Wharf</strong> (astillero reconvertido con arte urbano enorme, gratis) y el restaurante-bar <strong>Pllek</strong> (en un barco, vistas al skyline — ideal para una cerveza 3–5€). También el <strong>EYE Film Museum</strong> (edificio futurista blanco junto al ferry, la entrada cuesta pero el exterior es espectacular). Calculad 45 min–1h.</div>
         <div class="ctags"><span class="tag te">🏭 Noord alternativo</span><span class="tag tw">🍺 Pllek</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Pllek+Amsterdam+Noord" target="_blank" class="lnk lm">📍 Pllek</a><a href="https://maps.google.com/?q=EYE+Film+Museum+Amsterdam" target="_blank" class="lnk lgy">📍 EYE Museum</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s6')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s6" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s6')"><span class="exp-unit">€</span><select id="pay-d2-s6" class="pay-sel" onchange="saveExp('d2-s6')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s6" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s6')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s6')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s6"></div></div>
         <div class="ced" id="ced-d2-s6"><input class="ef" data-f="time" value="16:15"><input class="ef" data-f="name" value="🏭 Amsterdam Noord"><textarea class="ef" data-f="desc">NDSM Wharf (gratis) + Pllek (cerveza 3–5€) + EYE Museum exterior. 45 min–1h.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Pllek+Amsterdam+Noord"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s6')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s6')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s6')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn-detail">
+      <div class="trn-step"><span class="trn-ico">⛴️</span><span>Volved en ferry a Centraal (mismo embarcadero, mismo ferry, gratis) → a pie 10 min hacia Rembrandtplein. <strong>Por el camino: zona de coffee shops y pastelerías</strong> entre Centraal y Rembrandtplein.</span></div>
+    </div>
+
+    <div class="ti" id="d2-cs">
+      <div class="tdot" style="background:var(--grn);box-shadow:0 0 10px var(--grn);"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">18:30</span><span class="cn">🌿 Coffee Shops &amp; Pastelerías — La experiencia holandesa</span><button type="button" class="ckb" onclick="CD('d2-cs')">⬜</button></div>
+        <div class="cd">De camino de Centraal a Rembrandtplein pasáis por la mejor zona de coffee shops de Ámsterdam. Deslizad para ver los más recomendados por cercanía. <strong>Mayores de 18 — llevar DNI.</strong></div>
+        <div class="cs-carousel-wrap">
+          <div class="cs-carousel" id="cs-cr-main" onscroll="csUpdDots('main')">
+
+            <div class="cs-card">
+              <div class="cs-card-img-wrap">
+                <img class="cs-card-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=70&auto=format&fit=crop&crop=center" alt="Dampkring" onerror="this.parentElement.style.background='#1a2a3a';this.style.display='none'">
+                <div class="cs-card-badge">☕ Coffee shop</div>
+              </div>
+              <div class="cs-card-body">
+                <div class="cs-card-name">Dampkring</div>
+                <div class="cs-card-type">🎬 Famoso · Bohemio · Zona Centraal</div>
+                <div class="cs-card-desc">El más famoso de Ámsterdam — salió en la película Ocean's Twelve. Decoración psicodélica oscura y muy elaborada, ambiente bohemio único. Producto de muy alta calidad con menú detallado. El primero que veréis al salir del ferry.</div>
+                <div class="cs-card-details">
+                  <span class="cs-card-detail">📍 Handboogstraat 29</span>
+                  <span class="cs-card-detail">🕐 10:00–01:00h</span>
+                  <span class="cs-card-detail">💶 5–15€/gramo</span>
+                  <span class="cs-card-detail">🔞 Solo +18 con DNI</span>
+                </div>
+                <a href="https://maps.google.com/?q=Dampkring+Amsterdam+Handboogstraat" target="_blank" class="cs-card-btn">📍 Ver en Maps</a>
+              </div>
+            </div>
+
+            <div class="cs-card">
+              <div class="cs-card-img-wrap">
+                <img class="cs-card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=70&auto=format&fit=crop&crop=center" alt="Boerejongens" onerror="this.parentElement.style.background='#1a2a3a';this.style.display='none'">
+                <div class="cs-card-badge">⭐ Más recomendado</div>
+              </div>
+              <div class="cs-card-body">
+                <div class="cs-card-name">Boerejongens Centrum</div>
+                <div class="cs-card-type">✨ Moderno · Sin mal rollo · Mejor para principiantes</div>
+                <div class="cs-card-desc">El más recomendado actualmente para quien va por primera vez. Local moderno, limpio y muy bien iluminado. El personal explica con detalle cada variedad — efectos, intensidad, duración — sin ninguna presión. Menú impreso con descripciones claras en inglés y español.</div>
+                <div class="cs-card-details">
+                  <span class="cs-card-detail">📍 Utrechtsestraat 21</span>
+                  <span class="cs-card-detail">🕐 09:00–01:00h</span>
+                  <span class="cs-card-detail">💶 6–18€/gramo</span>
+                  <span class="cs-card-detail">🔞 Solo +18 con DNI</span>
+                </div>
+                <a href="https://maps.google.com/?q=Boerejongens+Centrum+Amsterdam" target="_blank" class="cs-card-btn">📍 Ver en Maps</a>
+              </div>
+            </div>
+
+            <div class="cs-card">
+              <div class="cs-card-img-wrap">
+                <img class="cs-card-img" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=70&auto=format&fit=crop&crop=center" alt="Paradox" onerror="this.parentElement.style.background='#1a2a3a';this.style.display='none'">
+                <div class="cs-card-badge">🌿 Local · Íntimo</div>
+              </div>
+              <div class="cs-card-body">
+                <div class="cs-card-name">Paradox</div>
+                <div class="cs-card-type">🌸 Acogedor · Jordaan · Frecuentado por locales</div>
+                <div class="cs-card-desc">El más pequeño y acogedor del Jordaan — ambiente tipo café de barrio tranquilo. Frecuentado más por residentes holandeses que por turistas. Sin música alta, sin humos agresivos, con pequeña terraza junto al canal. La opción más relajada y auténtica de todas.</div>
+                <div class="cs-card-details">
+                  <span class="cs-card-detail">📍 Jordaan · Eerste Bloemdwarsstraat 2</span>
+                  <span class="cs-card-detail">🕐 10:00–23:00h</span>
+                  <span class="cs-card-detail">💶 Precios medios</span>
+                  <span class="cs-card-detail">🔞 Solo +18 con DNI</span>
+                </div>
+                <a href="https://maps.google.com/?q=Paradox+coffeeshop+Amsterdam+Jordaan" target="_blank" class="cs-card-btn">📍 Ver en Maps</a>
+              </div>
+            </div>
+
+            <div class="cs-card">
+              <div class="cs-card-img-wrap">
+                <img class="cs-card-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=70&auto=format&fit=crop&crop=center" alt="Hempstore pasteleria" onerror="this.parentElement.style.background='#1a2a3a';this.style.display='none'">
+                <div class="cs-card-badge">🍪 Pastelería CBD</div>
+              </div>
+              <div class="cs-card-body">
+                <div class="cs-card-name">The Hempstore</div>
+                <div class="cs-card-type">🛍️ Tienda CBD · Souvenirs · Brownies · Centro</div>
+                <div class="cs-card-desc">La tienda de cannabis más completa de Ámsterdam. Venden brownies, cookies, chocolates y gomitas con CBD (sin efecto psicoactivo real — perfectos como souvenir gracioso), aceite CBD, ropa de cáñamo y parafernalia. Legal al 100% para llevar en el equipaje de vuelta.</div>
+                <div class="cs-card-details">
+                  <span class="cs-card-detail">📍 Nieuwendijk 13 · cerca Centraal</span>
+                  <span class="cs-card-detail">🕐 10:00–22:00h</span>
+                  <span class="cs-card-detail">💶 Cookies 3–8€</span>
+                  <span class="cs-card-detail">✅ Sin THC — legal viajar</span>
+                </div>
+                <a href="https://maps.google.com/?q=The+Hempstore+Amsterdam+Nieuwendijk" target="_blank" class="cs-card-btn">📍 Ver en Maps</a>
+              </div>
+            </div>
+
+            <div class="cs-card">
+              <div class="cs-card-img-wrap">
+                <img class="cs-card-img" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=70&auto=format&fit=crop&crop=center" alt="Space cakes pasteleria" onerror="this.parentElement.style.background='#1a2a3a';this.style.display='none'">
+                <div class="cs-card-badge">⚠️ Space cakes</div>
+              </div>
+              <div class="cs-card-body">
+                <div class="cs-card-name">Pastelerías con Space Cakes</div>
+                <div class="cs-card-type">🍰 De Wallen y zona centro · Pastelerías especializadas</div>
+                <div class="cs-card-desc">Las tiendas de space cakes están por toda la zona De Wallen. Los space cakes (bizcochos o cookies con cannabis) son una experiencia muy diferente a fumar — el efecto tarda 1–2 horas en aparecer y es mucho más intenso e impredecible. Solo para expertas y con mucha precaución.</div>
+                <div class="cs-card-details">
+                  <span class="cs-card-detail">📍 Zona De Wallen · varias tiendas</span>
+                  <span class="cs-card-detail">💶 5–12€ por pieza</span>
+                  <span class="cs-card-detail">⏱️ Efecto: 1–2h después</span>
+                  <span class="cs-card-detail">⚠️ Tomar SOLO la mitad</span>
+                </div>
+                <a href="https://maps.google.com/?q=space+cake+shop+De+Wallen+Amsterdam" target="_blank" class="cs-card-btn">📍 Ver en Maps</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="cs-dots">
+            <div class="cs-dot on" id="cs-dot-main-0"></div>
+            <div class="cs-dot" id="cs-dot-main-1"></div>
+            <div class="cs-dot" id="cs-dot-main-2"></div>
+            <div class="cs-dot" id="cs-dot-main-3"></div>
+            <div class="cs-dot" id="cs-dot-main-4"></div>
+          </div>
+        </div>
+        <div class="cs-warn">⚠️ <strong>Reglas básicas:</strong> llevar DNI (obligatorio +18). Máximo 5g por persona. No sacarlo a la calle ni al aeropuerto. El cannabis no se mezcla con alcohol — elegid uno u otro. Si es la primera vez, empezad con muy poca cantidad y esperad antes de repetir. Los space cakes son mucho más potentes de lo que parecen — tomad solo la mitad y esperad 2h.</div>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-cs" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-cs')"><span class="exp-unit">€</span><select id="pay-d2-cs" class="pay-sel" onchange="saveExp('d2-cs')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-cs" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-cs')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-cs')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-cs"></div></div>
       </div>
     </div>
 
@@ -752,6 +929,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">De 19h a 21h los canales de Ámsterdam se iluminan y la ciudad se transforma — es más bonita de noche que de día para fotos. <strong>Ruta nocturna a pie desde Centraal:</strong> Damrak → <strong>Dam Square</strong> (la plaza central, iluminada) → Rokin → <strong>Rembrandtplein</strong> (plaza animada con estatuas del cuadro La Ronda de Noche) → Herengracht nocturno → <strong>Magere Brug iluminado</strong> (la foto más bonita del viaje). Todo seguido, ~1h paseando.</div>
         <div class="ctags"><span class="tag tw">🌙 Noche</span><span class="tag tt">📸 Canales iluminados</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Rembrandtplein+Amsterdam" target="_blank" class="lnk lm">📍 Rembrandtplein</a><a href="https://maps.google.com/?q=Magere+Brug+Amsterdam" target="_blank" class="lnk lgy">📍 Magere Brug noche</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s7')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s7" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s7')"><span class="exp-unit">€</span><select id="pay-d2-s7" class="pay-sel" onchange="saveExp('d2-s7')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s7" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s7')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s7')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s7"></div></div>
         <div class="ced" id="ced-d2-s7"><input class="ef" data-f="time" value="19:00"><input class="ef" data-f="name" value="🌙 Paseo nocturno — Canales iluminados"><textarea class="ef" data-f="desc">Dam → Rembrandtplein → Herengracht → Magere Brug iluminado. ~1h a pie. Gratis.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Rembrandtplein+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s7')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s7')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s7')">🗑 Eliminar</button></div></div>
@@ -767,6 +945,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">A solo 5 min a pie de Rembrandtplein y de noche es cuando De Wallen muestra su cara más icónica. El Barrio Rojo es también el <strong>centro histórico más antiguo de Ámsterdam</strong> (s. XIII) — la <strong>Oude Kerk</strong> (iglesia del s. XIII rodeada de neón rojo, imagen absolutamente única) es imprescindible. Los canales medievales iluminados de rojo son una de las escenas más fotografiadas del mundo. <strong>Reglas básicas:</strong> no fotografiéis los escaparates ni a las trabajadoras (multa y te confiscan el móvil), id en grupo, no os paréis a bloquear el paso. Aparte de eso, hay bares, restaurantes y mucho ambiente — completamente seguro paseando en grupo.</div>
         <div class="ctags"><span class="tag tw">🌙 Noche</span><span class="tag te">🏛️ Historia s. XIII</span><span class="tag tt">📸 Oude Kerk</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=De+Wallen+Amsterdam" target="_blank" class="lnk lm">📍 De Wallen</a><a href="https://maps.google.com/?q=Oude+Kerk+Amsterdam" target="_blank" class="lnk lgy">⛪ Oude Kerk</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s75')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s75" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s75')"><span class="exp-unit">€</span><select id="pay-d2-s75" class="pay-sel" onchange="saveExp('d2-s75')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s75" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s75')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s75')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s75"></div></div>
         <div class="ced" id="ced-d2-s75"><input class="ef" data-f="time" value="20:00"><input class="ef" data-f="name" value="🌙 De Wallen — Barrio Rojo"><textarea class="ef" data-f="desc">5 min de Rembrandtplein. Oude Kerk imprescindible. No fotografiéis escaparates. Seguro en grupo.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=De+Wallen+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s75')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s75')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s75')">🗑 Eliminar</button></div></div>
@@ -800,6 +979,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">Si aún tenéis energía, esto es <strong>gratis y espectacular</strong>. Los ferries de Centraal funcionan 24h. Desde la salida norte de Centraal coged cualquier ferry a Noord — el trayecto de 5 min de noche con el skyline iluminado reflejándose en el agua es una de las mejores imágenes de Ámsterdam. Volved en el siguiente ferry. Total: 15 min y cero euros.</div>
         <div class="ctags"><span class="tag tw">🌃 Nocturno</span><span class="tag te">⛴️ GRATIS</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Ferry+terminal+Amsterdam+Centraal+Noord" target="_blank" class="lnk lm">📍 Ferry Centraal Norte</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-s9')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s9" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s9')"><span class="exp-unit">€</span><select id="pay-d2-s9" class="pay-sel" onchange="saveExp('d2-s9')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s9" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s9')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s9')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s9"></div></div>
         <div class="ced" id="ced-d2-s9"><input class="ef" data-f="time" value="22:00"><input class="ef" data-f="name" value="⛴️ Ferry nocturno — Skyline de noche"><textarea class="ef" data-f="desc">Salida norte Centraal. Ferry 24h. GRATIS. 15 min ida y vuelta. Espectacular.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Ferry+terminal+Amsterdam+Centraal+Noord"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s9')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s9')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s9')">🗑 Eliminar</button></div></div>
@@ -859,6 +1039,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">El mercado callejero más grande de Holanda (L–S hasta las 17h). Más de 300 puestos llenando toda la Albert Cuypstraat. Aquí los souvenirs son mucho más baratos que en el centro turístico: <strong>stroopwafels calientes</strong> recién hechos (1–2€ vs 4€ en el centro), quesos gouda, tulipanes, imanes, delftware. El Barrio Pijp alrededor es multicultural y muy auténtico — nada de turistas masificados.</div>
         <div class="ctags"><span class="tag te">🛍️ Souvenirs baratos</span><span class="tag tf">🧇 Stroopwafels</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Albert+Cuypmarkt+Amsterdam" target="_blank" class="lnk lm">📍 Albert Cuypmarkt</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d3-s2')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s2" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s2')"><span class="exp-unit">€</span><select id="pay-d3-s2" class="pay-sel" onchange="saveExp('d3-s2')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s2" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s2')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s2')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s2"></div></div>
         <div class="ced" id="ced-d3-s2"><input class="ef" data-f="time" value="09:30"><input class="ef" data-f="name" value="🛍️ Albert Cuypmarkt — Souvenirs baratos"><textarea class="ef" data-f="desc">300 puestos. Stroopwafels 1–2€. Tranvía 9/14 desde Centraal → Albert Cuypstraat.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Albert+Cuypmarkt+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s2')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s2')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s2')">🗑 Eliminar</button></div></div>
@@ -874,6 +1055,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cd">De camino del mercado al hotel, parad en un puesto de haring (3–4€) — la despedida holandesa más auténtica. Y aprovechad para la <strong>última foto en el Magere Brug de día</strong> si no lo hicisteis ayer (o de noche es más bonito, ya la tendréis). El puente está a 12 min a pie del Albert Cuypmarkt siguiendo el río Amstel — un paseo precioso.</div>
         <div class="ctags"><span class="tag tf">🐟 Haring · 3–4€</span><span class="tag tt">📸 Magere Brug</span></div>
         <div class="clnks"><a href="https://maps.google.com/?q=Magere+Brug+Amsterdam" target="_blank" class="lnk lm">📍 Magere Brug</a></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d3-s3')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s3')"><span class="exp-unit">€</span><select id="pay-d3-s3" class="pay-sel" onchange="saveExp('d3-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s3')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s3"></div></div>
         <div class="ced" id="ced-d3-s3"><input class="ef" data-f="time" value="10:30"><input class="ef" data-f="name" value="🐟 Haring + Magere Brug"><textarea class="ef" data-f="desc">Puesto haring 3–4€ + última foto en Magere Brug. A 12 min a pie del mercado.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Magere+Brug+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s3')">🗑 Eliminar</button></div></div>
@@ -891,6 +1073,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <div class="cr1"><span class="ct">11:45</span><span class="cn">🧳 Recoger maletas y salida a Schiphol</span><button type="button" class="eico" onclick="OE('d3-s4')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s4')">⬜</button></div>
         <div class="cd">Recoged las maletas en recepción. <strong>Ruta: Bus 22/48 desde Haparandaweg → Centraal (10 min) → Tren directo a Schiphol (17 min)</strong>. Tocad la tarjeta contactless al entrar y al salir del tren. Schiphol es grande — seguridad puede tardar 20–30 min. Vueling sale de la <strong>Terminal Schengen</strong>. Estad en la puerta de embarque antes de las 14:25.</div>
         <div class="ctags"><span class="tag tt">🚆 Bus → Centraal → Schiphol</span></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d3-s4')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s4" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s4')"><span class="exp-unit">€</span><select id="pay-d3-s4" class="pay-sel" onchange="saveExp('d3-s4')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s4" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s4')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s4')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s4"></div></div>
         <div class="ced" id="ced-d3-s4"><input class="ef" data-f="time" value="11:45"><input class="ef" data-f="name" value="🧳 Salida a Schiphol"><textarea class="ef" data-f="desc">Bus 22/48 → Centraal (10 min) → Tren Schiphol (17 min). Llegar a las 12:30.</textarea><input class="ef" data-f="map" value=""><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s4')">🗑 Eliminar</button></div></div>
@@ -963,6 +1146,19 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="sec">⚙️ Opciones</div>
   <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
     <button type="button" onclick="resetAll()" style="background:rgba(255,107,129,.15);border:1px solid rgba(255,107,129,.3);color:#FFB6C2;border-radius:10px;padding:10px 14px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;">🗑️ Borrar todos los datos del viaje</button>
+  </div>
+</div>
+
+<!-- Info Panel Overlay -->
+<div class="info-overlay" id="info-overlay">
+  <div class="info-overlay-bg" onclick="infoClose()"></div>
+  <div class="info-sheet" id="info-sheet">
+    <div class="info-sheet-img-wrap" id="info-img-wrap">
+      <img class="info-sheet-img" id="info-img" src="" alt="" onerror="this.parentElement.style.display='none'">
+      <button type="button" class="info-sheet-close" onclick="infoClose()">✕</button>
+      <div class="info-sheet-img-title" id="info-img-title"></div>
+    </div>
+    <div class="info-sheet-body" id="info-body"></div>
   </div>
 </div>
 
@@ -1583,6 +1779,214 @@ function cldTest(){
     if(d.secure_url){ if(dot) dot.style.background='#54E6B5'; if(txt) txt.textContent='📸 Fotos ✅'; }
     else { if(dot) dot.style.background='#FF6B81'; if(txt) txt.textContent='📸 Error config'; console.error('[CLD]',d.error?d.error.message:d); }
   }).catch(function(){ if(dot) dot.style.background='#FF6B81'; if(txt) txt.textContent='📸 Sin conexión'; });
+}
+
+// ─── INFO PANEL ───
+var INFO_DATA = {
+  'd1-s2': {
+    img: 'https://images.unsplash.com/photo-1596995804697-27d11d43652e?w=800&q=75&auto=format&fit=crop',
+    title: '✈️ Aeropuerto Schiphol',
+    tags: [{t:'🚆 Tren integrado',c:'tt'},{t:'🛍️ Duty Free',c:'te'},{t:'🌍 Hub europeo',c:'tf'}],
+    desc: 'Amsterdam Airport Schiphol es uno de los aeropuertos más grandes y mejor valorados de Europa. Tiene la estación de tren integrada en el sótano — no hay que salir al exterior para coger el tren al centro.',
+    details: [{l:'Tren a Centraal',v:'17 min · ~6€'},{l:'Frecuencia',v:'Cada 10 min'},{l:'Horario trenes',v:'05:00–00:30h'},{l:'Pago',v:'Tarjeta contactless'}],
+    tip: '💡 Tocad directamente la tarjeta en el torniquete — es más rápido que comprar ticket en la máquina.',
+    maps: 'https://maps.google.com/?q=Amsterdam+Airport+Schiphol'
+  },
+  'd1-s3': {
+    img: 'https://images.unsplash.com/photo-1563906267088-b029e7101114?w=800&q=75&auto=format&fit=crop',
+    title: '🚉 Amsterdam Centraal',
+    tags: [{t:'🏛️ S. XIX',c:'tw'},{t:'🚌 Hub GVB',c:'tt'},{t:'📸 Icónica',c:'te'}],
+    desc: 'La estación central de Ámsterdam es una de las más bonitas de Europa, construida en 1889 en estilo neogótico. Es el punto neurálgico de todo el transporte de la ciudad — desde aquí salen tranvías, buses, metros y ferries.',
+    details: [{l:'GVB 48h',v:'~15€ (mostrador azul)'},{l:'Bus al hotel',v:'22 o 48 · puerta sur'},{l:'Ferry Noord',v:'Puerta norte · GRATIS'},{l:'Abierta',v:'24 horas'}],
+    tip: '💡 El mostrador GVB azul está justo a la salida sur. Comprad aquí el bono 48h para los 2 días.',
+    maps: 'https://maps.google.com/?q=Amsterdam+Centraal+Station'
+  },
+  'd1-s5': {
+    img: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&q=75&auto=format&fit=crop',
+    title: '🌸 Barrio Jordaan',
+    tags: [{t:'📸 Más fotogénico',c:'te'},{t:'🏛️ S. XVII',c:'tw'},{t:'☕ Cafés locales',c:'tf'}],
+    desc: 'El Jordaan es el barrio más pintoresco y bohemio de Ámsterdam, construido en el siglo XVII para artesanos y trabajadores. Hoy es el barrio más deseado de la ciudad, con casas estrechas inclinadas, flores en los puentes y pequeños canales tranquilos.',
+    details: [{l:'Zona',v:'Centro-oeste'},{l:'A pie desde Centraal',v:'15 min'},{l:'Mercadillo',v:'Noordermarkt (sábados)'},{l:'Ambiente',v:'Local, sin masificación'}],
+    tip: '💡 Westerkerk — la iglesia protestante más alta de Ámsterdam (85m). Ana Frank la escuchaba desde su escondite. Subid a la torre si está abierta (8€) para vistas increíbles.',
+    maps: 'https://maps.google.com/?q=Jordaan+Amsterdam'
+  },
+  'd1-s6': {
+    img: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&q=75&auto=format&fit=crop',
+    title: '🌊 Canales UNESCO — Grachtengordel',
+    tags: [{t:'🌍 Patrimonio UNESCO',c:'te'},{t:'📸 Icónicos',c:'tt'},{t:'S. XVII',c:'tw'}],
+    desc: 'El cinturón de canales de Ámsterdam fue declarado Patrimonio de la Humanidad por la UNESCO en 2010. Construidos en el siglo XVII durante la Edad de Oro holandesa, los 4 canales principales (Singel, Herengracht, Keizersgracht y Prinsengracht) forman un semicírculo perfecto alrededor del centro histórico.',
+    details: [{l:'Magere Brug',v:'El puente más bonito'},{l:'Reguliersgracht',v:'7 puentes alineados'},{l:'Longitud total',v:'+100 km de canales'},{l:'Casas',v:'+1500 puentes históricos'}],
+    tip: '💡 Foto imprescindible: ponte en el puente de Reguliersgracht y enfoca hacia el Herengracht — verás 7 puentes alineados, la foto más famosa de Ámsterdam.',
+    maps: 'https://maps.google.com/?q=Herengracht+Amsterdam'
+  },
+  'd1-s7': {
+    img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&q=75&auto=format&fit=crop',
+    title: '🛍️ Nine Streets — De 9 Straatjes',
+    tags: [{t:'🛍️ Shopping local',c:'te'},{t:'☕ Cafés artesanales',c:'tf'},{t:'🎨 Diseño',c:'tw'}],
+    desc: 'Las Nueve Calles son 9 calles transversales que conectan los 4 canales principales en el corazón de Ámsterdam. Llenas de tiendas independientes, diseñadores locales, librerías de segunda mano, chocolaterías artesanales y cafés con encanto. La zona de shopping más auténtica de la ciudad.',
+    details: [{l:'Zona',v:'Entre Jordaan y Leidseplein'},{l:'Horario tiendas',v:'10:00–18:00h'},{l:'Ambiente',v:'Local, sin turistas masivos'},{l:'Precio medio',v:'Todos los rangos'}],
+    tip: '💡 Buscad "Chocolátl" para los mejores bombones artesanales holandeses, y "BOEKIE WOEKIE" para libros de arte únicos como souvenir.',
+    maps: 'https://maps.google.com/?q=De+9+Straatjes+Amsterdam'
+  },
+  'd1-s8': {
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=75&auto=format&fit=crop',
+    title: '🍺 Leidseplein',
+    tags: [{t:'🎭 Animada',c:'te'},{t:'🍺 Terrazas',c:'tf'},{t:'🎵 Música',c:'tw'}],
+    desc: 'Leidseplein es la plaza más animada y concurrida de Ámsterdam, punto de encuentro para locales y turistas. Rodeada de bares, restaurantes, el teatro Stadsschouwburg (s. XIX) y el famoso Paradiso (sala de conciertos en iglesia reconvertida). Artistas callejeros actúan aquí hasta tarde.',
+    details: [{l:'Especialidad',v:'Bitterballen + cerveza'},{l:'Precio cerveza',v:'3–6€'},{l:'Bitterballen',v:'5–9€ la ración'},{l:'Ambiente',v:'Hasta las 02:00h'}],
+    tip: '💡 Pedid la cerveza en un "bierglas" holandés (vaso con base gruesa) — es la forma tradicional. Los bitterballen se mojan en mostaza holandesa, no en kétchup.',
+    maps: 'https://maps.google.com/?q=Leidseplein+Amsterdam'
+  },
+  'd1-s9': {
+    img: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=75&auto=format&fit=crop',
+    title: '🏭 Foodhallen',
+    tags: [{t:'🍽️ 20+ puestos',c:'te'},{t:'💶 10–15€',c:'tf'},{t:'🎵 Ambiente',c:'tw'}],
+    desc: 'Foodhallen es el mercado de comida interior más popular de Ámsterdam, situado en un antiguo depósito de tranvías reconvertido en el barrio Oud-West. Con más de 20 puestos de comida de todo el mundo, es el lugar perfecto cuando el grupo tiene gustos distintos.',
+    details: [{l:'Dirección',v:'Bellamyplein 51, Oud-West'},{l:'Horario',v:'Dom-Jue 11–23h · Vie-Sáb 11–00h'},{l:'Precio medio',v:'10–15€/persona'},{l:'Transporte',v:'Tranvía 7 → Kinkerstraat'}],
+    tip: '💡 Los puestos más populares son el de ramen japonés, las ostras y el de smash burgers. Llegad antes de las 20h o habrá cola en los mejores.',
+    maps: 'https://maps.google.com/?q=Foodhallen+Amsterdam'
+  },
+  'd2-s2': {
+    img: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&q=75&auto=format&fit=crop',
+    title: '🎨 Van Gogh Museum',
+    tags: [{t:'🎨 Must-see',c:'te'},{t:'22€ · Reserva',c:'tw'},{t:'1.5–2h',c:'tt'}],
+    desc: 'El Van Gogh Museum alberga la mayor colección de obras de Vincent van Gogh del mundo: más de 200 pinturas, 500 dibujos y 750 cartas. Las obras están ordenadas cronológicamente siguiendo la vida del artista, desde sus primeros trabajos oscuros hasta el color explosivo de sus últimos años en Arles y Saint-Rémy.',
+    details: [{l:'Precio',v:'22€ — reserva online'},{l:'Horario',v:'09:00–17:00h (vie hasta 21h)'},{l:'Duración recomendada',v:'1.5–2 horas'},{l:'Reserva',v:'vangoghmuseum.nl'}],
+    tip: '💡 No os perdáis "Los girasoles" (1888), "La habitación en Arlés" y "El almendro en flor" pintado para su sobrino recién nacido. Descargad la app del museo para la audioguía gratuita.',
+    warn: '⚠️ Sin reserva previa la cola puede ser de 2–3 horas. Reservad con semanas de antelación.',
+    maps: 'https://maps.google.com/?q=Van+Gogh+Museum+Amsterdam'
+  },
+  'd2-s3': {
+    img: 'https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=800&q=75&auto=format&fit=crop',
+    title: '🌷 Bloemenmarkt',
+    tags: [{t:'🌷 Único en el mundo',c:'te'},{t:'📸 Muy fotogénico',c:'tt'},{t:'🛍️ Souvenirs',c:'tf'}],
+    desc: 'El Bloemenmarkt es el único mercado de flores flotante del mundo, instalado sobre barcazas permanentes en el canal Singel desde 1862. Aunque hoy en día tiene mucho componente turístico, sigue siendo un espectáculo visual increíble con tulipanes, narcisos, jacintos y bulbos de todos los colores.',
+    details: [{l:'Horario',v:'Lun–Sáb 09:00–17:30h'},{l:'Ubicación',v:'Canal Singel, junto a Koningsplein'},{l:'Bulbos tulipán',v:'5–15€ la bolsa'},{l:'Duración visita',v:'20–30 min'}],
+    tip: '💡 Los bulbos de tulipán envasados al vacío pasan el control fitosanitario de la UE sin problema. Son el mejor souvenir de Ámsterdam — plantadlos en octubre y florecen en primavera.',
+    maps: 'https://maps.google.com/?q=Bloemenmarkt+Amsterdam'
+  },
+  'd2-s4': {
+    img: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=800&q=75&auto=format&fit=crop',
+    title: '🛶 Canal Boat Tour',
+    tags: [{t:'🛶 Experiencia icónica',c:'te'},{t:'💶 14–18€',c:'tf'},{t:'⏱️ 1 hora',c:'tt'}],
+    desc: 'Un paseo en barco por los canales históricos de Ámsterdam es posiblemente la experiencia más icónica de la ciudad. Los barcos con techo de cristal recorren el Prinsengracht, Keizersgracht y Herengracht pasando bajo más de 20 puentes históricos mientras una audioguía explica la historia de cada edificio.',
+    details: [{l:'Duración',v:'1 hora'},{l:'Precio',v:'14–18€/persona'},{l:'Frecuencia',v:'Cada 30 min'},{l:'Mejor hora',v:'17:00–19:00h (luz dorada)'}],
+    tip: '💡 Sentaos en la parte delantera del barco para las mejores fotos. La salida de las 17:00–18:00h tiene la mejor luz para fotografiar los canales.',
+    maps: 'https://maps.google.com/?q=Blue+Boat+Company+Amsterdam'
+  },
+  'd2-s5': {
+    img: 'https://images.unsplash.com/photo-1584811644165-33db4c358e4e?w=800&q=75&auto=format&fit=crop',
+    title: '⛴️ Ferry GVB → Amsterdam Noord',
+    tags: [{t:'⛴️ GRATIS',c:'te'},{t:'🕐 Cada 7 min',c:'tt'},{t:'5 min trayecto',c:'tf'}],
+    desc: 'Los ferries gratuitos del GVB conectan Amsterdam Centraal con Amsterdam Noord cruzando el río IJ. Son barcos del transporte público habitual — completamente gratis, sin necesidad de tarjeta ni billete. El trayecto de 5 minutos ofrece vistas espectaculares del skyline de Ámsterdam desde el agua.',
+    details: [{l:'Salida',v:'Detrás de Centraal (norte)'},{l:'Ferry recomendado',v:'Buiksloterweg'},{l:'Frecuencia',v:'Cada 7 min · 24 horas'},{l:'Precio',v:'🆓 Completamente GRATIS'}],
+    tip: '💡 Poneos en la proa del ferry para la mejor foto del skyline. De noche (22h+) la vista es aún más espectacular con los edificios iluminados reflejados en el agua.',
+    maps: 'https://maps.google.com/?q=Ferry+terminal+Amsterdam+Centraal+Noord'
+  },
+  'd2-s6': {
+    img: 'https://images.unsplash.com/photo-1609554496796-c345a5335ceb?w=800&q=75&auto=format&fit=crop',
+    title: '🏭 Amsterdam Noord',
+    tags: [{t:'🏭 Industrial chic',c:'te'},{t:'🎨 Street art',c:'tw'},{t:'🚀 Moderno',c:'tt'}],
+    desc: 'Amsterdam Noord es el barrio más moderno y alternativo de Ámsterdam, situado al otro lado del río IJ. Antiguo barrio industrial ahora reconvertido en zona creativa con estudios de arte, restaurantes de moda, el EYE Film Museum y la zona NDSM (antiguo astillero con arte urbano monumental).',
+    details: [{l:'EYE Film Museum',v:'Edificio futurista · entrada 12€'},{l:'Pllek',v:'Bar-restaurante en barco'},{l:'NDSM Wharf',v:'Street art · GRATIS'},{l:'Desde ferry',v:'Todo a pie'}],
+    tip: '💡 El exterior del EYE Film Museum es gratis y las fotos son espectaculares. Pllek tiene las mejores vistas del skyline de Ámsterdam — una cerveza aquí vale cada céntimo.',
+    maps: 'https://maps.google.com/?q=Amsterdam+Noord+EYE+museum'
+  },
+  'd2-s7': {
+    img: 'https://images.unsplash.com/photo-1495562569060-2eec283d3391?w=800&q=75&auto=format&fit=crop',
+    title: '🌙 Canales de Ámsterdam de noche',
+    tags: [{t:'🌙 Nocturno',c:'tw'},{t:'📸 Mejor de noche',c:'tt'},{t:'🆓 GRATIS',c:'te'}],
+    desc: 'De noche Ámsterdam se transforma completamente. Los más de 1.500 puentes y los edificios históricos se iluminan creando reflejos en los canales que son más fotogénicos que de día. El paseo por Rembrandtplein, Dam Square y los canales iluminados es una de las mejores experiencias gratuitas de la ciudad.',
+    details: [{l:'Ruta',v:'Centraal → Dam → Rembrandtplein'},{l:'Magere Brug',v:'Iluminado · foto icónica'},{l:'Mejor hora',v:'20:00–23:00h'},{l:'Coste',v:'🆓 GRATIS'}],
+    tip: '💡 En Rembrandtplein hay esculturas de bronce que recrean el cuadro "La Ronda de Noche" de Rembrandt a tamaño real — podéis meteros entre los personajes para la foto.',
+    maps: 'https://maps.google.com/?q=Rembrandtplein+Amsterdam'
+  },
+  'd2-s75': {
+    img: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=800&q=75&auto=format&fit=crop',
+    title: '🌙 De Wallen — Barrio Rojo',
+    tags: [{t:'🏛️ Centro histórico s.XIII',c:'tw'},{t:'🌙 Mejor de noche',c:'tt'},{t:'⛪ Oude Kerk',c:'te'}],
+    desc: 'De Wallen es a la vez el barrio más antiguo de Ámsterdam (s. XIII) y el famoso Barrio Rojo. La Oude Kerk (Iglesia Vieja, 1213) es el edificio más antiguo de Ámsterdam — estar rodeada de ventanas de neón rojo es una imagen absolutamente única en el mundo. Los canales medievales de esta zona son preciosos de noche.',
+    details: [{l:'Oude Kerk',v:'Iglesia s. XIII · entrada 7.50€'},{l:'Distancia a Centraal',v:'5 min a pie'},{l:'Mejor hora',v:'20:00–23:00h'},{l:'Seguridad',v:'Seguro en grupo, sin fotos'}],
+    tip: '💡 NO fotografiéis los escaparates ni a las trabajadoras — os pueden confiscar el móvil y multar. Sí podéis fotografiar la Oude Kerk, los canales y la arquitectura.',
+    warn: '⚠️ Regla de oro: mantened el móvil guardado al pasar frente a los escaparates. Es una norma de respeto y también legal.',
+    maps: 'https://maps.google.com/?q=De+Wallen+Amsterdam'
+  },
+  'd2-s9': {
+    img: 'https://images.unsplash.com/photo-1584811644165-33db4c358e4e?w=800&q=75&auto=format&fit=crop',
+    title: '⛴️ Ferry nocturno — Skyline de noche',
+    tags: [{t:'🌃 Espectacular',c:'tw'},{t:'⛴️ GRATIS · 24h',c:'te'},{t:'📸 Foto única',c:'tt'}],
+    desc: 'El mismo ferry gratuito que tomasteis antes, pero de noche es una experiencia completamente diferente. El skyline de Ámsterdam iluminado reflejándose en las aguas oscuras del IJ es una imagen que no olvidaréis. El trayecto dura 5 minutos, pero la vista desde el agua vale por sí sola el paseo.',
+    details: [{l:'Salida',v:'Norte de Centraal · 24h'},{l:'Frecuencia nocturna',v:'Cada 15–20 min'},{l:'Precio',v:'🆓 GRATIS'},{l:'Duración ida',v:'5 minutos'}],
+    tip: '💡 Poneos en la cubierta exterior del ferry (si el tiempo lo permite) para la mejor experiencia. La foto del skyline desde el agua de noche es la más especial del viaje.',
+    maps: 'https://maps.google.com/?q=Ferry+terminal+Amsterdam+Centraal+Noord'
+  },
+  'd3-s2': {
+    img: 'https://images.unsplash.com/photo-1555992336-03a23c7b20ee?w=800&q=75&auto=format&fit=crop',
+    title: '🛍️ Albert Cuypmarkt',
+    tags: [{t:'🛍️ Mayor mercado NL',c:'te'},{t:'💶 Souvenirs baratos',c:'tf'},{t:'🧇 Stroopwafels',c:'tw'}],
+    desc: 'El Albert Cuypmarkt es el mercado callejero más grande y animado de Holanda, con más de 300 puestos que llenan la Albert Cuypstraat en el multicultural Barrio Pijp. Aquí los precios son significativamente más baratos que en el centro turístico — el sitio perfecto para comprar souvenirs auténticos.',
+    details: [{l:'Horario',v:'Lun–Sáb · 09:00–17:00h'},{l:'Longitud',v:'+300 puestos · 500m'},{l:'Stroopwafels calientes',v:'1–2€ (vs 4€ en centro)'},{l:'Tranvía',v:'9 o 14 → Albert Cuypstraat'}],
+    tip: '💡 Los stroopwafels calientes recién hechos en el mercado son infinitamente mejores que los envasados. Buscad un puesto con la plancha humeante — son los mejores.',
+    maps: 'https://maps.google.com/?q=Albert+Cuypmarkt+Amsterdam'
+  },
+  'd3-s3': {
+    img: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?w=800&q=75&auto=format&fit=crop',
+    title: '🌉 Magere Brug — El Puente Delgado',
+    tags: [{t:'📸 La foto más icónica',c:'te'},{t:'🌙 Mejor de noche',c:'tw'},{t:'🌉 S. XVII',c:'tt'}],
+    desc: 'El Magere Brug (Puente Delgado) sobre el río Amstel es el puente más fotografiado de Ámsterdam. Construido en 1691, es uno de los pocos puentes levadizos de madera que quedan en funcionamiento en la ciudad. La leyenda dice que fue construido por dos hermanas ricas que querían poder visitarse fácilmente.',
+    details: [{l:'Tipo',v:'Puente levadizo de madera'},{l:'Construido',v:'1691'},{l:'Sobre el',v:'Río Amstel'},{l:'Mejor foto',v:'Desde el norte, de noche'}],
+    tip: '💡 La mejor foto es desde el extremo norte del puente mirando hacia el sur con los canales al fondo. De noche con las luces del puente reflejadas en el Amstel es la imagen más romántica de Ámsterdam.',
+    maps: 'https://maps.google.com/?q=Magere+Brug+Amsterdam'
+  },
+  'd3-s4': {
+    img: 'https://images.unsplash.com/photo-1596995804697-27d11d43652e?w=800&q=75&auto=format&fit=crop',
+    title: '✈️ Aeropuerto Schiphol — Salida',
+    tags: [{t:'🚆 Tren desde Centraal',c:'tt'},{t:'⏱️ 17 min',c:'te'},{t:'💳 Contactless',c:'tf'}],
+    desc: 'Para volver a Schiphol tomad el tren directo desde Amsterdam Centraal. La estación de Schiphol está integrada bajo el aeropuerto. Llegad con al menos 2 horas de antelación — Schiphol es grande y el control de seguridad puede tardar 20–30 minutos en hora punta.',
+    details: [{l:'Tren Centraal → Schiphol',v:'17 min · ~6€'},{l:'Frecuencia',v:'Cada 10 min'},{l:'Terminal Vueling',v:'Schengen (T2/T3)'},{l:'Llegad a Schiphol',v:'Antes de las 12:30h'}],
+    tip: '💡 Schiphol tiene tiendas duty-free con quesos, stroopwafels y Heineken — última oportunidad para comprar souvenirs holandeses a buen precio antes de embarcar.',
+    maps: 'https://maps.google.com/?q=Amsterdam+Airport+Schiphol'
+  }
+};
+
+function infoOpen(sid){
+  var d = INFO_DATA[sid];
+  if(!d) return;
+  var img = document.getElementById('info-img');
+  var imgWrap = document.getElementById('info-img-wrap');
+  var title = document.getElementById('info-img-title');
+  var body = document.getElementById('info-body');
+  if(d.img){ img.src=d.img; img.alt=d.title; imgWrap.style.display=''; } else { imgWrap.style.display='none'; }
+  title.textContent = d.title;
+  var tagsHtml = d.tags ? '<div class="info-tags">'+d.tags.map(function(t){ return '<span class="info-tag '+t.c+' tag">'+t.t+'</span>'; }).join('')+'</div>' : '';
+  var detailsHtml = d.details ? '<div class="info-section-title">📋 Datos clave</div><div class="info-detail-grid">'+d.details.map(function(x){ return '<div class="info-detail"><div class="info-detail-label">'+x.l+'</div><div class="info-detail-val">'+x.v+'</div></div>'; }).join('')+'</div>' : '';
+  var tipHtml = d.tip ? '<div class="info-tip">'+d.tip+'</div>' : '';
+  var warnHtml = d.warn ? '<div class="info-warn">'+d.warn+'</div>' : '';
+  var mapsHtml = d.maps ? '<a href="'+d.maps+'" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);border-radius:10px;padding:10px;text-decoration:none;color:var(--gl);font-size:.78rem;font-weight:700;margin-top:10px;">📍 Abrir en Google Maps →</a>' : '';
+  body.innerHTML = tagsHtml+'<div class="info-section-title">📖 Sobre este lugar</div><div class="info-text">'+d.desc+'</div>'+detailsHtml+tipHtml+warnHtml+mapsHtml;
+  var ov = document.getElementById('info-overlay');
+  ov.classList.add('on');
+  document.body.style.overflow='hidden';
+  var sheet = document.getElementById('info-sheet');
+  sheet.scrollTop=0;
+}
+function infoClose(){
+  document.getElementById('info-overlay').classList.remove('on');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ infoClose(); mlbClose(); } });
+
+// ─── COFFEE SHOP CAROUSEL ───
+function csUpdDots(id){
+  var cr = document.getElementById('cs-cr-'+id);
+  if(!cr) return;
+  var cards = cr.querySelectorAll('.cs-card');
+  if(cards.length<2) return;
+  var idx = Math.round(cr.scrollLeft / (cards[0].offsetWidth+10));
+  cards.forEach(function(_,i){
+    var d=document.getElementById('cs-dot-'+id+'-'+i);
+    if(d) d.classList.toggle('on',i===idx);
+  });
 }
 
 // ─── FONT SIZE ───
