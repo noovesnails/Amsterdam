@@ -252,6 +252,39 @@ textarea.ef{min-height:60px;resize:vertical;}
 .media-picker-opt-sub{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:2px;}
 .media-picker-cancel{margin-top:10px;width:100%;padding:13px;background:rgba(255,255,255,.08);border:none;border-radius:12px;font-size:.85rem;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;}
 
+/* ══════════ CALENDAR BUTTON ══════════ */
+.cal-btn-wrap{margin:14px 0 6px;}
+.cal-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;border:none;border-radius:16px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:.3px;transition:transform .1s,box-shadow .1s;}
+.cal-btn:active{transform:scale(.97);}
+.cal-btn-ios{background:linear-gradient(135deg,#007AFF,#34AADC);color:#fff;box-shadow:0 6px 24px rgba(0,122,255,.4);}
+.cal-btn-google{background:linear-gradient(135deg,#4285F4,#34A853);color:#fff;box-shadow:0 6px 24px rgba(66,133,244,.4);}
+.cal-btn-ics{background:linear-gradient(135deg,var(--gold),var(--gl));color:#fff;box-shadow:0 6px 24px rgba(255,107,53,.4);}
+.cal-btn-ico{font-size:1.4rem;}
+.cal-btn-txt{display:flex;flex-direction:column;align-items:flex-start;}
+.cal-btn-main{font-size:.9rem;font-weight:800;line-height:1.2;}
+.cal-btn-sub{font-size:.65rem;font-weight:400;opacity:.85;margin-top:1px;}
+.cal-day-selector{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.cal-day-option{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1.5px solid var(--glass-bd);border-radius:12px;padding:12px 14px;cursor:pointer;font-family:inherit;width:100%;text-align:left;transition:border-color .15s,background .15s;}
+.cal-day-option:active,.cal-day-option.sel{background:rgba(255,107,53,.12);border-color:rgba(255,107,53,.5);}
+.cal-day-option-ico{font-size:1.5rem;flex-shrink:0;}
+.cal-day-option-name{font-size:.82rem;font-weight:700;color:#fff;}
+.cal-day-option-sub{font-size:.65rem;color:rgba(255,255,255,.5);margin-top:1px;}
+.cal-success{background:rgba(84,230,181,.1);border:1px solid rgba(84,230,181,.3);border-left:3px solid var(--grn);border-radius:10px;padding:10px 12px;font-size:.75rem;color:#BCF5DE;line-height:1.5;margin-top:8px;display:none;}
+.cal-success.on{display:block;}
+
+/* ══════════ INSTALL INSTRUCTIONS ══════════ */
+.install-box{background:var(--glass-bg);border:1px solid var(--glass-bd);border-radius:14px;padding:14px 15px;margin-bottom:14px;backdrop-filter:blur(16px);}
+.install-tab-row{display:flex;gap:6px;margin-bottom:12px;}
+.install-tab{flex:1;background:rgba(255,255,255,.06);border:1.5px solid var(--glass-bd);border-radius:9px;padding:8px 6px;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.6);cursor:pointer;font-family:inherit;text-align:center;transition:all .15s;}
+.install-tab.on{background:rgba(255,107,53,.15);border-color:rgba(255,107,53,.4);color:var(--gl);}
+.install-panel{display:none;}
+.install-panel.on{display:block;}
+.install-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.install-step-num{background:var(--gold);color:#fff;font-size:.65rem;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.install-step-txt{font-size:.76rem;color:rgba(255,255,255,.82);line-height:1.5;}
+.install-step-txt strong{color:#fff;}
+.install-note{background:rgba(111,168,255,.08);border:1px solid rgba(111,168,255,.2);border-radius:9px;padding:9px 12px;font-size:.72rem;color:#C2D8FF;line-height:1.5;margin-top:6px;}
+
 /* ══════════ INFO PANEL ══════════ */
 .info-btn{display:inline-flex;align-items:center;gap:4px;background:rgba(111,168,255,.15);border:1px solid rgba(111,168,255,.3);border-radius:7px;padding:4px 10px;font-size:.68rem;font-weight:700;color:#BBD6FF;cursor:pointer;font-family:inherit;margin-top:7px;transition:background .15s;}
 .info-btn:active{background:rgba(111,168,255,.3);}
@@ -454,6 +487,31 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="alert alert-blue">💳 <strong>Sin efectivo:</strong> el transporte público y la mayoría de tiendas solo aceptan tarjeta. Llevar algo de cash (20–30€) para mercadillos y propinas.</div>
   <div class="alert alert-grn">🌧️ <strong>Tiempo septiembre:</strong> 15–20°C · lluvias breves frecuentes. Llevad impermeable ligero en el bolso. El sol entre nubes es precioso para fotos.</div>
   <div class="alert alert-pur">📱 <strong>App esencial:</strong> descargad <strong>9292.nl</strong> (planificador de transporte público holandés) — te dice el bus/tranvía exacto con horarios en tiempo real. También funciona bien Google Maps para Amsterdam.</div>
+  <div class="sec">📅 Añadir al Calendario</div>
+  <div class="cal-btn-wrap">
+    <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:10px;line-height:1.5;">Añade todos los eventos del viaje directamente a tu calendario. Elige el día o añade los 3 a la vez.</div>
+    <div class="cal-day-selector">
+      <button type="button" class="cal-day-option" onclick="calExport('all')">
+        <span class="cal-day-option-ico">🗓️</span>
+        <span><span class="cal-day-option-name">Los 3 días completos</span><br><span class="cal-day-option-sub">8, 9 y 10 de Septiembre 2026</span></span>
+      </button>
+      <button type="button" class="cal-day-option" onclick="calExport('d1')">
+        <span class="cal-day-option-ico">✈️</span>
+        <span><span class="cal-day-option-name">Día 1 — Martes 8 Sep</span><br><span class="cal-day-option-sub">Llegada · Jordaan · Canales · Nine Streets</span></span>
+      </button>
+      <button type="button" class="cal-day-option" onclick="calExport('d2')">
+        <span class="cal-day-option-ico">🚲</span>
+        <span><span class="cal-day-option-name">Día 2 — Miércoles 9 Sep</span><br><span class="cal-day-option-sub">Van Gogh · Canal Boat · Ferry · De Wallen</span></span>
+      </button>
+      <button type="button" class="cal-day-option" onclick="calExport('d3')">
+        <span class="cal-day-option-ico">🛫</span>
+        <span><span class="cal-day-option-name">Día 3 — Jueves 10 Sep</span><br><span class="cal-day-option-sub">Albert Cuypmarkt · Vuelo 14:55 AMS→VLC</span></span>
+      </button>
+    </div>
+    <div class="cal-success" id="cal-success">✅ Archivo .ics descargado — ábrelo para añadir al calendario de tu móvil.</div>
+    <div style="font-size:.68rem;color:rgba(255,255,255,.45);line-height:1.5;margin-top:4px;">📱 iOS: se abre directamente en Apple Calendar · Android: ábrelo con Google Calendar · Cualquier móvil: el archivo .ics es compatible con todos los calendarios.</div>
+  </div>
+
   <div class="sec">🔡 Tamaño de letra</div>
   <div class="fs-box">
     <div class="fs-title">Ajusta el tamaño del texto en toda la app</div>
@@ -468,6 +526,61 @@ textarea.ef{min-height:60px;resize:vertical;}
       <button type="button" onclick="fsSet(1.0)" style="background:rgba(255,255,255,.08);border:1px solid var(--glass-bd);color:rgba(255,255,255,.7);border-radius:8px;padding:6px 14px;font-size:.7rem;cursor:pointer;font-family:inherit;">Normal</button>
       <button type="button" onclick="fsSet(1.2)" style="background:rgba(255,255,255,.08);border:1px solid var(--glass-bd);color:rgba(255,255,255,.7);border-radius:8px;padding:6px 14px;font-size:.7rem;cursor:pointer;font-family:inherit;">Grande</button>
       <button type="button" onclick="fsSet(1.4)" style="background:rgba(255,255,255,.08);border:1px solid var(--glass-bd);color:rgba(255,255,255,.7);border-radius:8px;padding:6px 14px;font-size:.7rem;cursor:pointer;font-family:inherit;">Muy grande</button>
+    </div>
+  </div>
+
+  <div class="sec">📲 Añadir la app al inicio del móvil</div>
+  <div class="install-box">
+    <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;">Añade esta app a la pantalla de inicio de tu móvil para abrirla como si fuera una app nativa — sin navegador, a pantalla completa.</div>
+    <div class="install-tab-row">
+      <button type="button" class="install-tab on" id="tab-ios" onclick="installTab('ios')">🍎 iPhone / iOS</button>
+      <button type="button" class="install-tab" id="tab-android" onclick="installTab('android')">🤖 Android</button>
+    </div>
+    <div class="install-panel on" id="panel-ios">
+      <div class="install-step">
+        <div class="install-step-num">1</div>
+        <div class="install-step-txt">Abre esta página en <strong>Safari</strong> (no en Chrome ni otro navegador — solo funciona desde Safari en iOS)</div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">2</div>
+        <div class="install-step-txt">Toca el botón <strong>Compartir</strong> — el icono de la caja con una flecha hacia arriba ↑ que está en la barra inferior de Safari</div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">3</div>
+        <div class="install-step-txt">Desliza hacia abajo en el menú y toca <strong>"Añadir a pantalla de inicio"</strong></div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">4</div>
+        <div class="install-step-txt">Ponle el nombre <strong>"Amsterdam 2026"</strong> y toca <strong>Añadir</strong> arriba a la derecha</div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">5</div>
+        <div class="install-step-txt">¡Listo! Aparecerá un icono en tu pantalla de inicio. Ábrela desde ahí para verla a <strong>pantalla completa sin barras del navegador</strong></div>
+      </div>
+      <div class="install-note">💡 Las 4 podéis hacer esto en vuestros móviles. Los datos se sincronizan entre todas a través de la nube aunque cada una la abra desde su icono.</div>
+    </div>
+    <div class="install-panel" id="panel-android">
+      <div class="install-step">
+        <div class="install-step-num">1</div>
+        <div class="install-step-txt">Abre esta página en <strong>Chrome</strong> (el navegador recomendado en Android para esta función)</div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">2</div>
+        <div class="install-step-txt">Toca el menú de los <strong>3 puntos ⋮</strong> arriba a la derecha de Chrome</div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">3</div>
+        <div class="install-step-txt">Selecciona <strong>"Añadir a pantalla de inicio"</strong> o <strong>"Instalar app"</strong> (el texto varía según versión de Android)</div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">4</div>
+        <div class="install-step-txt">Ponle el nombre <strong>"Amsterdam 2026"</strong> y confirma tocando <strong>Añadir</strong></div>
+      </div>
+      <div class="install-step">
+        <div class="install-step-num">5</div>
+        <div class="install-step-txt">El icono aparecerá en tu pantalla de inicio o en el cajón de apps. Ábrela desde ahí para usarla <strong>a pantalla completa</strong></div>
+      </div>
+      <div class="install-note">💡 En algunos Android también puede aparecer un banner automático en la parte inferior de Chrome preguntando si quieres instalar la app — toca "Instalar" directamente.</div>
     </div>
   </div>
 
@@ -1779,6 +1892,95 @@ function cldTest(){
     if(d.secure_url){ if(dot) dot.style.background='#54E6B5'; if(txt) txt.textContent='📸 Fotos ✅'; }
     else { if(dot) dot.style.background='#FF6B81'; if(txt) txt.textContent='📸 Error config'; console.error('[CLD]',d.error?d.error.message:d); }
   }).catch(function(){ if(dot) dot.style.background='#FF6B81'; if(txt) txt.textContent='📸 Sin conexión'; });
+}
+
+// ─── INSTALL TABS ───
+function installTab(id){
+  ['ios','android'].forEach(function(t){
+    document.getElementById('tab-'+t).classList.toggle('on', t===id);
+    document.getElementById('panel-'+t).classList.toggle('on', t===id);
+  });
+}
+
+// ─── CALENDAR EXPORT ───
+var CAL_EVENTS = {
+  d1: [
+    {title:'✈️ Vuelo VY8353 VLC→AMS', date:'20260908', start:'0650', end:'0935', loc:'Aeropuerto Valencia → Schiphol Amsterdam', desc:'Vueling VY8353 · Localizador CPJW2E · Cabina 10kg'},
+    {title:'🚆 Tren Schiphol → Centraal', date:'20260908', start:'0950', end:'1015', loc:'Amsterdam Airport Schiphol', desc:'Tren directo · 17 min · ~6€ contactless · Comprar GVB 48h en Centraal'},
+    {title:'🛒 Provisiones Albert Heijn / Dirk', date:'20260908', start:'1030', end:'1130', loc:'Albert Heijn Haarlemmerplein, Amsterdam', desc:'Comprar agua, desayunos y snacks para el apartamento'},
+    {title:'🏨 Check-in Hotel Houthavens', date:'20260908', start:'1300', end:'1400', loc:'Wiborgeiland 57, 1014 ZC Amsterdam', desc:'Tel. +31 621 952 749 · Check-in 13:00–20:00 · Apartamento 2 dormitorios'},
+    {title:'🌸 Barrio Jordaan + Westerkerk', date:'20260908', start:'1400', end:'1500', loc:'Jordaan, Amsterdam', desc:'Prinsengracht → Westerkerk → Noordermarkt · 45 min a pie'},
+    {title:'🌊 Canales UNESCO + Magere Brug', date:'20260908', start:'1500', end:'1700', loc:'Herengracht, Amsterdam', desc:'Herengracht → Keizersgracht → Magere Brug → Reguliersgracht (7 puentes) · 1.5h a pie'},
+    {title:'🛍️ Nine Streets — De 9 Straatjes', date:'20260908', start:'1700', end:'1800', loc:'De 9 Straatjes, Amsterdam', desc:'9 calles entre canales · Tiendas vintage, diseñadores, cafés'},
+    {title:'🍺 Leidseplein — Terraza y bitterballen', date:'20260908', start:'1800', end:'1930', loc:'Leidseplein, Amsterdam', desc:'Heineken + bitterballen en terraza · 5–9€ la ración'},
+    {title:'🍽️ Cena — Foodhallen / FEBO / Apartamento', date:'20260908', start:'2000', end:'2200', loc:'Foodhallen, Bellamyplein 51, Amsterdam', desc:'Foodhallen: tranvía 7 → Kinkerstraat · 10–15€/persona · O FEBO callejero 4–6€'},
+  ],
+  d2: [
+    {title:'☕ Desayuno en el apartamento', date:'20260909', start:'0900', end:'0945', loc:'Wiborgeiland 57, Amsterdam', desc:'Desayuno en cocina · 3–4€/persona · Después Bus 22/48 → Centraal'},
+    {title:'🎨 Van Gogh Museum / Museumplein gratis', date:'20260909', start:'1000', end:'1200', loc:'Van Gogh Museum, Museumplein, Amsterdam', desc:'22€ con reserva en vangoghmuseum.nl · O Museumplein gratis con foto IAMSTERDAM · Tranvía 2/12 → Rijksmuseum'},
+    {title:'🌷 Bloemenmarkt + Haring + Fritas', date:'20260909', start:'1230', end:'1400', loc:'Bloemenmarkt, Singel, Amsterdam', desc:'Mercado flores flotante · Haring Koningsplein 3–4€ · Vleminckx fritas 4–5€ · Total 7–9€/persona'},
+    {title:'🛶 Canal Boat Tour — 1h por los canales', date:'20260909', start:'1430', end:'1600', loc:'Blue Boat Company, Amsterdam', desc:'14–18€/persona · Blue Boat o Lovers · Embarcadero Ana Frank o Centraal · Cada 30 min'},
+    {title:'⛴️ Ferry GRATIS → Amsterdam Noord', date:'20260909', start:'1600', end:'1730', loc:'Ferry terminal Amsterdam Centraal Norte', desc:'Salida norte de Centraal · Ferry Buiksloterweg · GRATIS · Cada 7 min · Pllek bar + EYE Museum + NDSM Wharf'},
+    {title:'🌿 Coffee Shops y Pastelerías', date:'20260909', start:'1830', end:'1930', loc:'Dampkring, Handboogstraat 29, Amsterdam', desc:'Dampkring / Boerejongens / Paradox / The Hempstore · Solo +18 con DNI · Máx 5g · No llevar al aeropuerto'},
+    {title:'🌙 Paseo nocturno — Canales iluminados', date:'20260909', start:'1930', end:'2100', loc:'Rembrandtplein, Amsterdam', desc:'Centraal → Dam Square → Rembrandtplein → Herengracht → Magere Brug iluminado · 1h a pie · GRATIS'},
+    {title:'🌙 De Wallen — Barrio Rojo histórico', date:'20260909', start:'2000', end:'2115', loc:'De Wallen, Amsterdam', desc:'5 min de Rembrandtplein · Oude Kerk s.XIII · NO fotografiar escaparates · Seguro en grupo'},
+    {title:'🍽️ Cena — Kantjil / FEBO / Apartamento', date:'20260909', start:'2130', end:'2300', loc:'Kantjil de Tijger, Spuistraat 291, Amsterdam', desc:'Kantjil: rijsttafel indonesa 16€/persona · O FEBO 4–6€ · Vuelta: Tranvía 4/14 → Centraal → Bus 22/48'},
+    {title:'⛴️ Ferry nocturno — Skyline de noche', date:'20260909', start:'2200', end:'2230', loc:'Ferry terminal Amsterdam Centraal Norte', desc:'GRATIS · 24h · 5 min trayecto · Skyline iluminado reflejado en el agua · La mejor foto del viaje'},
+  ],
+  d3: [
+    {title:'🏨 Check-out Hotel Houthavens', date:'20260910', start:'0800', end:'0930', loc:'Wiborgeiland 57, 1014 ZC Amsterdam', desc:'Checkout 08:00–12:00 · Dejar maletas en recepción · Desayuno con lo del super'},
+    {title:'🛍️ Albert Cuypmarkt — Souvenirs baratos', date:'20260910', start:'0930', end:'1030', loc:'Albert Cuypmarkt, Amsterdam', desc:'300 puestos · Stroopwafels calientes 1–2€ · Tranvía 9/14 → Albert Cuypstraat'},
+    {title:'🐟 Haring callejero + Magere Brug', date:'20260910', start:'1030', end:'1130', loc:'Magere Brug, Amsterdam', desc:'Haring 3–4€ · Última foto en Magere Brug · 12 min a pie del mercado por el Amstel'},
+    {title:'🧳 Recoger maletas + salida a Schiphol', date:'20260910', start:'1145', end:'1230', loc:'Wiborgeiland 57, Amsterdam', desc:'Bus 22/48 → Centraal (10 min) → Tren Schiphol (17 min) · Llegar a las 12:30'},
+    {title:'✈️ Vuelo VY8350 AMS→VLC', date:'20260910', start:'1455', end:'1735', loc:'Amsterdam Airport Schiphol', desc:'Vueling VY8350 · Localizador XLZ7RZ · Llegada Valencia 17:35'},
+  ]
+};
+
+function calExport(day){
+  var events = [];
+  if(day === 'all'){
+    events = CAL_EVENTS.d1.concat(CAL_EVENTS.d2).concat(CAL_EVENTS.d3);
+  } else {
+    events = CAL_EVENTS[day] || [];
+  }
+  if(!events.length) return;
+
+  var ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Amsterdam2026//Amigas//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:Amsterdam 2026 🇳🇱','X-WR-TIMEZONE:Europe/Amsterdam'];
+
+  events.forEach(function(ev, i){
+    var uid = 'ams26-'+ev.date+'-'+i+'@amsterdam2026';
+    var dtstart = ev.date+'T'+ev.start+'00';
+    var dtend   = ev.date+'T'+ev.end+'00';
+        var desc = (ev.desc || '').split(',').join('\\,').split('\n').join('\\n');
+    var loc  = (ev.loc  || '').split(',').join('\\,');
+    var title= (ev.title|| '').split(',').join('\\,');
+    ics.push('BEGIN:VEVENT');
+    ics.push('UID:'+uid);
+    ics.push('DTSTART;TZID=Europe/Amsterdam:'+dtstart);
+    ics.push('DTEND;TZID=Europe/Amsterdam:'+dtend);
+    ics.push('SUMMARY:'+title);
+    ics.push('DESCRIPTION:'+desc);
+    ics.push('LOCATION:'+loc);
+    ics.push('END:VEVENT');
+  });
+  ics.push('END:VCALENDAR');
+
+  var blob = new Blob([ics.join('
+')], {type:'text/calendar;charset=utf-8'});
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement('a');
+  var fname = day === 'all' ? 'Amsterdam2026_completo.ics' : 'Amsterdam2026_Dia'+(day==='d1'?'1':day==='d2'?'2':'3')+'.ics';
+  a.href = url; a.download = fname; a.style.display='none';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 1000);
+
+  var suc = document.getElementById('cal-success');
+  if(suc){ suc.classList.add('on'); setTimeout(function(){ suc.classList.remove('on'); }, 4000); }
+
+  // Highlight selected option briefly
+  var opts = document.querySelectorAll('.cal-day-option');
+  opts.forEach(function(o){ o.classList.remove('sel'); });
 }
 
 // ─── INFO PANEL ───
