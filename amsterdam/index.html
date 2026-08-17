@@ -252,6 +252,31 @@ textarea.ef{min-height:60px;resize:vertical;}
 .media-picker-opt-sub{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:2px;}
 .media-picker-cancel{margin-top:10px;width:100%;padding:13px;background:rgba(255,255,255,.08);border:none;border-radius:12px;font-size:.85rem;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;}
 
+/* ══════════ FOOD STOP CARD ══════════ */
+.food-stop{background:#fff;border-radius:14px;padding:14px 15px;margin:2px 0;box-shadow:0 4px 20px rgba(0,0,0,.22),0 0 0 3px rgba(255,107,53,.45);position:relative;overflow:hidden;}
+.food-stop::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,#FF6B35,#FF3D00);}
+.food-stop-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF6B35,#FF3D00);color:#fff;font-size:.6rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:50px;margin-bottom:8px;}
+.food-stop-title{font-size:.9rem;font-weight:900;color:#0D1B2A;margin-bottom:6px;line-height:1.25;}
+.food-stop-dist{display:flex;align-items:center;gap:5px;font-size:.65rem;color:#666;background:#f5f0ea;border-radius:7px;padding:5px 9px;margin-bottom:9px;}
+.food-stop-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:9px;}
+.food-opt{display:flex;align-items:flex-start;gap:9px;background:#f8f5f1;border-radius:10px;padding:9px 11px;}
+.food-opt-ico{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
+.food-opt-body{flex:1;}
+.food-opt-name{font-size:.78rem;font-weight:800;color:#0D1B2A;margin-bottom:2px;}
+.food-opt-desc{font-size:.7rem;color:#555;line-height:1.45;margin-bottom:4px;}
+.food-opt-price{display:inline-block;background:#2d7a2d;color:#fff;font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:50px;}
+.food-stop-links{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px;}
+.food-stop-link{font-size:.68rem;padding:5px 12px;border-radius:8px;text-decoration:none;font-weight:700;background:#0D1B2A;color:#FFB347;}
+.food-stop-exp{display:flex;align-items:center;gap:5px;padding-top:9px;border-top:1px solid #eee;flex-wrap:wrap;}
+.food-stop-exp .exp-lbl{font-size:.65rem;color:#666;font-weight:600;}
+.food-stop-exp .exp-inp{background:#f5f5f5;color:#0D1B2A;border:1px solid #ddd;font-size:.78rem;width:68px;border-radius:7px;padding:4px 6px;}
+.food-stop-exp .pay-sel{background:#f5f5f5;color:#0D1B2A;border:1px solid #ddd;font-size:.65rem;border-radius:7px;padding:4px 5px;max-width:110px;}
+.food-stop-exp .exp-note-inp{flex:1;min-width:70px;background:#f5f5f5;color:#0D1B2A;border:1px solid #ddd;font-size:.72rem;border-radius:7px;padding:4px 7px;}
+.food-stop .media-section{border-top:1px solid #eee;margin-top:9px;padding-top:8px;}
+.food-stop .media-btn{border-color:rgba(255,107,53,.4);color:#FF6B35;}
+.food-stop-ckb{background:none;border:none;font-size:1.1rem;cursor:pointer;min-height:36px;min-width:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.food-stop-header{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:2px;}
+
 /* ══════════ CALENDAR BUTTON ══════════ */
 .cal-btn-wrap{margin:14px 0 6px;}
 .cal-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;border:none;border-radius:16px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:.3px;transition:transform .1s,box-shadow .1s;}
@@ -349,7 +374,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
     <div class="hero-pax" style="margin-top:5px;">
       <span class="pax">✈️ VY8353 / VY8350</span>
-      <span class="pax">🏨 Hotel Houthavens</span>
+      <span class="pax">🏨 Hotel de Westertoren</span>
     </div>
   </div>
 </div>
@@ -388,30 +413,38 @@ textarea.ef{min-height:60px;resize:vertical;}
   </div>
   <div class="alert alert-red">⚠️ <strong>Cambio de horario vuelta:</strong> vuelo <strong>VY8350</strong> Jue 10 Sep · AMS 14:55 → VLC 17:35. Salid del hotel antes de las 12:30 para coger el tren a Schiphol con margen.</div>
 
-  <div class="sec">🏨 Alojamiento — Hotel Houthavens</div>
-  <div class="ic" style="margin-bottom:8px;"><div class="ic-l">Apartamento 2 dormitorios · 4 adultas</div><div class="ic-v">Wiborgeiland 57, 1014 ZC Ámsterdam<br><strong>Check-in:</strong> Mar 8 Sep · 13:00–20:00<br><strong>Check-out:</strong> Jue 10 Sep · 08:00–12:00<small>Tel. +31 621 952 749</small></div></div>
-  <div class="alert alert-grn">🔑 <strong>Acceso:</strong> check-in a partir de las 13:00. Si llegáis antes, podéis dejar las maletas en recepción y explorar el barrio mientras prepararan la habitación.</div>
+  <div class="sec">🏨 Alojamiento — Hotel de Westertoren ⭐ 9.2</div>
+  <div class="ic" style="margin-bottom:8px;"><div class="ic-l">Hotel de Westertoren · Jordaan · Centro</div><div class="ic-v">Raadhuisstraat 35, 1016 DC Ámsterdam<br><strong>Check-in:</strong> Mar 8 Sep · desde 14:00<br><strong>Check-out:</strong> Jue 10 Sep · hasta 11:00<small>200m de Ana Frank · 10 min a pie de Centraal · Tranvía Westermarkt en la puerta</small></div></div>
+  <div class="igrid">
+    <div class="ic"><div class="ic-l">Ubicación</div><div class="ic-v">⭐ 9.2/10<small>En el corazón del Jordaan</small></div></div>
+    <div class="ic"><div class="ic-l">Desayuno</div><div class="ic-v">✅ Incluido<small>Tostadas, queso, huevos, yogur</small></div></div>
+    <div class="ic"><div class="ic-l">Ana Frank</div><div class="ic-v">🏠 200 m a pie</div></div>
+    <div class="ic"><div class="ic-l">WiFi</div><div class="ic-v">✅ Gratis · 8.5/10</div></div>
+  </div>
+  <div class="alert alert-grn">🔑 <strong>Check-in desde las 14:00.</strong> Si llegáis antes dejad maletas en recepción (guardaequipaje disponible). ⚠️ <strong>Sin ascensor</strong> — escaleras empinadas. Maletas ligeras o bolsas blandas recomendadas.</div>
+  <div class="alert alert-blue">🐱 Dato: en el hotel vive un gato. Sin ascensor pero con mucho encanto — habitaciones con vistas a la ciudad y balcón en algunas.</div>
 
   <div class="sec">🚌 Cómo llegar al hotel desde el aeropuerto</div>
   <div class="trn-detail">
-    <div class="trn-step"><span class="trn-ico">✈️</span><span>Llegáis a <strong>Schiphol</strong> a las 09:35 — seguir señales "Trains / Treinen"</span></div>
-    <div class="trn-step"><span class="trn-ico">🚆</span><span>Bajad a las vías y coged cualquier tren hacia <strong>Amsterdam Centraal</strong> · 17 min · cada 10 min · ~6€/persona · pagad con tarjeta contactless directamente en el torniquete</span></div>
-    <div class="trn-step"><span class="trn-ico">🚌</span><span>Desde <strong>Centraal</strong> coged el <strong>Bus 22 o Bus 48</strong> dirección Houthaven · parad en <strong>"Spaarndammerstraat"</strong> o <strong>"Haparandaweg"</strong> · 7–10 min · cada 10–15 min</span></div>
-    <div class="trn-step"><span class="trn-ico">🚶</span><span>Desde la parada hasta el hotel: <strong>5–8 min a pie</strong> — Wiborgeiland 57</span></div>
-    <div class="trn-step"><span class="trn-ico">⏱️</span><span>Total aeropuerto → hotel: <strong>~45 min</strong> · coste total ~6€/persona</span></div>
+    <div class="trn-step"><span class="trn-ico">✈️</span><span>Llegáis a <strong>Schiphol</strong> a las 09:35 — señales "Trains / Treinen" a las vías</span></div>
+    <div class="trn-step"><span class="trn-ico">🚆</span><span>Tren directo a <strong>Amsterdam Centraal</strong> · 17 min · ~6€ · tarjeta contactless en el torniquete · cada 10 min</span></div>
+    <div class="trn-step"><span class="trn-ico">🚋</span><span>Desde Centraal: <strong>Tranvía 13 o 17 dirección Westermarkt</strong> · parad en <strong>"Westermarkt"</strong> · 5 min · el hotel está a 2 min a pie de la parada</span></div>
+    <div class="trn-step"><span class="trn-ico">🚶</span><span>O a pie desde Centraal: <strong>10 min por Raadhuisstraat</strong> — recto y muy agradable</span></div>
+    <div class="trn-step"><span class="trn-ico">⏱️</span><span>Total aeropuerto → hotel: <strong>~35 min</strong> · ~6€/persona</span></div>
   </div>
   <div class="clnks" style="margin-bottom:8px;">
-    <a href="https://maps.google.com/?q=Wiborgeiland+57+1014ZC+Amsterdam" target="_blank" class="lnk lm">📍 Maps Hotel</a>
-    <a href="https://9292.nl" target="_blank" class="lnk lgy">🗺️ App 9292 (planif. rutas)</a>
+    <a href="https://maps.google.com/?q=Raadhuisstraat+35+1016DC+Amsterdam" target="_blank" class="lnk lm">📍 Maps Hotel</a>
+    <a href="https://9292.nl" target="_blank" class="lnk lgy">🗺️ App 9292</a>
   </div>
 
-  <div class="sec">🚌 Cómo moverse desde el hotel al centro</div>
+  <div class="sec">🚶 Desde el hotel — ¡casi todo a pie!</div>
   <div class="trn-detail">
-    <div class="trn-step"><span class="trn-ico">🏨</span><span>Desde el hotel andáis ~5 min hasta la parada <strong>"Haparandaweg"</strong> (Bus 22 y 48)</span></div>
-    <div class="trn-step"><span class="trn-ico">🚌</span><span><strong>Bus 22 o 48 → Amsterdam Centraal</strong> · 7–10 min · cada 10–15 min · horario: 06:00–00:30</span></div>
-    <div class="trn-step"><span class="trn-ico">🌙</span><span><strong>De noche (00:30–06:00)</strong> usad el autobús nocturno <strong>N81 o N88</strong> desde la misma parada · billete nocturno: 5€ (separado del bono diario)</span></div>
-    <div class="trn-step"><span class="trn-ico">🚲</span><span>En bici desde el hotel al centro: <strong>20 min</strong> — muy agradable por las mañanas</span></div>
-    <div class="trn-step"><span class="trn-ico">🚕</span><span>Taxi hotel ↔ centro: <strong>~18–22€</strong> · solo si es tarde y no hay bus</span></div>
+    <div class="trn-step"><span class="trn-ico">🏠</span><span><strong>Ana Frank:</strong> 200 m a pie — literalmente al doblar la esquina por Prinsengracht</span></div>
+    <div class="trn-step"><span class="trn-ico">🌸</span><span><strong>Jordaan:</strong> estáis dentro — la puerta del hotel ya es Jordaan</span></div>
+    <div class="trn-step"><span class="trn-ico">🚉</span><span><strong>Centraal:</strong> 10 min a pie o Tranvía 13/17 desde Westermarkt (2 min andando)</span></div>
+    <div class="trn-step"><span class="trn-ico">🌷</span><span><strong>Bloemenmarkt:</strong> 12 min a pie por Prinsengracht</span></div>
+    <div class="trn-step"><span class="trn-ico">🎨</span><span><strong>Van Gogh / Museumplein:</strong> 20 min a pie o Tranvía 2 desde Dam Square</span></div>
+    <div class="trn-step"><span class="trn-ico">🌙</span><span><strong>De noche después de las 00:30:</strong> Tranvía nocturno N13 desde Westermarkt · 5€</span></div>
   </div>
   <div class="alert alert-blue">💳 <strong>Pago en transporte:</strong> el GVB NO acepta efectivo. Pagad siempre con <strong>tarjeta de débito/crédito contactless</strong> o móvil (Apple/Google Pay). Funciona igual que el metro de Madrid — tap al entrar y al salir.</div>
 
@@ -439,28 +472,28 @@ textarea.ef{min-height:60px;resize:vertical;}
     <div class="pax-chip" style="border-left:3px solid var(--c-mi);"><div class="pax-chip-name" style="color:var(--c-mi);">💛 Michelle</div><div class="pax-chip-role">Viajera</div></div>
   </div>
 
-  <div class="sec">🛒 Supermercados cerca del hotel</div>
+  <div class="sec">🛒 Supermercados cerca del hotel — zona Jordaan</div>
   <div class="price-box">
-    <div class="price-box-lbl">🏪 Para hacer acopio al llegar</div>
+    <div class="price-box-lbl">🏪 Todo a menos de 12 min andando</div>
     <table>
-      <tr><td>🟠 <strong>Albert Heijn</strong> (el más grande de NL)</td><td>~10 min andando · Haarlemmerplein</td></tr>
-      <tr><td>🟡 <strong>Jumbo</strong> (también muy completo)</td><td>Barrio Haarlemmerbuurt · 12 min</td></tr>
-      <tr><td>🔴 <strong>Dirk van den Broek</strong> (el más barato)</td><td>Chueca del barrio, excelente precio</td></tr>
-      <tr><td>🏪 <strong>Spar / Gall&Gall</strong> (bebidas y snacks)</td><td>Varios en la zona Houthavens</td></tr>
+      <tr><td>🟠 <strong>Albert Heijn</strong> · Koningsplein</td><td>8 min · junto al Bloemenmarkt</td></tr>
+      <tr><td>🟠 <strong>Albert Heijn</strong> · Nieuwendijk</td><td>10 min · camino a Centraal</td></tr>
+      <tr><td>🟡 <strong>Jumbo</strong> · Marnixstraat</td><td>10 min · buen precio y surtido</td></tr>
+      <tr><td>🔴 <strong>Dirk van den Broek</strong> · Elandsgracht</td><td>12 min · el más barato de Ámsterdam</td></tr>
     </table>
   </div>
-  <div class="alert alert-blue">🛒 <strong>Tip provisiones:</strong> comprad agua, snacks, desayunos y cena del apartamento en el <strong>Albert Heijn o Dirk</strong> nada más llegar. Ahorraréis mucho vs restaurantes. El Dirk es el supermercado holandés más económico — con 4–5€/persona tenéis un desayuno completo.</div>
+  <div class="alert alert-blue">🍳 <strong>Tip:</strong> comprobad si vuestras habitaciones tienen desayuno incluido — el hotel lo sirve en la habitación. Si está incluido aprovechadlo y ahorrad 10–15€/día. Si no, Winkel 43 está a 3 min a pie.</div>
 
-  <div class="sec">☕ Desayuno barato cerca del hotel</div>
+  <div class="sec">☕ Desayuno cerca del hotel — estáis en el Jordaan</div>
   <div class="price-box">
-    <div class="price-box-lbl">🥐 Opciones mañaneras económicas</div>
+    <div class="price-box-lbl">🥐 Todo a menos de 10 min andando</div>
     <table>
-      <tr><td>🏪 <strong>Albert Heijn / Dirk</strong> (en tienda)</td><td>4–5€ desayuno completo</td></tr>
-      <tr><td>☕ <strong>Cafeterías de barrio Jordaan</strong></td><td>8–12€/persona · 20 min en bici</td></tr>
-      <tr><td>🧇 <strong>HEMA cafetería</strong> (centro)</td><td>4–7€ · sándwiches, croissants</td></tr>
-      <tr><td>🥧 <strong>Winkel 43 Jordaan</strong> (tarta manzana)</td><td>8–10€ con café</td></tr>
-      <tr><td>🍳 <strong>Omelegg</strong> (tortillas, brunch)</td><td>12–15€ · reservar o ir pronto</td></tr>
-      <tr><td><strong>💡 Mejor opción 1: desayuno en el apartamento</strong></td><td><strong>3–4€ desde Albert Heijn</strong></td></tr>
+      <tr><td>🏨 <strong>Desayuno del hotel</strong> (si incluido)</td><td>Gratis · en habitación</td></tr>
+      <tr><td>🥧 <strong>Winkel 43</strong> (tarta manzana icónica)</td><td>8–10€ · 3 min a pie</td></tr>
+      <tr><td>☕ <strong>Café Papeneiland</strong> (s. XVII, canal)</td><td>6–10€ · 4 min a pie</td></tr>
+      <tr><td>🧇 <strong>HEMA cafetería</strong> · Nieuwendijk</td><td>4–7€ · 10 min a pie</td></tr>
+      <tr><td>🍳 <strong>Omelegg</strong> (brunch)</td><td>12–15€ · 8 min a pie</td></tr>
+      <tr><td><strong>💡 Top: Winkel 43</strong></td><td><strong>3 min · icónico del Jordaan</strong></td></tr>
     </table>
   </div>
 
@@ -651,16 +684,16 @@ textarea.ef{min-height:60px;resize:vertical;}
 
     <div class="trn-detail">
       <div class="trn-step"><span class="trn-ico">🚌</span><span>En Centraal: comprad el <strong>GVB 48h</strong> en el mostrador azul GVB (válido hoy y mañana entero) · ~15€/persona · salid por la puerta principal (sur) y coged el <strong>Bus 22 o 48</strong> a la derecha dirección Houthaven</span></div>
-      <div class="trn-step"><span class="trn-ico">📍</span><span>Bajad en <strong>"Spaarndammerstraat"</strong> o <strong>"Haparandaweg"</strong> · 7–10 min · 5 min a pie hasta Wiborgeiland 57</span></div>
+      <div class="trn-step"><span class="trn-ico">📍</span><span>Bajad en <strong>"Spaarndammerstraat"</strong> o <strong>"Haparandaweg"</strong> · 7–10 min · 2 min a pie hasta Raadhuisstraat 35</span></div>
     </div>
 
     <div class="ti" id="d1-s3">
       <div class="tdot"></div>
       <div class="tc">
         <div class="cr1"><span class="ct">10:30</span><span class="cn">🛒 Albert Heijn / Dirk — Provisiones del apartamento</span><button type="button" class="eico" onclick="OE('d1-s3')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s3')">⬜</button></div>
-        <div class="cd">Parad en el <strong>Albert Heijn de Haarlemmerplein</strong> (10 min andando desde la parada del bus, de camino al hotel) o en el <strong>Dirk van den Broek</strong> (el más barato de Ámsterdam). Comprad: agua, desayunos para mañana, snacks y algo para cenar en el apartamento por si acaso. Con 4–5€/persona tenéis desayuno para 2 días.</div>
+        <div class="cd">De camino al hotel desde Centraal, parad en el <strong>Albert Heijn de Nieuwendijk</strong> (10 min a pie de Centraal, de camino a Westermarkt) o esperad al <strong>Albert Heijn de Koningsplein</strong> (junto al Bloemenmarkt, 8 min del hotel). Comprad: agua, snacks y algo para cenar si queréis. <strong>OJO:</strong> el hotel puede incluir desayuno — comprobadlo al hacer check-in antes de comprar mucho.</div>
         <div class="ctags"><span class="tag te">🛒 De camino al hotel</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Albert+Heijn+Haarlemmerplein+Amsterdam" target="_blank" class="lnk lm">📍 Albert Heijn</a><a href="https://maps.google.com/?q=Dirk+van+den+Broek+Haarlemmerweg+Amsterdam" target="_blank" class="lnk lgy">📍 Dirk (más barato)</a></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Albert+Heijn+Nieuwendijk+Amsterdam" target="_blank" class="lnk lm">📍 Albert Heijn Nieuwendijk</a><a href="https://maps.google.com/?q=Albert+Heijn+Koningsplein+Amsterdam" target="_blank" class="lnk lgy">📍 AH Koningsplein</a></div>
         <button type="button" class="info-btn" onclick="infoOpen('d1-s3')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s3')"><span class="exp-unit">€</span><select id="pay-d1-s3" class="pay-sel" onchange="saveExp('d1-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s3')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s3"></div></div>
@@ -674,17 +707,17 @@ textarea.ef{min-height:60px;resize:vertical;}
       <div class="tdot"></div>
       <div class="tc">
         <div class="cr1"><span class="ct">13:00</span><span class="cn">🏨 Check-in Hotel Houthavens</span><button type="button" class="eico" onclick="OE('d1-s4')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s4')">⬜</button></div>
-        <div class="cd">Wiborgeiland 57, 1014 ZC · Tel. <strong>+31 621 952 749</strong>. Check-in de 13:00 a 20:00. Apartamento 2 dormitorios para 4. Si llegáis antes de las 13h, dejad las maletas en recepción. Guardad el número de teléfono del hotel por si necesitáis llamar.</div>
+        <div class="cd"><strong>Raadhuisstraat 35, 1016 DC Ámsterdam.</strong> Check-in desde las <strong>14:00</strong>. Si llegáis antes (y llegaréis, el vuelo aterriza a las 09:35) dejad las maletas en recepción — tienen guardaequipaje. Sin ascensor — escaleras empinadas. El hotel está en pleno Jordaan, Ana Frank a 200m. Checkear si el desayuno está incluido.</div>
         <div class="ctags"><span class="tag tw">🏨 Check-in 13:00–20:00</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam" target="_blank" class="lnk lm">📍 Hotel</a></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Raadhuisstraat+35+Amsterdam" target="_blank" class="lnk lm">📍 Hotel de Westertoren</a></div>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s4" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s4')"><span class="exp-unit">€</span><select id="pay-d1-s4" class="pay-sel" onchange="saveExp('d1-s4')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s4" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s4')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s4')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s4"></div></div>
-        <div class="ced" id="ced-d1-s4"><input class="ef" data-f="time" value="13:00"><input class="ef" data-f="name" value="🏨 Check-in Hotel Houthavens"><textarea class="ef" data-f="desc">Wiborgeiland 57 · +31 621 952 749 · Check-in 13:00–20:00.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s4')">🗑 Eliminar</button></div></div>
+        <div class="ced" id="ced-d1-s4"><input class="ef" data-f="time" value="13:00"><input class="ef" data-f="name" value="🏨 Check-in Hotel Houthavens"><textarea class="ef" data-f="desc">Raadhuisstraat 35, 1016 DC Amsterdam · Check-in desde 14:00 · Sin ascensor</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Raadhuisstraat+35+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s4')">🗑 Eliminar</button></div></div>
       </div>
     </div>
 
     <div class="trn-detail">
-      <div class="trn-step"><span class="trn-ico">🚌</span><span>Al hotel → Jordaan: <strong>Bus 22/48 desde Haparandaweg → Centraal</strong> (7 min) → a pie por Haarlemmerstraat hasta Jordaan (10 min). Todo seguido, muy cómodo.</span></div>
+      <div class="trn-step"><span class="trn-ico">🌸</span><span>Del hotel al Jordaan: <strong>ya estáis en el Jordaan.</strong> Salid por la puerta y explorad — Prinsengracht, Westerkerk y Ana Frank están a menos de 5 min a pie en cualquier dirección.</span></div>
     </div>
 
     <div class="ti" id="d1-s5">
@@ -701,7 +734,11 @@ textarea.ef{min-height:60px;resize:vertical;}
       </div>
     </div>
 
-    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 10 min hacia los canales principales</div></div>
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 3 min · Jordaan</div></div>
+
+    <div class="ti" id="d1-al"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">🍽️ PARADA PARA COMER</div><div class="food-stop-title">⏰ 13:30 · Almuerzo en el Jordaan</div></div><button type="button" class="food-stop-ckb" onclick="CD('d1-al')">⬜</button></div><div class="food-stop-dist">📍 A 3 min del hotel · en pleno Jordaan</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🥧</span><div class="food-opt-body"><div class="food-opt-name">Winkel 43 — Tarta de manzana caliente</div><div class="food-opt-desc">La más famosa de Ámsterdam. Ración con nata montada + café. Vale la cola.</div><span class="food-opt-price">💶 5+3€ = 8€</span></div></div><div class="food-opt"><span class="food-opt-ico">🫔</span><div class="food-opt-body"><div class="food-opt-name">Broodje Bert — Bocadillos holandeses</div><div class="food-opt-desc">Broodje kaas, rookvlees o kroket. Rapidísimo y auténtico.</div><span class="food-opt-price">💶 3–5€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🧇</span><div class="food-opt-body"><div class="food-opt-name">Poffertjes callejeros</div><div class="food-opt-desc">Mini tortitas con mantequilla y azúcar. Puesto en el Noordermarkt.</div><span class="food-opt-price">💶 5–7€/persona</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=Winkel+43+Amsterdam+Noordermarkt" target="_blank" class="food-stop-link">📍 Winkel 43</a><a href="https://maps.google.com/?q=Broodje+Bert+Amsterdam+Rozengracht" target="_blank" class="food-stop-link">📍 Broodje Bert</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d1-al" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-al')"><span class="exp-unit">€</span><select id="pay-d1-al" class="pay-sel" onchange="saveExp('d1-al')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-al" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-al')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-al')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-al"></div></div></div></div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 8 min hacia los canales principales</div></div>
 
     <div class="ti" id="d1-s6">
       <div class="tdot"></div>
@@ -719,6 +756,10 @@ textarea.ef{min-height:60px;resize:vertical;}
 
     <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 10 min desde Magere Brug hacia Nine Streets</div></div>
 
+    <div class="ti" id="d1-sn"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">☕ PARADA PARA MERENDAR</div><div class="food-stop-title">⏰ 16:30 · Merienda en las Nine Streets</div></div><button type="button" class="food-stop-ckb" onclick="CD('d1-sn')">⬜</button></div><div class="food-stop-dist">📍 Dentro de las Nine Streets · 5 min hasta Leidseplein</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🍫</span><div class="food-opt-body"><div class="food-opt-name">Chocolátl — Chocolate artesanal</div><div class="food-opt-desc">La mejor chocolatería de Ámsterdam. Taza de chocolate caliente espeso o bombones para llevar.</div><span class="food-opt-price">💶 3–5€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🥐</span><div class="food-opt-body"><div class="food-opt-name">Petit Gâteau — Pastelería francesa</div><div class="food-opt-desc">Macarons, eclairs y tartas individuales. Pequeñísima pero increíble.</div><span class="food-opt-price">💶 2–4€/pieza</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=Chocolatl+Amsterdam+Hazenstraat" target="_blank" class="food-stop-link">📍 Chocolátl</a><a href="https://maps.google.com/?q=Petit+Gateau+Amsterdam+Runstraat" target="_blank" class="food-stop-link">📍 Petit Gâteau</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d1-sn" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-sn')"><span class="exp-unit">€</span><select id="pay-d1-sn" class="pay-sel" onchange="saveExp('d1-sn')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-sn" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-sn')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-sn')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-sn"></div></div></div></div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 5 min → Leidseplein</div></div>
+
     <div class="ti" id="d1-s7">
       <div class="tdot"></div>
       <div class="tc">
@@ -735,40 +776,16 @@ textarea.ef{min-height:60px;resize:vertical;}
 
     <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 8 min hasta Leidseplein</div></div>
 
-    <div class="ti" id="d1-s8">
-      <div class="tdot"></div>
-      <div class="tc">
-        <div class="cr1"><span class="ct">18:00</span><span class="cn">🍺 Leidseplein — Terraza y bitterballen</span><button type="button" class="eico" onclick="OE('d1-s8')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s8')">⬜</button></div>
-        <div class="cd">La plaza más animada de Ámsterdam. Terrazas, artistas callejeros y mucho ambiente. Pedid una <strong>Heineken o Amstel</strong> y unas <strong>bitterballen</strong> (croquetas de carne con mostaza, el pintxo holandés, 5–9€ la ración). Perfecto para descansar los pies después del paseo. A 8 min a pie de Nine Streets — toda la tarde ha sido seguida sin transporte.</div>
-        <div class="ctags"><span class="tag tf">🍺 Aperitivo</span><span class="tag te">🎭 Ambiente</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Leidseplein+Amsterdam" target="_blank" class="lnk lm">📍 Leidseplein</a></div>
-        <button type="button" class="info-btn" onclick="infoOpen('d1-s8')">ℹ️ Info sobre este lugar</button>
-        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s8" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s8')"><span class="exp-unit">€</span><select id="pay-d1-s8" class="pay-sel" onchange="saveExp('d1-s8')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s8" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s8')"></div>
-        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s8')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s8"></div></div>
-        <div class="ced" id="ced-d1-s8"><input class="ef" data-f="time" value="18:00"><input class="ef" data-f="name" value="🍺 Leidseplein — Terraza y bitterballen"><textarea class="ef" data-f="desc">Bitterballen + Heineken en terraza. Artistas callejeros. 5–9€ ración.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Leidseplein+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s8')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s8')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s8')">🗑 Eliminar</button></div></div>
-      </div>
-    </div>
+    <div class="ti" id="d1-s8"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">🍺 APERITIVO + SNACK</div><div class="food-stop-title">⏰ 18:00 · Bitterballen y cerveza en Leidseplein</div></div><button type="button" class="food-stop-ckb" onclick="CD('d1-s8')">⬜</button></div><div class="food-stop-dist">📍 La plaza más animada de Ámsterdam</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🧆</span><div class="food-opt-body"><div class="food-opt-name">Bitterballen + Heineken</div><div class="food-opt-desc">Croquetas de carne con mostaza + caña en terraza. La combinación holandesa perfecta.</div><span class="food-opt-price">💶 8–9€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🥨</span><div class="food-opt-body"><div class="food-opt-name">Kaassoufflé</div><div class="food-opt-desc">Empanadilla de queso fundido. En bares y en el FEBO de la plaza.</div><span class="food-opt-price">💶 2€/unidad</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=Leidseplein+Amsterdam" target="_blank" class="food-stop-link">📍 Leidseplein</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d1-s8" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s8')"><span class="exp-unit">€</span><select id="pay-d1-s8" class="pay-sel" onchange="saveExp('d1-s8')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s8" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s8')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s8')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s8"></div></div></div></div>
 
     <div class="hotel-dinner">
-      <div class="hotel-dinner-title">🍽️ Cena Noche 1 — elegid según el cansancio</div>
-      <div class="hotel-dinner-item"><span>🏭</span><span><strong>Foodhallen</strong> (10 min en tranvía 7 desde Leidseplein → parada "Kinkerstraat"): mercado cubierto con 20+ puestos de comida. Cada una elige lo que quiere — surinamés, ramen, pizza, bocadillos... 10–15€/persona. El ambiente es genial y los precios muy razonables para Ámsterdam.</span></div>
-      <div class="hotel-dinner-item"><span>🍔</span><span><strong>FEBO callejero</strong> (zona Leidseplein, hay uno cerca): fritería autoservicio con máquinas en la pared. Kroket, hamburguesa, frites. 4–6€. La experiencia más holandesa y económica que existe.</span></div>
-      <div class="hotel-dinner-item"><span>🏨</span><span><strong>Cenar en el apartamento</strong>: con lo comprado en el super, pasta o ensalada. 3–5€/persona. Perfecta opción si el día de viaje os ha dejado sin energía.</span></div>
+      <div class="hotel-dinner-title">🍽️ Cena Noche 1 — elegid según el cansancio (≤10€)</div>
+      <div class="hotel-dinner-item"><span>🏭</span><span><strong>Foodhallen</strong> (Tranvía 7 desde Leidseplein → Kinkerstraat, 5 min): mercado cubierto con 20+ puestos. Ramen 8€ · pizza por porciones 4€ · tacos 7€ · bocadillos 6€. <strong>Elegid cada una lo suyo</strong> — perfecto para grupos con gustos distintos.</span></div>
+      <div class="hotel-dinner-item"><span>🍟</span><span><strong>FEBO + birra</strong> (en Leidseplein mismo): kroket 2€ + fritas 3€ + Heineken 3€ = <strong>8€ todo</strong>. La opción más holandesa, más rápida y más barata del viaje.</span></div>
+      <div class="hotel-dinner-item"><span>🥘</span><span><strong>Kantjil To Go</strong> (Spuistraat, 10 min a pie): nasi goreng o bami goreng (arroz o fideos fritos indonesios) 7–9€. La comida más típica de Holanda — herencia colonial.</span></div>
     </div>
 
-    <div class="ti" id="d1-s9">
-      <div class="tdot"></div>
-      <div class="tc">
-        <div class="cr1"><span class="ct">20:00</span><span class="cn">🍽️ Cena — Foodhallen, FEBO o apartamento</span><button type="button" class="eico" onclick="OE('d1-s9')">✏️</button><button type="button" class="ckb" onclick="CD('d1-s9')">⬜</button></div>
-        <div class="cd">Ver opciones arriba. <strong>Vuelta al hotel desde Foodhallen/Leidseplein:</strong> tranvía 7 o 17 hasta Centraal (10 min) → Bus 22/48 dirección Houthaven → parada Haparandaweg (10 min). Total: ~20 min. Si es después de las 00:30h: <strong>Bus nocturno N81</strong> desde Centraal, 5€ trayecto.</div>
-        <div class="ctags"><span class="tag tf">🍽️ Cena</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Foodhallen+Amsterdam" target="_blank" class="lnk lm">📍 Foodhallen</a><a href="https://maps.google.com/?q=FEBO+Leidseplein+Amsterdam" target="_blank" class="lnk lgy">📍 FEBO</a></div>
-        <button type="button" class="info-btn" onclick="infoOpen('d1-s9')">ℹ️ Info sobre este lugar</button>
-        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d1-s9" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s9')"><span class="exp-unit">€</span><select id="pay-d1-s9" class="pay-sel" onchange="saveExp('d1-s9')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s9" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s9')"></div>
-        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s9')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s9"></div></div>
-        <div class="ced" id="ced-d1-s9"><input class="ef" data-f="time" value="20:00"><input class="ef" data-f="name" value="🍽️ Cena Noche 1"><textarea class="ef" data-f="desc">Foodhallen: tranvía 7 desde Leidseplein → Kinkerstraat. Vuelta: tranvía → Centraal → Bus 22/48.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Foodhallen+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d1-s9')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d1-s9')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d1-s9')">🗑 Eliminar</button></div></div>
-      </div>
-    </div>
+    <div class="ti" id="d1-s9"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">🍽️ PARADA PARA CENAR</div><div class="food-stop-title">⏰ 20:00 · Cena — Foodhallen, FEBO o Kantjil To Go</div></div><button type="button" class="food-stop-ckb" onclick="CD('d1-s9')">⬜</button></div><div class="food-stop-dist">📍 Foodhallen: Tranvía 7 → Kinkerstraat (5 min) · FEBO: en la propia plaza Leidseplein</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🏭</span><div class="food-opt-body"><div class="food-opt-name">Foodhallen — Mercado de comida</div><div class="food-opt-desc">20+ puestos en nave industrial. Ramen 8€ · pizza 4€ · tacos 7€ · bocadillos 6€. Cada una elige.</div><span class="food-opt-price">💶 8–10€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🍟</span><div class="food-opt-body"><div class="food-opt-name">FEBO — Fritería autoservicio holandesa</div><div class="food-opt-desc">Máquinas con kroket, kaassoufflé y fritas. La opción más holandesa y más barata.</div><span class="food-opt-price">💶 5–7€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🥘</span><div class="food-opt-body"><div class="food-opt-name">Kantjil To Go — Indonesio para llevar</div><div class="food-opt-desc">Nasi goreng o bami goreng. La herencia colonial más deliciosa de Holanda. Spuistraat, 10 min a pie.</div><span class="food-opt-price">💶 7–9€/persona</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=Foodhallen+Amsterdam" target="_blank" class="food-stop-link">📍 Foodhallen</a><a href="https://maps.google.com/?q=FEBO+Leidseplein+Amsterdam" target="_blank" class="food-stop-link">📍 FEBO</a><a href="https://maps.google.com/?q=Kantjil+To+Go+Amsterdam+Spuistraat" target="_blank" class="food-stop-link">📍 Kantjil To Go</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d1-s9" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d1-s9')"><span class="exp-unit">€</span><select id="pay-d1-s9" class="pay-sel" onchange="saveExp('d1-s9')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d1-s9" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d1-s9')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d1-s9')">📷🎥 Foto / Vídeo</button></div><div id="pc-d1-s9"></div></div></div></div>
 
   </div>
   <div class="addfrm" id="add-d1"><h4>➕ Añadir parada al Día 1</h4><label>Hora</label><input type="text" id="add-d1-time" placeholder="ej. 22:00"><label>Nombre</label><input type="text" id="add-d1-name" placeholder="ej. 🎭 Bar de jazz"><label>Descripción</label><textarea id="add-d1-desc"></textarea><label>Google Maps URL</label><input type="url" id="add-d1-map"><div class="afrm-acts"><button type="button" class="bs bsave" onclick="addStop('d1')">✅ Añadir</button><button type="button" class="bs bcanc" onclick="TAF('add-d1')">Cancelar</button></div></div>
@@ -815,7 +832,7 @@ textarea.ef{min-height:60px;resize:vertical;}
       <div class="tdot"></div>
       <div class="tc">
         <div class="cr1"><span class="ct">09:00</span><span class="cn">☕ Desayuno en el apartamento</span><button type="button" class="eico" onclick="OE('d2-s1')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s1')">⬜</button></div>
-        <div class="cd">Aprovechad la cocina — con lo comprado en el Albert Heijn tenéis desayuno completo por 3–4€/persona. Ahorro real vs cafetería: 8–10€ cada una. Después coged el <strong>Bus 22 o 48 desde Haparandaweg → Centraal</strong> (7 min) y desde allí al Museumplein.</div>
+        <div class="cd">Si el desayuno está incluido en el hotel, tomadlo en la habitación. Si no, <strong>Winkel 43</strong> está a 3 min a pie (tarta de manzana + café, 8–10€) o Albert Heijn a 8 min. Después salid a pie hacia el Museumplein — <strong>20 min andando por los canales</strong> es el mejor comienzo del día.</div>
         <div class="ctags"><span class="tag tf">☕ Desayuno en casa · 3–4€</span></div>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s1" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s1')"><span class="exp-unit">€</span><select id="pay-d2-s1" class="pay-sel" onchange="saveExp('d2-s1')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s1" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s1')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s1')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s1"></div></div>
@@ -824,7 +841,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
 
     <div class="trn-detail">
-      <div class="trn-step"><span class="trn-ico">🚌</span><span><strong>Bus 22/48</strong> desde "Haparandaweg" → Centraal (7 min) → <strong>Tranvía 2 o 12</strong> desde Centraal hacia Museumplein → parada <strong>"Rijksmuseum"</strong> (10 min). Total hotel → Museumplein: ~20 min.</span></div>
+      <div class="trn-step"><span class="trn-ico">🚶</span><span>Desde el hotel a Museumplein: <strong>20 min a pie</strong> por Prinsengracht o Keizersgracht pasando por los canales — el camino más bonito de la ciudad. O <strong>Tranvía 2/12</strong> desde Dam Square (5 min a pie del hotel) → parada "Rijksmuseum" · 10 min.</span></div>
     </div>
 
     <div class="ti" id="d2-s2">
@@ -845,19 +862,7 @@ textarea.ef{min-height:60px;resize:vertical;}
       <div class="trn-step"><span class="trn-ico">🚶</span><span>Museumplein → Bloemenmarkt: <strong>20 min a pie</strong> por Vijzelstraat cruzando los canales — bonito paseo directo sin transporte.</span></div>
     </div>
 
-    <div class="ti" id="d2-s3">
-      <div class="tdot"></div>
-      <div class="tc">
-        <div class="cr1"><span class="ct">12:30</span><span class="cn">🌷 Bloemenmarkt + almuerzo callejero</span><button type="button" class="eico" onclick="OE('d2-s3')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s3')">⬜</button></div>
-        <div class="cd">El único mercado de flores flotante del mundo sobre barcazas en el Singel. Muy fotogénico, lleno de tulipanes y bulbos. <strong>Justo al lado</strong> tenéis: el puesto de <strong>haring de Koningsplein</strong> (el mejor de la ciudad, 3–4€ — arenque con cebolla al estilo holandés de pie) y <strong>Vleminckx</strong> a 5 min a pie (mejores patatas fritas, 4–5€). Almuerzo completo por 7–9€/persona.</div>
-        <div class="ctags"><span class="tag te">🌷 Flores</span><span class="tag tf">🐟 Haring + fritas · 7–9€</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Bloemenmarkt+Amsterdam" target="_blank" class="lnk lm">📍 Bloemenmarkt</a><a href="https://maps.google.com/?q=Vleminckx+frites+Amsterdam" target="_blank" class="lnk lgy">📍 Vleminckx fritas</a></div>
-        <button type="button" class="info-btn" onclick="infoOpen('d2-s3')">ℹ️ Info sobre este lugar</button>
-        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s3')"><span class="exp-unit">€</span><select id="pay-d2-s3" class="pay-sel" onchange="saveExp('d2-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s3')"></div>
-        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s3"></div></div>
-        <div class="ced" id="ced-d2-s3"><input class="ef" data-f="time" value="12:30"><input class="ef" data-f="name" value="🌷 Bloemenmarkt + almuerzo callejero"><textarea class="ef" data-f="desc">Haring Koningsplein (3–4€) + Vleminckx fritas (4–5€). Total 7–9€/persona.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Bloemenmarkt+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s3')">🗑 Eliminar</button></div></div>
-      </div>
-    </div>
+    <div class="ti" id="d2-s3"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">🍽️ PARADA PARA COMER</div><div class="food-stop-title">⏰ 12:30 · Almuerzo callejero junto al Bloemenmarkt</div></div><button type="button" class="food-stop-ckb" onclick="CD('d2-s3')">⬜</button></div><div class="food-stop-dist">📍 Haring a 2 min en Koningsplein · Vleminckx a 5 min a pie</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🐟</span><div class="food-opt-body"><div class="food-opt-name">Haring con cebolla — Puesto Koningsplein</div><div class="food-opt-desc">El arenque más fresco de la ciudad. Al estilo holandés: inclina la cabeza y entero. Con cebollita y pepinillo.</div><span class="food-opt-price">💶 3–4€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🍟</span><div class="food-opt-body"><div class="food-opt-name">Vleminckx — Las mejores fritas de Ámsterdam</div><div class="food-opt-desc">Puesto legendario desde 1957. Patatas gruesas con salsa patatje oorlog (mayo+cacahuete+cebolla).</div><span class="food-opt-price">💶 4–5€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🧇</span><div class="food-opt-body"><div class="food-opt-name">Stroopwafel caliente del mercado</div><div class="food-opt-desc">Recién hecho en la plancha. Completamente diferente al de paquete.</div><span class="food-opt-price">💶 1–2€/persona</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=Bloemenmarkt+Amsterdam" target="_blank" class="food-stop-link">📍 Bloemenmarkt</a><a href="https://maps.google.com/?q=Vleminckx+frites+Amsterdam" target="_blank" class="food-stop-link">📍 Vleminckx</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d2-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s3')"><span class="exp-unit">€</span><select id="pay-d2-s3" class="pay-sel" onchange="saveExp('d2-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s3')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s3"></div></div></div></div>
 
     <div class="trn-detail">
       <div class="trn-step"><span class="trn-ico">🚶</span><span>Bloemenmarkt → embarcadero Canal Boat: <strong>15 min a pie</strong> por Prinsengracht hasta los embarcaderos junto a la Casa de Ana Frank / Centraal.</span></div>
@@ -910,7 +915,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
 
     <div class="trn-detail">
-      <div class="trn-step"><span class="trn-ico">⛴️</span><span>Volved en ferry a Centraal (mismo embarcadero, mismo ferry, gratis) → a pie 10 min hacia Rembrandtplein. <strong>Por el camino: zona de coffee shops y pastelerías</strong> entre Centraal y Rembrandtplein.</span></div>
+      <div class="trn-step"><span class="trn-ico">⛴️</span><span>Volved en ferry a Centraal (mismo embarcadero, gratis) → a pie 10 min hacia Rembrandtplein. <strong>Por el camino: coffee shops y pastelerías</strong>. Y a las <strong>20:15 ya estar junto a Ana Frank</strong> (Prinsengracht 263) para la entrada de las 20:30.</span></div>
     </div>
 
     <div class="ti" id="d2-cs">
@@ -1032,8 +1037,28 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
 
     <div class="trn-detail">
-      <div class="trn-step"><span class="trn-ico">⛴️</span><span>Volved en ferry a Centraal (mismo embarcadero, mismo ferry, gratis) → a pie 10 min por los canales hacia Rembrandtplein / De Wallen para el paseo nocturno.</span></div>
+      <div class="trn-step"><span class="trn-ico">⛴️</span><span>Volved en ferry a Centraal (gratis) → cenad rápido cerca de Centraal (19:30–20:10) → a pie por Prinsengracht 5 min → <strong>Casa de Ana Frank a las 20:15</strong>.</span></div>
     </div>
+
+    <div class="ti" id="d2-cn"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">🍽️ PARADA PARA CENAR</div><div class="food-stop-title">⏰ 19:30 · Cena rápida antes de Ana Frank</div></div><button type="button" class="food-stop-ckb" onclick="CD('d2-cn')">⬜</button></div><div class="food-stop-dist">📍 Cerca de Centraal · máx. 40 min · entrad a Ana Frank a las 20:15</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🍟</span><div class="food-opt-body"><div class="food-opt-name">FEBO Kalverstraat — A 2 min de Centraal</div><div class="food-opt-desc">Kroket 2€ + fritas 3€ + refresco 2€. La opción más rápida y más holandesa. Abierto siempre.</div><span class="food-opt-price">💶 5–6€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🫔</span><div class="food-opt-body"><div class="food-opt-name">Broodje Mokum — Rozengracht</div><div class="food-opt-desc">Bocadillos judeo-holandeses tradicionales. Filet americain o kaas. De camino a Ana Frank.</div><span class="food-opt-price">💶 4–6€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🧆</span><div class="food-opt-body"><div class="food-opt-name">Eetsalon Van Dobben — Kroket broodje</div><div class="food-opt-desc">El templo de la croqueta holandesa desde 1945. 4€. Cerca de Rembrandtplein.</div><span class="food-opt-price">💶 4–5€/persona</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=FEBO+Kalverstraat+Amsterdam" target="_blank" class="food-stop-link">📍 FEBO</a><a href="https://maps.google.com/?q=Broodje+Mokum+Amsterdam" target="_blank" class="food-stop-link">📍 Broodje Mokum</a><a href="https://maps.google.com/?q=Eetsalon+Van+Dobben+Amsterdam" target="_blank" class="food-stop-link">📍 Van Dobben</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d2-cn" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-cn')"><span class="exp-unit">€</span><select id="pay-d2-cn" class="pay-sel" onchange="saveExp('d2-cn')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-cn" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-cn')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-cn')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-cn"></div></div></div></div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 5 min por Prinsengracht → Ana Frank · llegad a las 20:15</div></div>
+
+    <div class="ti" id="d2-af">
+      <div class="tdot" style="background:var(--pur);box-shadow:0 0 10px var(--pur);"></div>
+      <div class="tc">
+        <div class="cr1"><span class="ct">20:30</span><span class="cn">🏠 Casa de Ana Frank — Entrada reservada ✅</span><button type="button" class="eico" onclick="OE('d2-af')">✏️</button><button type="button" class="ckb" onclick="CD('d2-af')">⬜</button></div>
+        <div class="cd"><strong>Prinsengracht 263, 1016 GV Ámsterdam.</strong> Entrada: <strong>20:30–20:45.</strong> Llevad el QR en el móvil — no hace falta imprimirlo. Reserva a nombre de <strong>V. Isabel García · 4 entradas · 16.50€/persona.</strong> La visita dura ~1.5h. Se recorre en silencio y es muy emocionante. <strong>Prohibido fotografiar</strong> en el interior. No podéis llevar bolsas grandes de viaje ni carritos.</div>
+        <div class="alert" style="margin-top:8px;font-size:.7rem;padding:8px 10px;">🎫 Tickets: 20250102612709 · 20250102604381 · 20250102597909 · 20250102604969</div>
+        <div class="ctags"><span class="tag tw">🏛️ Historia s. XIII</span><span class="tag te">🎫 Entrada confirmada</span><span class="tag tt">📵 Sin fotos interior</span></div>
+        <button type="button" class="info-btn" onclick="infoOpen('d2-af')">ℹ️ Info sobre este lugar</button>
+        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-af" placeholder="66.00" min="0" step="0.01" onchange="saveExp('d2-af')"><span class="exp-unit">€</span><select id="pay-d2-af" class="pay-sel" onchange="saveExp('d2-af')"><option value="is">Paga Isabel</option><option value="split">÷4</option><option value="nu">Nuria</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-af" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-af')"></div>
+        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-af')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-af"></div></div>
+        <div class="ced" id="ced-d2-af"><input class="ef" data-f="time" value="20:30"><input class="ef" data-f="name" value="🏠 Casa de Ana Frank — Entrada 20:30"><textarea class="ef" data-f="desc">Prinsengracht 263. QR en móvil. Sin fotos interior. Duración ~1.5h.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Anne+Frank+House+Amsterdam+Prinsengracht+263"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-af')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-af')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-af')">🗑 Eliminar</button></div></div>
+      </div>
+    </div>
+
+    <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 10 min desde Ana Frank → Rembrandtplein por los canales de noche</div></div>
 
     <div class="ti" id="d2-s7">
       <div class="tdot"></div>
@@ -1066,24 +1091,13 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
 
     <div class="hotel-dinner">
-      <div class="hotel-dinner-title">🍽️ Cena Noche 2 — económica y típica</div>
-      <div class="hotel-dinner-item"><span>🍛</span><span><strong>Kantjil &amp; de Tijger</strong> (zona Spui, 10 min a pie de Magere Brug): rijsttafel indonesa, la comida más típica de Holanda. Ración compartida ~16€/persona. Muy buena relación calidad-precio para ser Ámsterdam.</span></div>
-      <div class="hotel-dinner-item"><span>🍔</span><span><strong>FEBO + bar de Rembrandtplein</strong>: cenad en FEBO (4–6€) y tomad una copa en algún bar de Rembrandtplein viendo el ambiente nocturno. Total 8–12€/persona.</span></div>
-      <div class="hotel-dinner-item"><span>🏨</span><span><strong>Cenar en el apartamento</strong>: después del día intenso (museo + barco + ferry + paseo nocturno) puede ser la mejor opción. 3–5€/persona con lo del super.</span></div>
+      <div class="hotel-dinner-title">🍽️ Cena Noche 2 — cenáis ANTES de Ana Frank (19:30)</div>
+      <div class="hotel-dinner-item"><span>🍟</span><span><strong>FEBO Kalverstraat</strong> (2 min de Centraal): kroket + fritas + refresco = <strong>6€</strong>. Rapidísimo — perfecto para el hueco de 40 min antes de Ana Frank. La experiencia más auténtica de Ámsterdam callejero.</span></div>
+      <div class="hotel-dinner-item"><span>🫔</span><span><strong>Broodje Mokum</strong> (Rozengracht, de camino a Ana Frank): bocadillos judeo-holandeses tradicionales desde 1950. Filet americain o rolmops 4–6€. Sitio histórico y auténtico.</span></div>
+      <div class="hotel-dinner-item"><span>🧆</span><span><strong>Eetsalon Van Dobben</strong> (Korte Reguliersdwarsstraat): croquetas y kroket broodje holandesas desde 1945. El templo de la croqueta — 4€ el bocadillo. Abierto hasta tarde.</span></div>
     </div>
 
-    <div class="ti" id="d2-s8">
-      <div class="tdot"></div>
-      <div class="tc">
-        <div class="cr1"><span class="ct">20:30</span><span class="cn">🍽️ Cena — Kantjil, FEBO o apartamento</span><button type="button" class="eico" onclick="OE('d2-s8')">✏️</button><button type="button" class="ckb" onclick="CD('d2-s8')">⬜</button></div>
-        <div class="cd">Ver opciones arriba. <strong>Vuelta al hotel desde De Wallen:</strong> a pie 5 min hasta Centraal → <strong>Bus 22/48 → Haparandaweg</strong> (10 min). Última salida regular: 00:30h. Después de medianoche: <strong>Bus nocturno N81</strong> desde Centraal, 5€. De Wallen está a 5 min andando de Centraal — la vuelta es la más fácil de todo el viaje.</div>
-        <div class="ctags"><span class="tag tf">🍽️ Cena económica</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Kantjil+de+Tijger+Amsterdam" target="_blank" class="lnk lm">📍 Kantjil</a><a href="https://maps.google.com/?q=FEBO+Amsterdam+centrum" target="_blank" class="lnk lgy">📍 FEBO</a></div>
-        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d2-s8" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s8')"><span class="exp-unit">€</span><select id="pay-d2-s8" class="pay-sel" onchange="saveExp('d2-s8')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s8" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s8')"></div>
-        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s8')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s8"></div></div>
-        <div class="ced" id="ced-d2-s8"><input class="ef" data-f="time" value="20:30"><input class="ef" data-f="name" value="🍽️ Cena Noche 2"><textarea class="ef" data-f="desc">Vuelta: Tranvía 4/14 → Centraal → Bus 22/48 → Haparandaweg. N81 nocturno si es tarde.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Kantjil+de+Tijger+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d2-s8')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d2-s8')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d2-s8')">🗑 Eliminar</button></div></div>
-      </div>
-    </div>
+    <div class="ti" id="d2-s8"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">🍺 COPA NOCTURNA</div><div class="food-stop-title">⏰ 22:00 · Birra y bitterballen — cierre de la noche</div></div><button type="button" class="food-stop-ckb" onclick="CD('d2-s8')">⬜</button></div><div class="food-stop-dist">📍 De Wallen y Rembrandtplein · hotel a 15 min andando</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🍺</span><div class="food-opt-body"><div class="food-opt-name">Bruine kroeg — Bar marrón holandés</div><div class="food-opt-desc">Heineken o Grolsch de barril 3–4€. Ambiente auténtico. En cada esquina de Rembrandtplein.</div><span class="food-opt-price">💶 3–4€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🧆</span><div class="food-opt-body"><div class="food-opt-name">Bitterballen para compartir entre 4</div><div class="food-opt-desc">Croquetas de carne con mostaza holandesa. La ración perfecta de cierre de noche.</div><span class="food-opt-price">💶 5–8€ la ración</span></div></div><div class="food-opt"><span class="food-opt-ico">🍟</span><div class="food-opt-body"><div class="food-opt-name">FEBO De Wallen — Abierto hasta las 03h</div><div class="food-opt-desc">Kroket 2€, kaassoufflé 2€. La opción más barata si solo queréis algo caliente.</div><span class="food-opt-price">💶 2–4€/persona</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=Rembrandtplein+Amsterdam" target="_blank" class="food-stop-link">📍 Rembrandtplein</a><a href="https://maps.google.com/?q=FEBO+De+Wallen+Amsterdam" target="_blank" class="food-stop-link">📍 FEBO De Wallen</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d2-s8" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d2-s8')"><span class="exp-unit">€</span><select id="pay-d2-s8" class="pay-sel" onchange="saveExp('d2-s8')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d2-s8" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d2-s8')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d2-s8')">📷🎥 Foto / Vídeo</button></div><div id="pc-d2-s8"></div></div></div></div>
 
     <div class="ti" id="d2-s9">
       <div class="tdot"></div>
@@ -1124,7 +1138,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
   </div>
 
-  <div class="alert alert-red">⚠️ <strong>Vuelo a las 14:55 — timing crítico:</strong> estad en Schiphol a las <strong>12:30</strong>. Bus hotel → Centraal: 10 min. Tren Centraal → Schiphol: 17 min. <strong>Salid del hotel con maletas a las 11:45.</strong></div>
+  <div class="alert alert-red">⚠️ <strong>Vuelo a las 14:55 — timing crítico:</strong> estad en Schiphol a las <strong>12:30</strong>. Bus hotel → Centraal: 10 min. Tren Centraal → Schiphol: 17 min. <strong>Salid del hotel con maletas a las 11:30</strong> (checkout hasta las 11:00).</div>
 
   <div id="tl-d3" class="tl">
 
@@ -1132,12 +1146,12 @@ textarea.ef{min-height:60px;resize:vertical;}
       <div class="tdot"></div>
       <div class="tc">
         <div class="cr1"><span class="ct">08:00</span><span class="cn">🏨 Check-out + último desayuno en el apartamento</span><button type="button" class="eico" onclick="OE('d3-s1')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s1')">⬜</button></div>
-        <div class="cd">Checkout de 08:00 a 12:00. <strong>Haced las maletas la noche anterior</strong> para no perder tiempo por la mañana. Desayunad con lo que quede del super — último uso de la cocina. Avisad a recepción del checkout y dejad el equipaje guardado allí mientras disfrutáis la mañana.</div>
+        <div class="cd"><strong>Checkout hasta las 11:00.</strong> Haced las maletas la noche anterior. Si el desayuno está incluido, tomadlo antes de salir. Dejad las maletas en recepción (guardaequipaje disponible) y disfrutad la mañana libre. El vuelo es a las 14:55 — salid del hotel a las 11:30 con maletas.</div>
         <div class="ctags"><span class="tag tw">🏨 Checkout · Maletas en recepción</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam" target="_blank" class="lnk lm">📍 Hotel</a></div>
+        <div class="clnks"><a href="https://maps.google.com/?q=Raadhuisstraat+35+Amsterdam" target="_blank" class="lnk lm">📍 Hotel de Westertoren</a></div>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s1" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s1')"><span class="exp-unit">€</span><select id="pay-d3-s1" class="pay-sel" onchange="saveExp('d3-s1')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s1" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s1')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s1')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s1"></div></div>
-        <div class="ced" id="ced-d3-s1"><input class="ef" data-f="time" value="08:00"><input class="ef" data-f="name" value="🏨 Check-out + desayuno apartamento"><textarea class="ef" data-f="desc">Maletas la noche anterior. Checkout 08:00–12:00. Dejar equipaje en recepción.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s1')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s1')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s1')">🗑 Eliminar</button></div></div>
+        <div class="ced" id="ced-d3-s1"><input class="ef" data-f="time" value="08:00"><input class="ef" data-f="name" value="🏨 Check-out + desayuno apartamento"><textarea class="ef" data-f="desc">Maletas la noche anterior. Checkout 08:00–12:00. Dejar equipaje en recepción.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Raadhuisstraat+35+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s1')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s1')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s1')">🗑 Eliminar</button></div></div>
       </div>
     </div>
 
@@ -1161,19 +1175,7 @@ textarea.ef{min-height:60px;resize:vertical;}
 
     <div class="trn"><div class="trn-pill">🚶 <strong>A pie</strong> · 12 min hasta Magere Brug por el Amstel</div></div>
 
-    <div class="ti" id="d3-s3">
-      <div class="tdot"></div>
-      <div class="tc">
-        <div class="cr1"><span class="ct">10:30</span><span class="cn">🐟 Haring callejero + última foto Magere Brug</span><button type="button" class="eico" onclick="OE('d3-s3')">✏️</button><button type="button" class="ckb" onclick="CD('d3-s3')">⬜</button></div>
-        <div class="cd">De camino del mercado al hotel, parad en un puesto de haring (3–4€) — la despedida holandesa más auténtica. Y aprovechad para la <strong>última foto en el Magere Brug de día</strong> si no lo hicisteis ayer (o de noche es más bonito, ya la tendréis). El puente está a 12 min a pie del Albert Cuypmarkt siguiendo el río Amstel — un paseo precioso.</div>
-        <div class="ctags"><span class="tag tf">🐟 Haring · 3–4€</span><span class="tag tt">📸 Magere Brug</span></div>
-        <div class="clnks"><a href="https://maps.google.com/?q=Magere+Brug+Amsterdam" target="_blank" class="lnk lm">📍 Magere Brug</a></div>
-        <button type="button" class="info-btn" onclick="infoOpen('d3-s3')">ℹ️ Info sobre este lugar</button>
-        <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s3')"><span class="exp-unit">€</span><select id="pay-d3-s3" class="pay-sel" onchange="saveExp('d3-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s3')"></div>
-        <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s3"></div></div>
-        <div class="ced" id="ced-d3-s3"><input class="ef" data-f="time" value="10:30"><input class="ef" data-f="name" value="🐟 Haring + Magere Brug"><textarea class="ef" data-f="desc">Puesto haring 3–4€ + última foto en Magere Brug. A 12 min a pie del mercado.</textarea><input class="ef" data-f="map" value="https://maps.google.com/?q=Magere+Brug+Amsterdam"><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s3')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s3')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s3')">🗑 Eliminar</button></div></div>
-      </div>
-    </div>
+    <div class="ti" id="d3-s3"><div class="tdot" style="background:#FF6B35;box-shadow:0 0 12px rgba(255,107,53,.6);"></div><div class="food-stop"><div class="food-stop-header"><div><div class="food-stop-badge">🍽️ PARADA PARA COMER</div><div class="food-stop-title">⏰ 10:30 · Almuerzo en el Albert Cuypmarkt</div></div><button type="button" class="food-stop-ckb" onclick="CD('d3-s3')">⬜</button></div><div class="food-stop-dist">📍 Dentro del propio mercado · después 12 min a pie hasta Magere Brug</div><div class="food-stop-opts"><div class="food-opt"><span class="food-opt-ico">🐟</span><div class="food-opt-body"><div class="food-opt-name">Haring con cebollita — Puesto del mercado</div><div class="food-opt-desc">El más fresco y barato. La despedida holandesa más auténtica.</div><span class="food-opt-price">💶 3–4€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🧇</span><div class="food-opt-body"><div class="food-opt-name">Stroopwafel caliente recién hecho</div><div class="food-opt-desc">Recién salido de la plancha. El mejor souvenir comestible del viaje.</div><span class="food-opt-price">💶 1–2€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🫔</span><div class="food-opt-body"><div class="food-opt-name">Broodje huzarensalade</div><div class="food-opt-desc">Bocadillo de ensaladilla rusa holandesa. Clásico del mercado, muy abundante.</div><span class="food-opt-price">💶 3–4€/persona</span></div></div><div class="food-opt"><span class="food-opt-ico">🧀</span><div class="food-opt-body"><div class="food-opt-name">Kaas proeven — Cata de quesos gratis</div><div class="food-opt-desc">Los puestos dejan probar. Comprad un trozo de Oude Gouda para llevar.</div><span class="food-opt-price">💶 3–5€ el trozo</span></div></div></div><div class="food-stop-links"><a href="https://maps.google.com/?q=Albert+Cuypmarkt+Amsterdam" target="_blank" class="food-stop-link">📍 Albert Cuypmarkt</a></div><div class="food-stop-exp"><span class="exp-lbl">💶 Apuntar gasto:</span><input type="number" class="exp-inp" id="exp-d3-s3" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s3')"><span class="exp-unit">€</span><select id="pay-d3-s3" class="pay-sel" onchange="saveExp('d3-s3')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s3" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s3')"></div><div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s3')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s3"></div></div></div></div>
 
     <div class="trn-detail">
       <div class="trn-step"><span class="trn-ico">🚌</span><span>Desde Magere Brug al hotel: <strong>Tranvía 4</strong> hasta Centraal (10 min) → <strong>Bus 22/48</strong> → Haparandaweg (10 min). Total: ~25 min.</span></div>
@@ -1189,7 +1191,7 @@ textarea.ef{min-height:60px;resize:vertical;}
         <button type="button" class="info-btn" onclick="infoOpen('d3-s4')">ℹ️ Info sobre este lugar</button>
         <div class="exp-row"><span class="exp-lbl">💶</span><input type="number" class="exp-inp" id="exp-d3-s4" placeholder="0.00" min="0" step="0.01" onchange="saveExp('d3-s4')"><span class="exp-unit">€</span><select id="pay-d3-s4" class="pay-sel" onchange="saveExp('d3-s4')"><option value="split">÷4</option><option value="nu">Nuria</option><option value="is">Isabel</option><option value="be">Beatriz</option><option value="mi">Michelle</option></select><input type="text" id="note-d3-s4" class="exp-note-inp" placeholder="nota..." onchange="saveExp('d3-s4')"></div>
         <div class="media-section"><div class="media-btns"><button type="button" class="media-btn" onclick="pickerOpen('d3-s4')">📷🎥 Foto / Vídeo</button></div><div id="pc-d3-s4"></div></div>
-        <div class="ced" id="ced-d3-s4"><input class="ef" data-f="time" value="11:45"><input class="ef" data-f="name" value="🧳 Salida a Schiphol"><textarea class="ef" data-f="desc">Bus 22/48 → Centraal (10 min) → Tren Schiphol (17 min). Llegar a las 12:30.</textarea><input class="ef" data-f="map" value=""><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s4')">🗑 Eliminar</button></div></div>
+        <div class="ced" id="ced-d3-s4"><input class="ef" data-f="time" value="11:45"><input class="ef" data-f="name" value="🧳 Salida a Schiphol"><textarea class="ef" data-f="desc">A pie o Tranvía 13/17 → Westermarkt (2 min) → Centraal (5 min tranvía) → Tren Schiphol (17 min). Total: ~30 min. Llegar a Schiphol a las 12:30.</textarea><input class="ef" data-f="map" value=""><div class="eas"><button type="button" class="bs bsave" onclick="SE('d3-s4')">✅ Guardar</button><button type="button" class="bs bcanc" onclick="CE('d3-s4')">Cancelar</button><button type="button" class="bs bdel" onclick="DEL('d3-s4')">🗑 Eliminar</button></div></div>
       </div>
     </div>
 
@@ -1223,7 +1225,7 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="mapsec">
     <div class="map-links-box">
       <div class="map-links-title">📍 Lugares en Google Maps</div>
-      <a href="https://maps.google.com/?q=Wiborgeiland+57+Amsterdam" target="_blank" class="map-direct-btn">🏨 Hotel Houthavens</a>
+      <a href="https://maps.google.com/?q=Raadhuisstraat+35+Amsterdam" target="_blank" class="map-direct-btn">🏨 Hotel Houthavens</a>
       <a href="https://maps.google.com/?q=Amsterdam+Centraal+Station" target="_blank" class="map-direct-btn">🚉 Amsterdam Centraal</a>
       <a href="https://maps.google.com/?q=Jordaan+Amsterdam" target="_blank" class="map-direct-btn">🌸 Barrio Jordaan</a>
       <a href="https://maps.google.com/?q=Anne+Frank+House+Amsterdam" target="_blank" class="map-direct-btn">🏠 Casa de Ana Frank</a>
@@ -1908,7 +1910,7 @@ var CAL_EVENTS = {
     {title:'✈️ Vuelo VY8353 VLC→AMS', date:'20260908', start:'0650', end:'0935', loc:'Aeropuerto Valencia → Schiphol Amsterdam', desc:'Vueling VY8353 · Localizador CPJW2E · Cabina 10kg'},
     {title:'🚆 Tren Schiphol → Centraal', date:'20260908', start:'0950', end:'1015', loc:'Amsterdam Airport Schiphol', desc:'Tren directo · 17 min · ~6€ contactless · Comprar GVB 48h en Centraal'},
     {title:'🛒 Provisiones Albert Heijn / Dirk', date:'20260908', start:'1030', end:'1130', loc:'Albert Heijn Haarlemmerplein, Amsterdam', desc:'Comprar agua, desayunos y snacks para el apartamento'},
-    {title:'🏨 Check-in Hotel Houthavens', date:'20260908', start:'1300', end:'1400', loc:'Wiborgeiland 57, 1014 ZC Amsterdam', desc:'Tel. +31 621 952 749 · Check-in 13:00–20:00 · Apartamento 2 dormitorios'},
+    {title:'🏨 Check-in Hotel Houthavens', date:'20260908', start:'1300', end:'1400', loc:'Raadhuisstraat 35, 1016 DC Amsterdam', desc:'Check-in desde 14:00 · Sin ascensor · Desayuno incluido · Jordaan · 200m de Ana Frank'},
     {title:'🌸 Barrio Jordaan + Westerkerk', date:'20260908', start:'1400', end:'1500', loc:'Jordaan, Amsterdam', desc:'Prinsengracht → Westerkerk → Noordermarkt · 45 min a pie'},
     {title:'🌊 Canales UNESCO + Magere Brug', date:'20260908', start:'1500', end:'1700', loc:'Herengracht, Amsterdam', desc:'Herengracht → Keizersgracht → Magere Brug → Reguliersgracht (7 puentes) · 1.5h a pie'},
     {title:'🛍️ Nine Streets — De 9 Straatjes', date:'20260908', start:'1700', end:'1800', loc:'De 9 Straatjes, Amsterdam', desc:'9 calles entre canales · Tiendas vintage, diseñadores, cafés'},
@@ -1916,22 +1918,23 @@ var CAL_EVENTS = {
     {title:'🍽️ Cena — Foodhallen / FEBO / Apartamento', date:'20260908', start:'2000', end:'2200', loc:'Foodhallen, Bellamyplein 51, Amsterdam', desc:'Foodhallen: tranvía 7 → Kinkerstraat · 10–15€/persona · O FEBO callejero 4–6€'},
   ],
   d2: [
-    {title:'☕ Desayuno en el apartamento', date:'20260909', start:'0900', end:'0945', loc:'Wiborgeiland 57, Amsterdam', desc:'Desayuno en cocina · 3–4€/persona · Después Bus 22/48 → Centraal'},
+    {title:'☕ Desayuno en el apartamento', date:'20260909', start:'0900', end:'0945', loc:'Hotel de Westertoren, Raadhuisstraat 35, Amsterdam', desc:'Desayuno en hotel (si incluido) o Winkel 43 a 3 min/persona · Después Bus 22/48 → Centraal'},
     {title:'🎨 Van Gogh Museum / Museumplein gratis', date:'20260909', start:'1000', end:'1200', loc:'Van Gogh Museum, Museumplein, Amsterdam', desc:'22€ con reserva en vangoghmuseum.nl · O Museumplein gratis con foto IAMSTERDAM · Tranvía 2/12 → Rijksmuseum'},
     {title:'🌷 Bloemenmarkt + Haring + Fritas', date:'20260909', start:'1230', end:'1400', loc:'Bloemenmarkt, Singel, Amsterdam', desc:'Mercado flores flotante · Haring Koningsplein 3–4€ · Vleminckx fritas 4–5€ · Total 7–9€/persona'},
     {title:'🛶 Canal Boat Tour — 1h por los canales', date:'20260909', start:'1430', end:'1600', loc:'Blue Boat Company, Amsterdam', desc:'14–18€/persona · Blue Boat o Lovers · Embarcadero Ana Frank o Centraal · Cada 30 min'},
     {title:'⛴️ Ferry GRATIS → Amsterdam Noord', date:'20260909', start:'1600', end:'1730', loc:'Ferry terminal Amsterdam Centraal Norte', desc:'Salida norte de Centraal · Ferry Buiksloterweg · GRATIS · Cada 7 min · Pllek bar + EYE Museum + NDSM Wharf'},
     {title:'🌿 Coffee Shops y Pastelerías', date:'20260909', start:'1830', end:'1930', loc:'Dampkring, Handboogstraat 29, Amsterdam', desc:'Dampkring / Boerejongens / Paradox / The Hempstore · Solo +18 con DNI · Máx 5g · No llevar al aeropuerto'},
+    {title:'🏠 Casa de Ana Frank — ENTRADA 20:30', date:'20260909', start:'2015', end:'2200', loc:'Prinsengracht 263, 1016 GV Amsterdam', desc:'Entrada reservada 20:30–20:45 · V. Isabel García · 4 entradas · 16.50€/persona · QR en móvil · Sin fotos interior · Sin bolsas grandes'},
     {title:'🌙 Paseo nocturno — Canales iluminados', date:'20260909', start:'1930', end:'2100', loc:'Rembrandtplein, Amsterdam', desc:'Centraal → Dam Square → Rembrandtplein → Herengracht → Magere Brug iluminado · 1h a pie · GRATIS'},
     {title:'🌙 De Wallen — Barrio Rojo histórico', date:'20260909', start:'2000', end:'2115', loc:'De Wallen, Amsterdam', desc:'5 min de Rembrandtplein · Oude Kerk s.XIII · NO fotografiar escaparates · Seguro en grupo'},
     {title:'🍽️ Cena — Kantjil / FEBO / Apartamento', date:'20260909', start:'2130', end:'2300', loc:'Kantjil de Tijger, Spuistraat 291, Amsterdam', desc:'Kantjil: rijsttafel indonesa 16€/persona · O FEBO 4–6€ · Vuelta: Tranvía 4/14 → Centraal → Bus 22/48'},
     {title:'⛴️ Ferry nocturno — Skyline de noche', date:'20260909', start:'2200', end:'2230', loc:'Ferry terminal Amsterdam Centraal Norte', desc:'GRATIS · 24h · 5 min trayecto · Skyline iluminado reflejado en el agua · La mejor foto del viaje'},
   ],
   d3: [
-    {title:'🏨 Check-out Hotel Houthavens', date:'20260910', start:'0800', end:'0930', loc:'Wiborgeiland 57, 1014 ZC Amsterdam', desc:'Checkout 08:00–12:00 · Dejar maletas en recepción · Desayuno con lo del super'},
+    {title:'🏨 Check-out Hotel de Westertoren', date:'20260910', start:'0800', end:'0930', loc:'Raadhuisstraat 35, 1016 DC Amsterdam', desc:'Checkout 08:00–12:00 · Dejar maletas en recepción · Desayuno con lo del super'},
     {title:'🛍️ Albert Cuypmarkt — Souvenirs baratos', date:'20260910', start:'0930', end:'1030', loc:'Albert Cuypmarkt, Amsterdam', desc:'300 puestos · Stroopwafels calientes 1–2€ · Tranvía 9/14 → Albert Cuypstraat'},
     {title:'🐟 Haring callejero + Magere Brug', date:'20260910', start:'1030', end:'1130', loc:'Magere Brug, Amsterdam', desc:'Haring 3–4€ · Última foto en Magere Brug · 12 min a pie del mercado por el Amstel'},
-    {title:'🧳 Recoger maletas + salida a Schiphol', date:'20260910', start:'1145', end:'1230', loc:'Wiborgeiland 57, Amsterdam', desc:'Bus 22/48 → Centraal (10 min) → Tren Schiphol (17 min) · Llegar a las 12:30'},
+    {title:'🧳 Recoger maletas + salida a Schiphol', date:'20260910', start:'1145', end:'1230', loc:'Hotel de Westertoren, Raadhuisstraat 35, Amsterdam', desc:'Tranvía 13/17 → Westermarkt → Centraal (10 min) → Tren Schiphol (17 min) · Llegar a las 12:30'},
     {title:'✈️ Vuelo VY8350 AMS→VLC', date:'20260910', start:'1455', end:'1735', loc:'Amsterdam Airport Schiphol', desc:'Vueling VY8350 · Localizador XLZ7RZ · Llegada Valencia 17:35'},
   ]
 };
@@ -1965,8 +1968,7 @@ function calExport(day){
   });
   ics.push('END:VCALENDAR');
 
-  var blob = new Blob([ics.join('
-')], {type:'text/calendar;charset=utf-8'});
+  var blob = new Blob([ics.join('\r\n')], {type:'text/calendar;charset=utf-8'});
   var url  = URL.createObjectURL(blob);
   var a    = document.createElement('a');
   var fname = day === 'all' ? 'Amsterdam2026_completo.ics' : 'Amsterdam2026_Dia'+(day==='d1'?'1':day==='d2'?'2':'3')+'.ics';
@@ -2102,6 +2104,16 @@ var INFO_DATA = {
     details: [{l:'Ruta',v:'Centraal → Dam → Rembrandtplein'},{l:'Magere Brug',v:'Iluminado · foto icónica'},{l:'Mejor hora',v:'20:00–23:00h'},{l:'Coste',v:'🆓 GRATIS'}],
     tip: '💡 En Rembrandtplein hay esculturas de bronce que recrean el cuadro "La Ronda de Noche" de Rembrandt a tamaño real — podéis meteros entre los personajes para la foto.',
     maps: 'https://maps.google.com/?q=Rembrandtplein+Amsterdam'
+  },
+  'd2-af': {
+    img: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=75&auto=format&fit=crop',
+    title: '🏠 Casa de Ana Frank',
+    tags: [{t:'🎫 Entrada reservada 20:30',c:'te'},{t:'16.50€/persona',c:'tw'},{t:'📵 Sin fotos interior',c:'tt'}],
+    desc: 'La Casa de Ana Frank es el lugar donde Ana Frank, su familia y otras 4 personas se escondieron de la persecución nazi durante más de dos años (1942–1944). Es uno de los lugares más visitados y emocionantes de Europa. El escondite secreto fue diseñado por Otto Frank detrás de una estantería giratoria.',
+    details: [{l:'Entrada',v:'20:30–20:45 (vuestra hora)'},{l:'Precio',v:'16.50€ · ya pagado'},{l:'Duración',v:'~1.5 horas'},{l:'Dirección',v:'Prinsengracht 263'}],
+    tip: '💡 Llegad a las 20:15 con el QR listo en el móvil. La entrada nocturna es especial — hay menos gente y la atmósfera es aún más íntima. No hace falta imprimir nada.',
+    warn: '⚠️ PROHIBIDO fotografiar en el interior. No podéis llevar bolsas de viaje grandes ni carritos. El diario de Ana Frank está en el museo.',
+    maps: 'https://maps.google.com/?q=Anne+Frank+House+Amsterdam+Prinsengracht+263'
   },
   'd2-s75': {
     img: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=800&q=75&auto=format&fit=crop',
