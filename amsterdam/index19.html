@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>🇳🇱 Ámsterdam 2026 v1.7 — Nuria, Isabel, Beatriz &amp; Michelle</title>
+<title>🇳🇱 Ámsterdam 2026 v1.9f — Nuria, Isabel, Beatriz &amp; Michelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -34,7 +34,7 @@ html{font-size:16px;transition:font-size .15s;}
 .fs-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--gold);cursor:pointer;border:none;}
 .fs-label{font-size:.75rem;color:var(--gl);font-weight:700;min-width:36px;text-align:center;}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;}
-html,body{height:100%;overscroll-behavior:none;}
+html,body{margin:0;overscroll-behavior:none;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:
   radial-gradient(ellipse 80% 50% at 15% 0%, rgba(255,107,53,.18), transparent 60%),
   radial-gradient(ellipse 70% 50% at 90% 20%, rgba(111,168,255,.14), transparent 60%),
@@ -72,8 +72,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tb.on{color:var(--gl);}
 .tb.on .ico{background:rgba(255,179,71,.18);border-radius:8px;padding:2px 6px;box-shadow:0 0 12px rgba(255,179,71,.3);}
 
-.pg{display:none;padding:12px 13px calc(80px + env(safe-area-inset-bottom,0px)) 13px;overflow-y:auto;-webkit-overflow-scrolling:touch;height:calc(100vh - 140px);box-sizing:border-box;}
-.pg.on{display:block;}
+.pg{display:none;padding:12px 13px calc(90px + env(safe-area-inset-bottom,0px)) 13px;}
+.pg.on{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 
 .sec{font-size:.95rem;font-weight:800;margin:16px 0 9px;display:flex;align-items:center;gap:8px;color:#fff;}
 .sec::after{content:'';flex:1;height:1px;background:var(--glass-bd);}
@@ -193,6 +193,10 @@ textarea.ef{min-height:60px;resize:vertical;}
 .exp-table{width:100%;border-collapse:collapse;font-size:.68rem;color:#fff;}
 .exp-table th{background:rgba(255,107,53,.12);color:var(--gl);padding:6px 6px;text-align:left;font-size:.6rem;}
 .exp-table td{padding:5px 6px;border-bottom:1px solid var(--glass-bd);}
+.exp-table tr{display:table-row!important;visibility:visible!important;}
+.exp-table td,
+.exp-table th{display:table-cell!important;visibility:visible!important;color:#fff!important;opacity:1!important;}
+.exp-table tbody{display:table-row-group!important;}
 .exp-table .exp-amt{text-align:right;font-family:monospace;font-weight:700;}
 .exp-table .day-row td{background:rgba(255,255,255,.06);font-weight:800;font-size:.7rem;}
 .exp-table .total-row td{background:rgba(255,107,53,.15);color:#fff;font-weight:800;}
@@ -407,7 +411,7 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="pg-txt" id="pg-txt">0 de 0 paradas completadas (0%)</div>
   <div class="pg-bg"><div id="pg-fill"></div></div>
 </div>
-<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v1.7 · ams26</div>
+<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v1.9 · ams26</div>
 
 <div class="tabbar">
   <button type="button" class="tb on" id="tb-info" onclick="ST('info')"><span class="ico">ℹ️</span>Info</button>
@@ -580,7 +584,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
   </div>
 
-  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 1.7</div>
+  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 1.9</div>
   <div class="sec">📲 Añadir la app al inicio del móvil</div>
   <div class="install-box">
     <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;">Añade esta app a la pantalla de inicio de tu móvil para abrirla como si fuera una app nativa — sin navegador, a pantalla completa.</div>
@@ -1329,7 +1333,7 @@ textarea.ef{min-height:60px;resize:vertical;}
 <!-- ═══ PAGE GASTOS ═══ -->
 <div class="pg" id="pg-exp">
   <div class="sec">💶 Gastos del viaje — 4 viajeras</div>
-  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v1.7 · Amsterdam 2026</div>
+  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v1.9 · Amsterdam 2026</div>
   <button type="button" class="recalc-btn" onclick="calcExp()">🔄 Actualizar totales</button>
   <button type="button" class="recalc-btn" onclick="debugExp()" style="background:rgba(255,193,7,.15);border-color:rgba(255,193,7,.4);color:#FFD166;margin-top:6px;">🔍 Ver datos guardados</button>
   <div id="debug-exp" style="display:none;background:rgba(0,0,0,.4);border:1px solid var(--glass-bd);border-radius:10px;padding:10px;margin-top:8px;font-size:.65rem;font-family:monospace;color:rgba(255,255,255,.7);word-break:break-all;line-height:1.6;max-height:200px;overflow-y:auto;"></div>
@@ -1383,7 +1387,7 @@ function lsLoad(){
   setSyncStatus('loading');
   fetch(JSONBIN_URL + '/latest', {headers:{'X-Master-Key':JSONBIN_KEY}})
   .then(function(r){ return r.json(); })
-  .then(function(data){ applyState(data.record || {}); setSyncStatus('ok'); setTimeout(calcExp, 50); })
+  .then(function(data){ applyState(data.record || {}); setSyncStatus('ok'); })
   .catch(function(){ loadFromLS(); setSyncStatus('error'); });
 }
 
@@ -1409,7 +1413,6 @@ function loadFromLS(){
     applyState(d ? JSON.parse(d) : {});
   } catch(e){ applyState({}); }
   setSyncStatus(CONFIGURED ? 'error' : 'local');
-  setTimeout(calcExp, 50);
 }
 
 function ST(id){
@@ -1422,13 +1425,7 @@ function ST(id){
   if(p) p.classList.add('on');
   if(t) t.classList.add('on');
   try{ window.scrollTo(0,0); } catch(e){}
-  if(id==='exp'){
-    calcExp();
-    // Also retry after delays in case data loads late
-    setTimeout(calcExp, 300);
-    setTimeout(calcExp, 1000);
-    setTimeout(calcExp, 2000);
-  }
+  if(id==='exp'){ calcExp(); }
   if(id==='alb') renderAlbum();
 }
 
@@ -1540,7 +1537,7 @@ function debugExp(){
   } else {
     div.innerHTML = snapHtml + '<strong>JSONBin:</strong> No configurado — solo localStorage';
   }
-  // Run calcExp and show what it found
+  // Show what calcExp would find
   setTimeout(function(){
     var exps = S.exps || {};
     var found = [];
@@ -1549,8 +1546,8 @@ function debugExp(){
       if(v>0) found.push(id+':'+v+'€');
     });
     var div2 = document.getElementById('debug-exp');
-    if(div2) div2.innerHTML += '<br><strong>calcExp encontraría:</strong> ['+found.join(', ')+']<br><strong>tbody filas:</strong> '+document.getElementById('exp-tbody').children.length;
-    calcExp();
+    if(div2) div2.innerHTML += '<br><strong>calcExp encontraría:</strong> ['+found.join(', ')+']<br><strong>tbody filas actual:</strong> '+document.getElementById('exp-tbody').children.length;
+    // DO NOT call calcExp here - it would overwrite results
   }, 500);
   var ls = localStorage.getItem('ams26');
   var lsData = ls ? JSON.parse(ls) : {};
@@ -2410,12 +2407,9 @@ function applyState(saved){
     }
   });
   // Recalculate expenses after state is fully loaded
-  setTimeout(function(){
-    calcExp();
-    // Update sync badge to show data is loaded
-    var dbg = document.getElementById('debug-exp');
-    if(dbg && dbg.style.display!=='none') debugExp();
-  }, 100);
+  // Only recalc expenses if that tab is active
+  var pgExp = document.getElementById('pg-exp');
+  if(pgExp && pgExp.classList.contains('on')) setTimeout(calcExp, 100);
   Object.keys(S.edits).forEach(function(id){
     var e=S.edits[id]; var el=document.getElementById(id); if(!el) return;
     if(e.time){ var ct=el.querySelector('.ct'); if(ct) ct.textContent=e.time; }
@@ -2800,6 +2794,6 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v1.7</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v1.9</div>
 </body>
 </html>
