@@ -2113,6 +2113,18 @@ function initBote(){
     ],
     gastos: []
   };
+  // Consolidate duplicate pending entries per person (fix for old bug)
+  ['nu','is','be','mi'].forEach(function(k){
+    var pending = S.bote.aportaciones.filter(function(a){ return a.quien===k && !a.pagado; });
+    if(pending.length > 1){
+      // Sum all pending into first, remove the rest
+      var total = pending.reduce(function(s,a){return s+a.importe;},0);
+      pending[0].importe = total;
+      S.bote.aportaciones = S.bote.aportaciones.filter(function(a){
+        return !(a.quien===k && !a.pagado && a!==pending[0]);
+      });
+    }
+  });
 }
 
 function boteAportacionToggle(quien){
@@ -2137,10 +2149,19 @@ function boteAportacionToggle(quien){
 
 function boteAddAportacion(quien){
   initBote();
-  var amt = parseFloat(document.getElementById('bote-add-'+quien).value)||0;
+  var inputEl = document.getElementById('bote-add-'+quien);
+  if(!inputEl) return;
+  var amt = parseFloat(inputEl.value)||0;
   if(amt<=0) return;
-  S.bote.aportaciones.push({quien:quien, importe:amt, pagado:false});
-  document.getElementById('bote-add-'+quien).value='';
+  // Si ya hay una aportación pendiente (no pagada) de esta persona, sumarle el importe
+  // Solo crear entrada nueva si la anterior ya está marcada como pagada
+  var pending = S.bote.aportaciones.filter(function(a){ return a.quien===quien && !a.pagado; });
+  if(pending.length > 0){
+    pending[pending.length-1].importe += amt;
+  } else {
+    S.bote.aportaciones.push({quien:quien, importe:amt, pagado:false});
+  }
+  inputEl.value='';
   lsSave();
   renderBotePanel();
 }
