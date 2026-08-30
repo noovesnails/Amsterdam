@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>🇳🇱 Ámsterdam 2026 v2.6f — Nuria, Isabel, Beatriz &amp; Michelle</title>
+<title>🇳🇱 Ámsterdam 2026 v2.7f — Nuria, Isabel, Beatriz &amp; Michelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -407,7 +407,7 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="pg-txt" id="pg-txt">0 de 0 paradas completadas (0%)</div>
   <div class="pg-bg"><div id="pg-fill"></div></div>
 </div>
-<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v2.6 · ams26</div>
+<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v2.7 · ams26</div>
 
 <div class="tabbar">
   <button type="button" class="tb on" id="tb-info" onclick="ST('info')"><span class="ico">ℹ️</span>Info</button>
@@ -581,7 +581,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
   </div>
 
-  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 2.6</div>
+  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 2.7</div>
   <div class="sec">📲 Añadir la app al inicio del móvil</div>
   <div class="install-box">
     <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;">Añade esta app a la pantalla de inicio de tu móvil para abrirla como si fuera una app nativa — sin navegador, a pantalla completa.</div>
@@ -1470,7 +1470,7 @@ textarea.ef{min-height:60px;resize:vertical;}
 <!-- ═══ PAGE GASTOS ═══ -->
 <div class="pg" id="pg-exp">
   <div class="sec">💶 Gastos del viaje — 4 viajeras</div>
-  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v2.6 · Amsterdam 2026</div>
+  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v2.7 · Amsterdam 2026</div>
 
   <!-- BOTE COMÚN -->
   <div style="background:rgba(255,209,102,.06);border:1px solid rgba(255,209,102,.2);border-radius:14px;padding:12px 14px;margin-bottom:14px;">
@@ -3164,6 +3164,21 @@ function applyState(saved){
   if(saved.notes)  S.notes =saved.notes;  else if(!S.notes)  S.notes={};
   if(saved.photos) S.photos=saved.photos; else if(!S.photos) S.photos={};
   if(saved.bote)   S.bote  =saved.bote;   else if(!S.bote)   S.bote={total:0,aportaciones:[{quien:'nu',importe:80,pagado:false},{quien:'is',importe:80,pagado:false},{quien:'be',importe:80,pagado:false},{quien:'mi',importe:80,pagado:false}],gastos:[]};
+  // Consolidate duplicate pending bote entries (fix for double-add bug)
+  if(S.bote && S.bote.aportaciones){
+    ['nu','is','be','mi'].forEach(function(k){
+      var pending = S.bote.aportaciones.filter(function(a){ return a.quien===k && !a.pagado; });
+      if(pending.length > 1){
+        var total = pending.reduce(function(s,a){return s+a.importe;},0);
+        pending[0].importe = total;
+        S.bote.aportaciones = S.bote.aportaciones.filter(function(a){
+          var isPendingDup = a.quien===k && !a.pagado && a!==pending[0];
+          return !isPendingDup;
+        });
+      }
+    });
+    lsSave();
+  }
   if(saved.pagos)  S.pagos =saved.pagos;   else if(!S.pagos)  S.pagos={};
 
   Object.keys(S.done).forEach(function(id){
@@ -3582,6 +3597,6 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.6</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7</div>
 </body>
 </html>
