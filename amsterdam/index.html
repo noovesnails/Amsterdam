@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>🇳🇱 Ámsterdam 2026 v2.7Gf — Nuria, Isabel, Beatriz &amp; Michelle</title>
+<title>🇳🇱 Ámsterdam 2026 v2.7Hf — Nuria, Isabel, Beatriz &amp; Michelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -407,7 +407,7 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="pg-txt" id="pg-txt">0 de 0 paradas completadas (0%)</div>
   <div class="pg-bg"><div id="pg-fill"></div></div>
 </div>
-<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v2.7G · ams26</div>
+<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v2.7H · ams26</div>
 
 <div class="tabbar">
   <button type="button" class="tb on" id="tb-info" onclick="ST('info')"><span class="ico">ℹ️</span>Info</button>
@@ -581,7 +581,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
   </div>
 
-  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 2.7G</div>
+  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 2.7H</div>
   <div class="sec">📲 Añadir la app al inicio del móvil</div>
   <div class="install-box">
     <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;">Añade esta app a la pantalla de inicio de tu móvil para abrirla como si fuera una app nativa — sin navegador, a pantalla completa.</div>
@@ -1470,7 +1470,7 @@ textarea.ef{min-height:60px;resize:vertical;}
 <!-- ═══ PAGE GASTOS ═══ -->
 <div class="pg" id="pg-exp">
   <div class="sec">💶 Gastos del viaje — 4 viajeras</div>
-  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v2.7G · Amsterdam 2026</div>
+  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v2.7H · Amsterdam 2026</div>
 
   <!-- BOTE COMÚN -->
   <div style="background:rgba(255,209,102,.06);border:1px solid rgba(255,209,102,.2);border-radius:14px;padding:12px 14px;margin-bottom:14px;">
@@ -2197,11 +2197,14 @@ function renderBoteHeader(){
 
 function renderBoteBanner(){
   var b = calcBoteSaldo();
-  var el = document.getElementById('bote-banner-saldo');
-  if(!el) return;
-  var color = b.saldo < 20 ? '#FF6B35' : b.saldo < 80 ? '#FFD166' : '#06D6A0';
-  el.innerHTML = '<div style="font-size:1rem;font-weight:800;color:'+color+';">'+b.saldo.toFixed(2)+'€</div>'
-    +'<div style="font-size:.6rem;color:rgba(255,255,255,.4);">disponible</div>';
+  // Green if saldo > 0, amber if very low, red if 0
+  var color = b.saldo <= 0 ? '#FF6B35' : b.saldo < 20 ? '#FFD166' : '#06D6A0';
+  var html = '<div style="font-size:1rem;font-weight:800;color:'+color+';">'
+    +(b.saldo > 0 ? b.saldo.toFixed(2)+'€' : '0€')
+    +'</div><div style="font-size:.6rem;color:rgba(255,255,255,.4);">disponible</div>';
+  // Update ALL banner elements (one per day page)
+  var els = document.querySelectorAll('[id="bote-banner-saldo"]');
+  els.forEach(function(el){ el.innerHTML = html; });
 }
 
 
@@ -2684,17 +2687,17 @@ function calcExp(){
     tbody.appendChild(dr);
     rows.forEach(function(r){
       var q = r.amt / 4;
-      var payerLabel = r.payer === 'split' ? '÷4' : (paxNames[r.payer] || r.payer);
+      var payerLabel = r.payer === 'split' ? '÷4' : r.payer === 'bote' ? '💰 Bote' : (paxNames[r.payer] || r.payer);
       var noteHtml = r.note ? '<br><span style="font-size:.63rem;color:rgba(255,255,255,.4);">📝 '+r.note+'</span>' : '';
-      var nuOwes = r.payer==='split' ? q : (r.payer==='nu'?0:q);
-      var isOwes = r.payer==='split' ? q : (r.payer==='is'?0:q);
-      var beOwes = r.payer==='split' ? q : (r.payer==='be'?0:q);
-      var miOwes = r.payer==='split' ? q : (r.payer==='mi'?0:q);
+      var nuOwes = r.payer==='bote' ? 0 : r.payer==='split' ? q : (r.payer==='nu'?0:q);
+      var isOwes = r.payer==='bote' ? 0 : r.payer==='split' ? q : (r.payer==='is'?0:q);
+      var beOwes = r.payer==='bote' ? 0 : r.payer==='split' ? q : (r.payer==='be'?0:q);
+      var miOwes = r.payer==='bote' ? 0 : r.payer==='split' ? q : (r.payer==='mi'?0:q);
       var row = document.createElement('tr');
       row.innerHTML =
         '<td><span style="font-size:.72rem;">'+r.name+'</span>'+noteHtml+'</td>'+
         '<td><strong>'+r.amt.toFixed(2)+'€</strong></td>'+
-        '<td><span style="color:'+paxColors[r.payer]+';font-weight:700;font-size:.72rem;">'+payerLabel+'</span></td>'+
+        '<td><span style="color:'+(r.payer==='bote'?'#FFD166':(paxColors[r.payer]||'rgba(255,255,255,.7)'))+';font-weight:700;font-size:.72rem;">'+payerLabel+'</span></td>'+
         '<td style="color:var(--c-nu);">'+nuOwes.toFixed(2)+'€</td>'+
         '<td style="color:var(--c-is);">'+isOwes.toFixed(2)+'€</td>'+
         '<td style="color:var(--c-be);">'+beOwes.toFixed(2)+'€</td>'+
@@ -3033,146 +3036,6 @@ function renderAlbum(){
 }
 
 // ─── CALC EXPENSES — 4 viajeras ───
-function calcExp(){
-  var tbody = document.getElementById('exp-tbody');
-  var pc    = document.getElementById('exp-pairs');
-  if(!tbody) return;
-  tbody.innerHTML='';
-  var grandTotal=0;
-  var totals={nu:0,is:0,be:0,mi:0};
-  var anyExpenseFound=false;
-  var days=['d1','d2','d3'];
-  var dayNames={d1:'Martes 8 Sep ✈️',d2:'Miércoles 9 Sep 🚲',d3:'Jueves 10 Sep 🛫'};
-  var paxNames={nu:'Nuria',is:'Isabel',be:'Beatriz',mi:'Michelle'};
-  var paxColors={nu:'var(--c-nu)',is:'var(--c-is)',be:'var(--c-be)',mi:'var(--c-mi)'};
-
-  // Helper: get stop name from any stop type
-  function getStopName(id){
-    var el=document.getElementById(id); if(!el) return id;
-    var cn=el.querySelector('.cn')||el.querySelector('.food-stop-title');
-    if(cn) return cn.textContent.replace(/^⏰ \d+:\d+ · /,'').trim();
-    return id;
-  }
-
-  days.forEach(function(day){
-    var tl=document.getElementById('tl-'+day);
-    if(!tl) return;
-    // Collect all stop IDs in this day's timeline (in DOM order)
-    var allIds=[];
-    tl.querySelectorAll('[id]').forEach(function(el){
-      if(el.id && /^d[123]-/.test(el.id) && el.id!==('tl-'+day)){
-        // only first occurrence of each id
-        if(allIds.indexOf(el.id)===-1) allIds.push(el.id);
-      }
-    });
-    var dayRows=[];
-    allIds.forEach(function(id){
-      // Read from S.exps first (most reliable), fallback to DOM
-      var amt=0;
-      if(S.exps && S.exps[id] && S.exps[id]!=='') amt=parseFloat(S.exps[id])||0;
-      if(!amt){ var inp=document.getElementById('exp-'+id); amt=inp?parseFloat(inp.value)||0:0; }
-      if(amt>0){
-        var payer2='split';
-        if(S.payer && S.payer[id]) payer2=S.payer[id];
-        else{ var sel=document.getElementById('pay-'+id); if(sel) payer2=sel.value; }
-        var noteTx='';
-        if(S.notes && S.notes[id]) noteTx=S.notes[id];
-        else{ var noteEl=document.getElementById('note-'+id); if(noteEl) noteTx=noteEl.value||''; }
-        var nm=getStopName(id);
-        dayRows.push({name:nm,amt:amt,payer:payer2,note:noteTx});
-        if(payer2==='split'){ totals.nu+=amt/4;totals.is+=amt/4;totals.be+=amt/4;totals.mi+=amt/4; }
-        else { totals[payer2]+=amt; }
-      }
-    });
-    if(dayRows.length>0){
-      var dr=document.createElement('tr'); dr.className='day-row';
-      dr.innerHTML='<td colspan="7">📅 '+dayNames[day]+'</td>';
-      tbody.appendChild(dr);
-      anyExpenseFound=true;
-      dayRows.forEach(function(r){
-        var quarter=r.amt/4;
-        var owes={nu:0,is:0,be:0,mi:0};
-        if(r.payer==='split'){ owes.nu=quarter;owes.is=quarter;owes.be=quarter;owes.mi=quarter; }
-        else { Object.keys(owes).forEach(function(k){ owes[k]=k===r.payer?0:quarter; }); }
-        var payLabel=r.payer==='split'
-          ?'<span style="color:rgba(255,255,255,.5);">÷4</span>'
-          :'<span style="color:'+paxColors[r.payer]+';font-weight:700;">'+paxNames[r.payer]+'</span>';
-        var nameCell=r.name.substring(0,28)+(r.note?'<span style="font-size:.63rem;color:rgba(255,255,255,.45);font-style:italic;"> ('+r.note+')</span>':'');
-        var tr=document.createElement('tr');
-        tr.innerHTML='<td>'+nameCell+'</td><td class="exp-amt">'+r.amt.toFixed(2)+'€</td><td>'+payLabel+'</td>'
-          +['nu','is','be','mi'].map(function(k){
-            var val=owes[k];
-            var style=val===0?' style="color:#54E6B5;font-weight:700;"':'';
-            return '<td class="exp-amt"'+style+'>'+(val===0?'✅ 0.00':val.toFixed(2))+'€</td>';
-          }).join('');
-        tbody.appendChild(tr);
-        grandTotal+=r.amt;
-      });
-    }
-  });
-
-  var q=(grandTotal/4).toFixed(2);
-  var tr=document.createElement('tr'); tr.className='total-row';
-  tr.innerHTML='<td><strong>TOTAL VIAJE</strong></td><td class="pair-total">'+grandTotal.toFixed(2)+'€</td><td class="pair-total">÷4</td><td class="pair-total">'+q+'€</td><td class="pair-total">'+q+'€</td><td class="pair-total">'+q+'€</td><td class="pair-total">'+q+'€</td>';
-  tbody.appendChild(tr);
-
-  if(!pc) return;
-  if(!anyExpenseFound){
-    tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:22px 10px;color:rgba(255,255,255,.5);font-size:.8rem;">🧾 Sin gastos registrados aún.<br>Añade importes en las paradas del itinerario.</td></tr>';
-    pc.innerHTML='<div style="background:var(--glass-bg);border:1px dashed var(--glass-bd);border-radius:13px;padding:20px;text-align:center;margin-bottom:14px;backdrop-filter:blur(14px);"><div style="font-size:1.8rem;margin-bottom:8px;">💶</div><div style="font-size:.85rem;font-weight:700;color:#fff;margin-bottom:4px;">Sin gastos registrados aún</div><div style="font-size:.74rem;color:rgba(255,255,255,.5);line-height:1.5;">Ve a cualquier parada, introduce el importe y selecciona quién paga.</div></div>';
-    return;
-  }
-
-  var mitad=grandTotal/4;
-  var paxKeys=['nu','is','be','mi'];
-  var colors={nu:'var(--c-nu)',is:'var(--c-is)',be:'var(--c-be)',mi:'var(--c-mi)'};
-  var balances={};
-  paxKeys.forEach(function(k){ balances[k]=totals[k]-mitad; });
-
-  var transfers=[];
-  var debtors  =paxKeys.filter(function(k){ return balances[k]<-0.01; }).map(function(k){ return {k:k,v:balances[k]}; });
-  var creditors=paxKeys.filter(function(k){ return balances[k]> 0.01; }).map(function(k){ return {k:k,v:balances[k]}; });
-  debtors.forEach(function(d){
-    var remaining=Math.abs(d.v);
-    creditors.forEach(function(c){
-      if(remaining<0.01||c.v<0.01) return;
-      var pay=Math.min(remaining,c.v);
-      transfers.push({from:d.k,to:c.k,amt:pay});
-      remaining-=pay; c.v-=pay;
-    });
-  });
-
-  var liquidHTML='';
-  if(transfers.length===0){
-    liquidHTML='<div style="background:rgba(84,230,181,.15);border:1px solid rgba(84,230,181,.3);border-radius:13px;padding:18px;text-align:center;margin-bottom:14px;backdrop-filter:blur(14px);"><div style="font-size:1.8rem;margin-bottom:6px;">🤝</div><div style="color:#fff;font-weight:800;font-size:1.1rem;">¡Todas en paz!</div><div style="color:rgba(255,255,255,.7);font-size:.82rem;margin-top:4px;">Los gastos están perfectamente equilibrados</div></div>';
-  } else {
-    liquidHTML='<div class="glass" style="padding:16px;margin-bottom:14px;border:2px solid var(--gold);"><div style="font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:12px;">💸 LIQUIDACIÓN FINAL</div>';
-    transfers.forEach(function(t){
-      liquidHTML+='<div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border-radius:9px;padding:9px 12px;margin-bottom:7px;">'
-        +'<span style="color:'+colors[t.from]+';font-weight:800;font-size:.85rem;">'+paxNames[t.from]+'</span>'
-        +'<span style="color:rgba(255,255,255,.4);font-size:.8rem;">→ debe →</span>'
-        +'<span style="color:'+colors[t.to]+';font-weight:800;font-size:.85rem;">'+paxNames[t.to]+'</span>'
-        +'<span style="margin-left:auto;font-family:monospace;font-weight:900;font-size:1rem;color:var(--gl);">'+t.amt.toFixed(2)+'€</span>'
-        +'</div>';
-    });
-    liquidHTML+='</div>';
-  }
-
-  var cards='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">';
-  paxKeys.forEach(function(k){
-    var bal=balances[k];
-    var balColor=bal>=0?'#54E6B5':'#FF6B81';
-    var balTxt=bal>0.01?'✅ Pagó '+bal.toFixed(2)+'€ de más':bal<-0.01?'⚠️ Debe '+Math.abs(bal).toFixed(2)+'€':'✅ En paz';
-    cards+='<div class="pair-card" style="border-left:3px solid '+colors[k]+';"><div style="font-size:.6rem;font-weight:700;color:'+colors[k]+';margin-bottom:5px;">'+paxNames[k].toUpperCase()+'</div>'
-      +'<div style="font-size:1.2rem;font-weight:900;font-family:monospace;color:#fff;">'+totals[k].toFixed(2)+'€</div>'
-      +'<div style="font-size:.65rem;color:rgba(255,255,255,.5);">pagado</div>'
-      +'<div style="font-size:.72rem;margin-top:5px;color:rgba(255,255,255,.7);">Cuota: <strong>'+mitad.toFixed(2)+'€</strong></div>'
-      +'<div style="font-size:.75rem;font-weight:700;margin-top:3px;color:'+balColor+';">'+balTxt+'</div>'
-      +'</div>';
-  });
-  cards+='</div>';
-  pc.innerHTML=liquidHTML+cards+'<div style="background:rgba(255,107,53,.1);border:1px solid var(--glass-bd);border-radius:10px;padding:10px 13px;margin-bottom:12px;font-size:.75rem;color:#fff;backdrop-filter:blur(10px);">💡 Selecciona quién paga en cada gasto para calcular la liquidación automática entre las 4.</div>';
-}
 
 function updProg(){
   var all =document.querySelectorAll('.ti');
@@ -3652,7 +3515,7 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7G</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7H</div>
 </body>
 </html>
 <div class="note-modal" id="note-modal">
@@ -3667,6 +3530,6 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7G</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7H</div>
 </body>
 </html>
