@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>🇳🇱 Ámsterdam 2026 v2.7f — Nuria, Isabel, Beatriz &amp; Michelle</title>
+<title>🇳🇱 Ámsterdam 2026 v2.7Gf — Nuria, Isabel, Beatriz &amp; Michelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -407,7 +407,7 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="pg-txt" id="pg-txt">0 de 0 paradas completadas (0%)</div>
   <div class="pg-bg"><div id="pg-fill"></div></div>
 </div>
-<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v2.7 · ams26</div>
+<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v2.7G · ams26</div>
 
 <div class="tabbar">
   <button type="button" class="tb on" id="tb-info" onclick="ST('info')"><span class="ico">ℹ️</span>Info</button>
@@ -581,7 +581,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
   </div>
 
-  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 2.7</div>
+  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 2.7G</div>
   <div class="sec">📲 Añadir la app al inicio del móvil</div>
   <div class="install-box">
     <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;">Añade esta app a la pantalla de inicio de tu móvil para abrirla como si fuera una app nativa — sin navegador, a pantalla completa.</div>
@@ -1470,7 +1470,7 @@ textarea.ef{min-height:60px;resize:vertical;}
 <!-- ═══ PAGE GASTOS ═══ -->
 <div class="pg" id="pg-exp">
   <div class="sec">💶 Gastos del viaje — 4 viajeras</div>
-  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v2.7 · Amsterdam 2026</div>
+  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v2.7G · Amsterdam 2026</div>
 
   <!-- BOTE COMÚN -->
   <div style="background:rgba(255,209,102,.06);border:1px solid rgba(255,209,102,.2);border-radius:14px;padding:12px 14px;margin-bottom:14px;">
@@ -2207,11 +2207,16 @@ function renderBoteBanner(){
 
 function boteDeleteAportacion(quien, idx){
   if(!S.bote) return;
-  var myAps = S.bote.aportaciones.filter(function(a){ return a.quien===quien; });
-  if(!myAps[idx]) return;
-  if(myAps[idx].pagado){ alert('No se puede borrar una aportacion ya marcada como pagada'); return; }
-  // Remove this entry from the main array
-  var globalIdx = S.bote.aportaciones.indexOf(myAps[idx]);
+  // Find first pending (unpaid) entry for this person
+  var pendingAp = null;
+  for(var i=0; i<S.bote.aportaciones.length; i++){
+    if(S.bote.aportaciones[i].quien===quien && !S.bote.aportaciones[i].pagado){
+      pendingAp = S.bote.aportaciones[i];
+      break;
+    }
+  }
+  if(!pendingAp) return;
+  var globalIdx = S.bote.aportaciones.indexOf(pendingAp);
   if(globalIdx > -1) S.bote.aportaciones.splice(globalIdx, 1);
   lsSave();
   renderBotePanel();
@@ -2253,7 +2258,9 @@ function renderBotePanel(){
       +'<span style="color:'+pC[quien]+';font-weight:700;font-size:.75rem;">'+pN[quien]+'</span>'
       +'<span style="font-size:.72rem;font-weight:800;margin-left:auto;">'+total.toFixed(0)+'</span>'
       +'<span style="font-size:.62rem;color:'+(allPaid?'#06D6A0':'#FF6B35')+';">'
-      +(allPaid?'Enviado':'PENDIENTE')+'</span></div>'
+      +(allPaid?'Enviado':'PENDIENTE')+'</span>'
+      +(!allPaid ? '<button onclick="boteDeleteAportacion(this.dataset.quien, 0)" data-quien="'+quien+'" style="margin-left:8px;width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,107,53,.5);background:rgba(255,107,53,.15);color:#FF6B35;font-size:.65rem;cursor:pointer;flex-shrink:0;">X</button>' : '')
+      +'</div>'
       +'<div style="margin-top:6px;padding-left:30px;display:flex;gap:6px;">'
       +'<input type="number" id="bote-add-'+quien+'" placeholder="extra" min="0" step="1" style="width:80px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;padding:3px 6px;font-size:.65rem;">'
       +'<button data-quien="'+quien+'" onclick="boteAddAportacion(this.dataset.quien)" style="background:rgba(255,209,102,.2);border:1px solid rgba(255,209,102,.3);border-radius:6px;color:#FFD166;font-size:.62rem;padding:3px 8px;cursor:pointer;">+ Anadir</button></div></div>';
@@ -3645,7 +3652,7 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7G</div>
 </body>
 </html>
 <div class="note-modal" id="note-modal">
@@ -3660,6 +3667,6 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7G</div>
 </body>
 </html>
