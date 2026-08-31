@@ -1843,7 +1843,7 @@ function lsLoad(){
   setSyncStatus('loading');
   fetch(JSONBIN_URL + '/latest', {headers:{'X-Master-Key':JSONBIN_KEY}})
   .then(function(r){ return r.json(); })
-  .then(function(data){ applyState(data.record || {}); setSyncStatus('ok'); if(document.getElementById('pg-exp').classList.contains('on')){renderBotePanel();} })
+  .then(function(data){ applyState(data.record || {}); setSyncStatus('ok'); setTimeout(renderBoteBanner,100); if(document.getElementById('pg-exp').classList.contains('on')){renderBotePanel();} })
   .catch(function(){ loadFromLS(); setSyncStatus('error'); });
 }
 
@@ -1955,8 +1955,16 @@ function saveExp(id){
   if(!S.exps) S.exps={};
   if(!S.payer) S.payer={};
   if(!S.notes) S.notes={};
-  S.exps[id]  = inp  ? inp.value  : '';
-  S.payer[id] = sel  ? sel.value  : 'split';
+  var amt = inp ? parseFloat(inp.value)||0 : 0;
+  if(amt <= 0){
+    // Delete entry if set to 0
+    delete S.exps[id];
+    delete S.payer[id];
+    if(inp) inp.value = '';
+  } else {
+    S.exps[id]  = inp.value;
+    S.payer[id] = sel  ? sel.value  : 'split';
+  }
   S.notes[id] = note ? note.value : '';
   lsSave();
   calcExp();
@@ -2196,6 +2204,19 @@ function renderBoteBanner(){
     +'<div style="font-size:.6rem;color:rgba(255,255,255,.4);">disponible</div>';
 }
 
+
+function boteDeleteAportacion(quien, idx){
+  if(!S.bote) return;
+  var myAps = S.bote.aportaciones.filter(function(a){ return a.quien===quien; });
+  if(!myAps[idx]) return;
+  if(myAps[idx].pagado){ alert('No se puede borrar una aportacion ya marcada como pagada'); return; }
+  // Remove this entry from the main array
+  var globalIdx = S.bote.aportaciones.indexOf(myAps[idx]);
+  if(globalIdx > -1) S.bote.aportaciones.splice(globalIdx, 1);
+  lsSave();
+  renderBotePanel();
+  renderFichaBoteStatus(quien);
+}
 
 function renderBotePanel(){
   var div = document.getElementById('bote-panel');
@@ -3211,6 +3232,7 @@ function applyState(saved){
   var pgExp = document.getElementById('pg-exp');
   if(pgExp && pgExp.classList.contains('on')) setTimeout(calcExp, 100);
   setTimeout(renderBoteBanner, 150);
+  setTimeout(renderBoteBanner, 800);  // second call after JSONBin loads
   var pgExpActive = document.getElementById('pg-exp');
   if(pgExpActive&&pgExpActive.classList.contains('on')) setTimeout(renderLiquidacion,200);
   Object.keys(S.edits).forEach(function(id){
@@ -3583,8 +3605,49 @@ function fsLoad(){
   } catch(e){}
 }
 
+function renderFichaBoteStatus(k){
+  var div = document.getElementById('ficha-bote-status-'+k);
+  if(!div || !S.bote) return;
+  var myAps = S.bote.aportaciones.filter(function(a){ return a.quien===k; });
+  var html = '';
+  if(myAps.length===0){
+    html = '<div style="font-size:.7rem;color:rgba(255,255,255,.3);">Sin aportaciones registradas</div>';
+  } else {
+    myAps.forEach(function(ap, i){
+      var paid = ap.pagado;
+      html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:6px 10px;">'
+        +'<button onclick="boteAportacionToggleByIdx(\''+k+'\','+i+')" style="width:22px;height:22px;border-radius:50%;border:2px solid '+(paid?'#06D6A0':'rgba(255,255,255,.3)')+';background:'+(paid?'#06D6A0':'transparent')+';color:'+(paid?'#000':'#fff')+';font-size:.65rem;cursor:pointer;">'+(paid?'&#x2705;':'[ ]')+'</button>'
+        +'<div style="flex:1;">'
+        +'<div style="font-size:.75rem;font-weight:700;color:#FFD166;">'+ap.importe.toFixed(2)+'€ → Nuria</div>'
+        +'<div style="font-size:.62rem;color:'+(paid?'#06D6A0':'#FF6B35')+';">'+(paid?'&#x2705; Enviado':'&#x23F3; Pendiente de enviar')+'</div>'
+        +'</div>'
+        +(!paid ? '<button onclick="boteDeleteAportacion(\''+k+'\','+i+')" style="width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,107,53,.4);background:rgba(255,107,53,.1);color:#FF6B35;font-size:.6rem;cursor:pointer;">X</button>' : '')
+        +'</div>';
+    });
+  }
+  div.innerHTML = html;
+}
+
+
 window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500); fsLoad(); });
+
 </script>
+
+<div class="note-modal" id="note-modal">
+  <div class="note-modal-bg" onclick="noteCancel()"></div>
+  <div class="note-modal-box">
+    <div class="note-modal-title" id="note-modal-title">📝 Añadir nota</div>
+    <div class="note-modal-sub" id="note-modal-sub"></div>
+    <textarea class="note-modal-ta" id="note-modal-ta" placeholder="Escribe una nota para esta parada..."></textarea>
+    <div class="note-modal-btns">
+      <button type="button" class="note-modal-cancel" onclick="noteCancel()">Cancelar</button>
+      <button type="button" class="note-modal-save" onclick="noteSave()">✅ Guardar nota</button>
+    </div>
+  </div>
+</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7</div>
+</body>
+</html>
 <div class="note-modal" id="note-modal">
   <div class="note-modal-bg" onclick="noteCancel()"></div>
   <div class="note-modal-box">
