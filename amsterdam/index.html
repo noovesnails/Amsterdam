@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>🇳🇱 Ámsterdam 2026 v2.7Hf — Nuria, Isabel, Beatriz &amp; Michelle</title>
+<title>🇳🇱 Ámsterdam 2026 v3.0f — Nuria, Isabel, Beatriz &amp; Michelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -407,7 +407,7 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="pg-txt" id="pg-txt">0 de 0 paradas completadas (0%)</div>
   <div class="pg-bg"><div id="pg-fill"></div></div>
 </div>
-<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v2.7H · ams26</div>
+<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v3.0 · ams26</div>
 
 <div class="tabbar">
   <button type="button" class="tb on" id="tb-info" onclick="ST('info')"><span class="ico">ℹ️</span>Info</button>
@@ -581,7 +581,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
   </div>
 
-  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 2.7H</div>
+  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 3.0</div>
   <div class="sec">📲 Añadir la app al inicio del móvil</div>
   <div class="install-box">
     <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;">Añade esta app a la pantalla de inicio de tu móvil para abrirla como si fuera una app nativa — sin navegador, a pantalla completa.</div>
@@ -1470,7 +1470,7 @@ textarea.ef{min-height:60px;resize:vertical;}
 <!-- ═══ PAGE GASTOS ═══ -->
 <div class="pg" id="pg-exp">
   <div class="sec">💶 Gastos del viaje — 4 viajeras</div>
-  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v2.7H · Amsterdam 2026</div>
+  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v3.0 · Amsterdam 2026</div>
 
   <!-- BOTE COMÚN -->
   <div style="background:rgba(255,209,102,.06);border:1px solid rgba(255,209,102,.2);border-radius:14px;padding:12px 14px;margin-bottom:14px;">
@@ -2037,6 +2037,7 @@ function renderFichaGastos(k){
   var paxColors = {nu:'var(--c-nu)', is:'var(--c-is)', be:'var(--c-be)', mi:'var(--c-mi)'};
   var totals = {nu:0, is:0, be:0, mi:0};
   var grandTotal = 0;
+
   Object.keys(S.exps||{}).forEach(function(id){
     var amt = parseFloat(S.exps[id])||0; if(!amt) return;
     var payer = (S.payer&&S.payer[id]) ? S.payer[id] : 'split';
@@ -2045,7 +2046,12 @@ function renderFichaGastos(k){
     else if(totals[payer]!==undefined){ totals[payer]+=amt; }
     grandTotal += amt;
   });
+
   var share = grandTotal/4;
+  var mePaid = totals[k]||0;
+  var diff = mePaid - share;
+
+  // Build transfers (same logic as renderLiquidacion)
   var debtors=[], creditors=[];
   ['nu','is','be','mi'].forEach(function(p){
     var d=totals[p]-share;
@@ -2058,38 +2064,70 @@ function renderFichaGastos(k){
   dC.forEach(function(d){ cC.forEach(function(cr){
     if(d.v<0.01||cr.v<0.01) return;
     var pay=Math.min(d.v,cr.v); d.v-=pay; cr.v-=pay;
-    transfers.push({from:d.p,to:cr.p,amt:pay,key:d.p+'->'+cr.p});
+    transfers.push({from:d.p, to:cr.p, amt:pay, key:d.p+'->'+cr.p});
   });});
-  var toSend    = transfers.filter(function(t){ return t.from===k && !(S.pagos&&S.pagos[t.key]); });
-  var toReceive = transfers.filter(function(t){ return t.to===k   && !(S.pagos&&S.pagos[t.key]); });
-  var pendingOut = toSend.reduce(function(s,t){return s+t.amt;},0);
-  var pendingIn  = toReceive.reduce(function(s,t){return s+t.amt;},0);
+
+  // My transfers (as debtor or creditor)
+  var myDebts    = transfers.filter(function(t){ return t.from===k; });
+  var myCredits  = transfers.filter(function(t){ return t.to===k; });
+
+  // Pending (not yet marked paid)
+  var pendingDebts   = myDebts.filter(function(t){ return !(S.pagos&&S.pagos[t.key]); });
+  var pendingCredits = myCredits.filter(function(t){ return !(S.pagos&&S.pagos[t.key]); });
+  var pendingOut = pendingDebts.reduce(function(s,t){return s+t.amt;},0);
+  var pendingIn  = pendingCredits.reduce(function(s,t){return s+t.amt;},0);
+
   var html = '';
   if(grandTotal===0){
-    html = '<div style="font-size:.65rem;color:rgba(255,255,255,.3);">Aun no hay gastos registrados</div>';
-  } else if(pendingOut===0 && pendingIn===0){
-    html = '<div style="color:#06D6A0;font-weight:700;font-size:.85rem;padding:8px 0;">&#x2705; Todo pagado!</div>';
+    html = '<div style="font-size:.65rem;color:rgba(255,255,255,.3);">Sin gastos registrados</div>';
   } else {
+    // Header totals
     html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">'
-      +'<div style="text-align:center;"><div style="font-size:.6rem;color:rgba(255,255,255,.4);">He pagado</div>'
-      +'<div style="font-size:1.1rem;font-weight:800;">'+(totals[k]||0).toFixed(2)+'</div></div>'
-      +'<div style="text-align:center;"><div style="font-size:.6rem;color:rgba(255,255,255,.4);">Mi cuota</div>'
-      +'<div style="font-size:1.1rem;font-weight:800;">'+share.toFixed(2)+'</div></div></div>';
-    if(pendingOut>0){
-      html += '<div style="color:#FF6B35;font-weight:700;margin-bottom:6px;">Pendiente enviar: '+pendingOut.toFixed(2)+'</div>';
-      toSend.forEach(function(t){
-        html += '<div style="font-size:.72rem;background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.2);border-radius:8px;padding:6px 10px;margin-bottom:4px;display:flex;justify-content:space-between;">'
-          +'<span>a <span style="color:'+paxColors[t.to]+';font-weight:700;">'+paxNames[t.to]+'</span></span>'
-          +'<span style="font-weight:800;">'+t.amt.toFixed(2)+'</span></div>';
-      });
-    }
-    if(pendingIn>0){
-      html += '<div style="color:#06D6A0;font-weight:700;margin:6px 0;">Pendiente recibir: '+pendingIn.toFixed(2)+'</div>';
-      toReceive.forEach(function(t){
-        html += '<div style="font-size:.72rem;background:rgba(6,214,160,.08);border:1px solid rgba(6,214,160,.2);border-radius:8px;padding:6px 10px;margin-bottom:4px;display:flex;justify-content:space-between;">'
-          +'<span>de <span style="color:'+paxColors[t.from]+';font-weight:700;">'+paxNames[t.from]+'</span></span>'
-          +'<span style="font-weight:800;">'+t.amt.toFixed(2)+'</span></div>';
-      });
+      +'<div style="text-align:center;">'
+        +'<div style="font-size:.6rem;color:rgba(255,255,255,.4);">He pagado</div>'
+        +'<div style="font-size:1.1rem;font-weight:800;color:var(--gold);">'+mePaid.toFixed(2)+'€</div>'
+      +'</div>'
+      +'<div style="text-align:center;">'
+        +'<div style="font-size:.6rem;color:rgba(255,255,255,.4);">Mi cuota</div>'
+        +'<div style="font-size:1.1rem;font-weight:800;">'+share.toFixed(2)+'€</div>'
+      +'</div>'
+    +'</div>';
+
+    // All settled?
+    if(pendingOut===0 && pendingIn===0 && (myDebts.length>0||myCredits.length>0)){
+      html += '<div style="color:#06D6A0;font-weight:700;font-size:.85rem;padding:6px 0;">&#x2705; ¡Todo pagado!</div>';
+    } else if(myDebts.length===0 && myCredits.length===0){
+      html += '<div style="color:#06D6A0;font-weight:700;font-size:.8rem;">&#x2705; Pagado justo</div>';
+    } else {
+      // My debts (I owe someone)
+      if(myDebts.length>0){
+        var totalDebt = myDebts.reduce(function(s,t){return s+t.amt;},0);
+        html += '<div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:5px;">LO QUE DEBO</div>';
+        myDebts.forEach(function(t){
+          var paid = !!(S.pagos&&S.pagos[t.key]);
+          html += '<div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:7px 10px;margin-bottom:5px;opacity:'+(paid?'.45':'1')+';">'
+            +'<button onclick="togglePago(\''+t.key+'\');renderFichaGastos(\''+k+'\')" '
+            +'style="width:24px;height:24px;border-radius:50%;border:2px solid '+(paid?'#06D6A0':'rgba(255,255,255,.35)')+';background:'+(paid?'#06D6A0':'transparent')+';color:'+(paid?'#000':'#fff')+';font-size:.75rem;cursor:pointer;flex-shrink:0;">'+(paid?'&#x2705;':'&#x25A1;')+'</button>'
+            +'<div style="flex:1;font-size:.75rem;">→ <span style="color:'+paxColors[t.to]+';font-weight:700;">'+paxNames[t.to]+'</span>'
+            +(paid?' <span style="font-size:.62rem;color:#06D6A0;">(pagado)</span>':'')+'</div>'
+            +'<span style="font-weight:800;color:'+(paid?'rgba(255,255,255,.3)':'#FF6B35')+';'+(paid?'text-decoration:line-through;':'')+'">'+t.amt.toFixed(2)+'€</span>'
+          +'</div>';
+        });
+      }
+      // My credits (someone owes me)
+      if(myCredits.length>0){
+        html += '<div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);margin:8px 0 5px;">LO QUE ME DEBEN</div>';
+        myCredits.forEach(function(t){
+          var paid = !!(S.pagos&&S.pagos[t.key]);
+          html += '<div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:7px 10px;margin-bottom:5px;opacity:'+(paid?'.45':'1')+';">'
+            +'<button onclick="togglePago(\''+t.key+'\');renderFichaGastos(\''+k+'\')" '
+            +'style="width:24px;height:24px;border-radius:50%;border:2px solid '+(paid?'#06D6A0':'rgba(255,255,255,.35)')+';background:'+(paid?'#06D6A0':'transparent')+';color:'+(paid?'#000':'#fff')+';font-size:.75rem;cursor:pointer;flex-shrink:0;">'+(paid?'&#x2705;':'&#x25A1;')+'</button>'
+            +'<div style="flex:1;font-size:.75rem;"><span style="color:'+paxColors[t.from]+';font-weight:700;">'+paxNames[t.from]+'</span> →'
+            +(paid?' <span style="font-size:.62rem;color:#06D6A0;">(recibido)</span>':'')+'</div>'
+            +'<span style="font-weight:800;color:'+(paid?'rgba(255,255,255,.3)':'#06D6A0')+';'+(paid?'text-decoration:line-through;':'')+'">'+t.amt.toFixed(2)+'€</span>'
+          +'</div>';
+        });
+      }
     }
   }
   div.innerHTML = html;
@@ -3515,7 +3553,7 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7H</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v3.0</div>
 </body>
 </html>
 <div class="note-modal" id="note-modal">
@@ -3530,6 +3568,6 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v2.7H</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v3.0</div>
 </body>
 </html>
