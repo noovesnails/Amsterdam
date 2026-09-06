@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>🇳🇱 Ámsterdam 2026 v3.0Af — Nuria, Isabel, Beatriz &amp; Michelle</title>
+<title>🇳🇱 Ámsterdam 2026 v3.0Bf — Nuria, Isabel, Beatriz &amp; Michelle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -407,7 +407,7 @@ textarea.ef{min-height:60px;resize:vertical;}
   <div class="pg-txt" id="pg-txt">0 de 0 paradas completadas (0%)</div>
   <div class="pg-bg"><div id="pg-fill"></div></div>
 </div>
-<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v3.0A · ams26</div>
+<div style="text-align:right;font-size:.55rem;color:rgba(255,255,255,.25);padding:2px 8px 0;letter-spacing:.5px;font-family:monospace;">v3.0B · ams26</div>
 
 <div class="tabbar">
   <button type="button" class="tb on" id="tb-info" onclick="ST('info')"><span class="ico">ℹ️</span>Info</button>
@@ -581,7 +581,7 @@ textarea.ef{min-height:60px;resize:vertical;}
     </div>
   </div>
 
-  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 3.0A</div>
+  <div style="text-align:center;font-size:.65rem;color:rgba(255,255,255,.3);padding:4px 0 8px;letter-spacing:1px;">🇳🇱 Amsterdam 2026 · versión 3.0B</div>
   <div class="sec">📲 Añadir la app al inicio del móvil</div>
   <div class="install-box">
     <div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;">Añade esta app a la pantalla de inicio de tu móvil para abrirla como si fuera una app nativa — sin navegador, a pantalla completa.</div>
@@ -1470,7 +1470,7 @@ textarea.ef{min-height:60px;resize:vertical;}
 <!-- ═══ PAGE GASTOS ═══ -->
 <div class="pg" id="pg-exp">
   <div class="sec">💶 Gastos del viaje — 4 viajeras</div>
-  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v3.0A · Amsterdam 2026</div>
+  <div style="font-size:.62rem;color:rgba(255,255,255,.3);margin:-6px 0 8px;font-family:monospace;letter-spacing:.5px;">v3.0B · Amsterdam 2026</div>
 
   <!-- BOTE COMÚN -->
   <div style="background:rgba(255,209,102,.06);border:1px solid rgba(255,209,102,.2);border-radius:14px;padding:12px 14px;margin-bottom:14px;">
@@ -2025,6 +2025,7 @@ function saveFichaNota(k){
   lsSave();
 }
 
+var currentFicha = 'nu';
 function renderFichas(){
   showFicha(currentFicha || 'nu');
   renderBotePanel();
@@ -2265,6 +2266,8 @@ function boteDeleteAportacion(quien, idx){
 }
 
 function renderBotePanel(){
+  var paxColors = {nu:'var(--c-nu)', is:'var(--c-is)', be:'var(--c-be)', mi:'var(--c-mi)'};
+  var paxNames = {nu:'Nuria', is:'Isabel', be:'Beatriz', mi:'Michelle'};
   var div = document.getElementById('bote-panel');
   if(!div || !S.bote) return;
   initBote();
@@ -2305,16 +2308,24 @@ function renderBotePanel(){
       +'<div style="margin-top:6px;padding-left:30px;display:flex;gap:6px;">'
       +'<input type="number" id="bote-add-'+quien+'" placeholder="extra" min="0" step="1" style="width:80px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;padding:3px 6px;font-size:.65rem;">'
       +'<button onclick="boteAddAportacion(\'' + quien + '\')" style="background:rgba(255,209,102,.2);border:1px solid rgba(255,209,102,.3);border-radius:6px;color:#FFD166;font-size:.62rem;padding:3px 8px;cursor:pointer;">+ Añadir</button>'
-      +'<div style="flex:1;">'
-      +'<div style="font-size:.8rem;"><span style="color:'+paxColors[t.from]+';font-weight:700;">'+paxNames[t.from]+'</span>'
-      +' <span style="color:rgba(255,255,255,.4);font-size:.7rem;">→ debe →</span>'
-      +' <span style="color:'+paxColors[t.to]+';font-weight:700;">'+paxNames[t.to]+'</span></div>'
-      +'<div style="font-size:.62rem;color:'+(paid?'#06D6A0':'rgba(255,255,255,.4)')+';">'+(paid?'✅ Bizum enviado':'⏳ Pendiente de bizum')+'</div>'
-      +'</div>'
-      +'<span style="font-size:.95rem;font-weight:800;color:'+(paid?'rgba(255,255,255,.3)':'#FFD166')+';'+(paid?'text-decoration:line-through;':'')+'">'+t.amt.toFixed(2)+'€</span>'
-      +'</div>';
+       +'</div>'  
+       +'</div>'; 
   });
-  pc.innerHTML=html;
+  // Gastos del bote
+  var boteIds = Object.keys(S.exps||{}).filter(function(id){ return S.payer&&S.payer[id]==='bote' && parseFloat(S.exps[id])>0; });
+  if(boteIds.length){
+    html += '<div style="font-size:.68rem;font-weight:700;color:rgba(255,255,255,.6);margin:10px 0 6px;">GASTOS DEL BOTE</div>';
+    boteIds.forEach(function(id){
+      var amt = parseFloat(S.exps[id])||0;
+      var el = document.getElementById(id); var nm=id;
+      if(el){var cn=el.querySelector('.cn,.food-stop-title');if(cn)nm=cn.textContent.trim().substring(0,35);}
+      html += '<div style="display:flex;justify-content:space-between;font-size:.7rem;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);">'
+        +'<span>'+nm+'</span><span style="color:#FF6B35;font-weight:700;">-'+amt.toFixed(2)+'</span></div>';
+    });
+  }
+  div.innerHTML = html;
+  renderBoteHeader();
+  renderBoteBanner();
 }
 
 // ─── NOTE POPUP ───
@@ -2578,6 +2589,61 @@ function renderAlbum(){
 }
 
 // ─── CALC EXPENSES — 4 viajeras ───
+function renderLiquidacion(){
+  var pc = document.getElementById('exp-pairs'); if(!pc) return;
+  var paxNames  = {nu:'Nuria', is:'Isabel', be:'Beatriz', mi:'Michelle'};
+  var paxColors = {nu:'var(--c-nu)', is:'var(--c-is)', be:'var(--c-be)', mi:'var(--c-mi)'};
+  var totals = {nu:0,is:0,be:0,mi:0};
+  Object.keys(S.exps||{}).forEach(function(id){
+    var amt=parseFloat(S.exps[id])||0; if(!amt) return;
+    var payer=(S.payer&&S.payer[id])?S.payer[id]:'split';
+    if(payer==='bote') return;
+    if(payer==='split'){totals.nu+=amt/4;totals.is+=amt/4;totals.be+=amt/4;totals.mi+=amt/4;}
+    else if(totals[payer]!==undefined){totals[payer]+=amt;}
+  });
+  var grandTotal=totals.nu+totals.is+totals.be+totals.mi;
+  var share=grandTotal/4;
+  var debtors=[],creditors=[];
+  ['nu','is','be','mi'].forEach(function(p){
+    var d=totals[p]-share;
+    if(d>0.01) creditors.push({p:p,v:d});
+    if(d<-0.01) debtors.push({p:p,v:-d});
+  });
+  if(!debtors.length&&!creditors.length){
+    pc.innerHTML='<div style="text-align:center;padding:16px;color:#06D6A0;font-size:.85rem;font-weight:700;">&#x2705; Todo igualado</div>'; return;
+  }
+  var transfers=[];
+  var dC=debtors.map(function(x){return{p:x.p,v:x.v};});
+  var cC=creditors.map(function(x){return{p:x.p,v:x.v};});
+  dC.forEach(function(d){cC.forEach(function(cr){
+    if(d.v<0.01||cr.v<0.01) return;
+    var pay=Math.min(d.v,cr.v); d.v-=pay; cr.v-=pay;
+    transfers.push({from:d.p,to:cr.p,amt:pay,key:d.p+'->'+cr.p});
+  });});
+  var html='<div style="font-size:.72rem;font-weight:800;color:#FFD166;margin-bottom:10px;">&#x2696;&#xFE0F; LIQUIDACION FINAL</div>';
+  transfers.forEach(function(t){
+    var paid=!!(S.pagos&&S.pagos[t.key]);
+    html+='<div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;margin-bottom:8px;opacity:'+(paid?'.4':'1')+';">'
+      +'<button onclick="togglePago(\'' + t.key + '\')" style="width:28px;height:28px;border-radius:50%;border:2px solid '+(paid?'#06D6A0':'rgba(255,255,255,.4)')+';background:'+(paid?'#06D6A0':'transparent')+';color:'+(paid?'#000':'#fff')+';font-size:.8rem;cursor:pointer;flex-shrink:0;">'+(paid?'&#x2705;':'&#x25A1;')+'</button>'
+      +'<div style="flex:1;"><div style="font-size:.8rem;"><span style="color:'+paxColors[t.from]+';font-weight:700;">'+paxNames[t.from]+'</span>'
+      +' <span style="color:rgba(255,255,255,.4);">debe a</span>'
+      +' <span style="color:'+paxColors[t.to]+';font-weight:700;">'+paxNames[t.to]+'</span></div>'
+      +'<div style="font-size:.62rem;color:'+(paid?'#06D6A0':'rgba(255,255,255,.4)')+';">'+(paid?'&#x2705; Pagado':'&#x23F3; Pendiente')+'</div></div>'
+      +'<span style="font-size:.95rem;font-weight:800;color:'+(paid?'rgba(255,255,255,.3)':'#FFD166')+';'+(paid?'text-decoration:line-through;':'')+'">'+t.amt.toFixed(2)+'€</span>'
+      +'</div>';
+  });
+  pc.innerHTML=html;
+}
+
+function togglePago(key){
+  if(!S.pagos) S.pagos={};
+  S.pagos[key]=!S.pagos[key];
+  lsSave();
+  if(typeof calcExp==='function') calcExp();
+  renderLiquidacion();
+  ['nu','is','be','mi'].forEach(function(p){ renderFichaGastos(p); });
+}
+
 function calcExp(){
   var tbody = document.getElementById('exp-tbody');
   var pc = document.getElementById('exp-pairs');
@@ -3482,7 +3548,7 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v3.0A</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v3.0B</div>
 </body>
 </html>
 <div class="note-modal" id="note-modal">
@@ -3497,6 +3563,6 @@ window.addEventListener('load', function(){ lsLoad(); setTimeout(cldTest, 1500);
     </div>
   </div>
 </div>
-<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v3.0A</div>
+<div style="position:fixed;bottom:calc(62px + env(safe-area-inset-bottom,0px));right:8px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.35);font-size:.5rem;font-family:monospace;padding:2px 6px;border-radius:4px;z-index:100;pointer-events:none;letter-spacing:.5px;">v3.0B</div>
 </body>
 </html>
